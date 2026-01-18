@@ -253,6 +253,28 @@ img {
   flex-wrap: wrap;
 }
 
+.sis-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 16px;
+}
+
+.sis-badge span:first-child {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.sis-list {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
 .stat {
   text-align: center;
 }
