@@ -1,54 +1,37 @@
-# ScholarPath Systems Website
+# ScholarPath Systems Website (v2)
 
-Company website for ScholarPath Systems, LLC featuring GradTrack and other educational software products.
+Updated company website with portal preview mockups instead of "Launch" buttons.
 
-## Files Included
+## Changes from v1
 
-- `index.html` - Main landing page
+- Removed "Launch GradTrack" buttons (no direct access to app)
+- Added "Portals" section with mockup previews of:
+  - Student Portal
+  - Counselor Portal
+  - Parent Portal
+- All CTAs now point to "Request a Demo"
+
+## Deployment
+
+Since this is already connected to GitHub, simply:
+
+1. Replace the files in your `scholarpath-website` repo with these new files
+2. Vercel will automatically redeploy
+
+### To update the repo:
+
+1. Go to github.com/mmarronetravels-sudo/scholarpath-website
+2. Navigate into the `scholarpath-site` folder
+3. Delete all existing files
+4. Upload these new files
+5. Commit changes
+
+Vercel will automatically detect the changes and redeploy.
+
+## Files
+
+- `index.html` - Main landing page with portal previews
 - `privacy.html` - Privacy Policy
 - `terms.html` - Terms of Service
-- `styles.css` - Main stylesheet
+- `styles.css` - Stylesheet with new portal styles
 - `vercel.json` - Vercel configuration
-
-## Deployment to Vercel
-
-### Option 1: Vercel CLI (Recommended)
-
-1. Install Vercel CLI: `npm install -g vercel`
-2. Navigate to this folder: `cd scholarpath-site`
-3. Run: `vercel`
-4. Follow the prompts to deploy
-
-### Option 2: GitHub + Vercel
-
-1. Push this folder to a GitHub repository
-2. Go to [vercel.com](https://vercel.com) and sign in
-3. Click "Add New Project"
-4. Import your GitHub repository
-5. Deploy
-
-### Option 3: Drag and Drop
-
-1. Go to [vercel.com](https://vercel.com) and sign in
-2. Drag and drop this entire folder onto the Vercel dashboard
-
-## After Deployment
-
-1. **Set up custom domain** (optional):
-   - In Vercel dashboard, go to your project → Settings → Domains
-   - Add your domain (e.g., scholarpathsystems.org)
-   - Update DNS records as instructed
-
-2. **Update GradTrack** to link to your new privacy/terms pages:
-   - Privacy: `https://your-domain.vercel.app/privacy`
-   - Terms: `https://your-domain.vercel.app/terms`
-
-## Customization
-
-- Edit `styles.css` to change colors, fonts, or layout
-- Update contact info in the HTML files if needed
-- Add more products to the Products section as you grow
-
-## Need Help?
-
-Contact: sps@scholarpathsystems.org
