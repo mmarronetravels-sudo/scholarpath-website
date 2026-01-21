@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - GradTrack | ScholarPath Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      min-height: 100vh;
+      color: #fff;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 60px 20px; }
+    .header { text-align: center; margin-bottom: 60px; }
+    .logo { font-size: 2.5rem; font-weight: 700; color: #818cf8; margin-bottom: 16px; }
+    .logo a { color: #818cf8; text-decoration: none; }
+    .logo a:hover { opacity: 0.9; }
+    .tagline { font-size: 1.25rem; color: #94a3b8; max-width: 600px; margin: 0 auto; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 1100px) {
+      .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+    .pricing-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(100, 116, 139, 0.3);
+      border-radius: 24px;
+      padding: 28px;
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(129, 140, 248, 0.5);
+    }
+    .pricing-card.featured {
+      border: 2px solid #818cf8;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(30, 41, 59, 0.5) 100%);
+    }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .plan-name { font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
+    .plan-desc { color: #94a3b8; font-size: 0.85rem; margin-bottom: 20px; min-height: 40px; }
+    .plan-price {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+    }
+    .price-amount { font-size: 2.5rem; font-weight: 700; }
+    .price-period { color: #64748b; font-size: 0.9rem; }
+    .price-note { color: #94a3b8; font-size: 0.8rem; margin-top: 8px; }
+    .plan-features { list-style: none; margin-bottom: 28px; }
+    .plan-features li {
+      padding: 6px 0;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+    .plan-features li::before {
+      content: '✓';
+      color: #10b981;
+      font-weight: bold;
+    }
+    .plan-button {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: none;
+      text-decoration: none;
+      text-align: center;
+    }
+    .plan-button.primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+    }
+    .plan-button.primary:hover { transform: scale(1.02); opacity: 0.9; }
+    .plan-button.secondary {
+      background: rgba(100, 116, 139, 0.2);
+      color: #cbd5e1;
+      border: 1px solid rgba(100, 116, 139, 0.3);
+    }
+    .plan-button.secondary:hover { background: rgba(100, 116, 139, 0.3); }
+    .pricing-examples {
+      background: rgba(30, 41, 59, 0.3);
+      border: 1px solid rgba(100, 116, 139, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 60px;
+    }
+    .pricing-examples h3 {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+      color: #fff;
+    }
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .example-item {
+      text-align: center;
+      padding: 16px;
+      background: rgba(100, 116, 139, 0.1);
+      border-radius: 12px;
+    }
+    .example-size { color: #94a3b8; font-size: 0.85rem; margin-bottom: 4px; }
+    .example-price { color: #fff; font-size: 1.25rem; font-weight: 600; }
+    .features-section { margin-top: 80px; }
+    .features-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+    .feature-card {
+      background: rgba(30, 41, 59, 0.3);
+      border: 1px solid rgba(100, 116, 139, 0.2);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .feature-icon { font-size: 2rem; margin-bottom: 16px; }
+    .feature-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; }
+    .feature-desc { color: #94a3b8; font-size: 0.9rem; line-height: 1.5; }
+    .cta-section {
+      margin-top: 80px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
+      border-radius: 24px;
+      padding: 60px 40px;
+      border: 1px solid rgba(129, 140, 248, 0.3);
+    }
+    .cta-title { font-size: 2rem; font-weight: 700; margin-bottom: 16px; }
+    .cta-desc { color: #94a3b8; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 16px 40px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .cta-button:hover { transform: scale(1.05); }
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+    .footer a { color: #64748b; text-decoration: none; }
+    .footer a:hover { color: #94a3b8; }
+    .footer-links { margin-top: 12px; }
+    .footer-links a { margin: 0 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo"><a href="/">📊 GradTrack</a></div>
+      <p class="tagline">Empower students, counselors, and parents with real-time graduation progress tracking</p>
+    </header>
+    
+    <div class="pricing-grid">
+      <!-- Pilot -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Pilot</h3>
+        <p class="plan-desc">Try GradTrack before committing</p>
+        <div class="plan-price">
+          <span class="price-amount">$500</span>
+          <span class="price-period">/ semester</span>
+          <p class="price-note">Credited toward annual plan</p>
+        </div>
+        <ul class="plan-features">
+          <li>Full access for one semester</li>
+          <li>Unlimited students</li>
+          <li>Setup and training included</li>
+          <li>$500 credited if you continue</li>
+        </ul>
+        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Pilot%20Program&body=Hi%20ScholarPath%20team,%0A%0AWe're%20interested%20in%20starting%20a%20GradTrack%20pilot%20program.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0AContact%20Name:%0APhone:%0A%0AThank%20you!" class="plan-button secondary">Start Pilot</a>
+      </div>
+      
+      <!-- Standard -->
+      <div class="pricing-card featured">
+        <h3 class="plan-name">Standard</h3>
+        <p class="plan-desc">Perfect for smaller schools</p>
+        <div class="plan-price">
+          <span class="price-amount">$3,000</span>
+          <span class="price-period">/ year</span>
+          <p class="price-note">Up to 500 students</p>
+        </div>
+        <ul class="plan-features">
+          <li>Up to 500 students</li>
+          <li>Unlimited counselors & parents</li>
+          <li>Priority support</li>
+          <li>Staff training included</li>
+          <li>Custom categories</li>
+        </ul>
+        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Standard%20Plan&body=Hi%20ScholarPath%20team,%0A%0AWe're%20interested%20in%20the%20GradTrack%20Standard%20plan.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0AContact%20Name:%0APhone:%0A%0AThank%20you!" class="plan-button primary">Get Started</a>
+      </div>
+      
+      <!-- Growth -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Growth</h3>
+        <p class="plan-desc">For medium to large schools</p>
+        <div class="plan-price">
+          <span class="price-amount">$5,000</span>
+          <span class="price-period">/ year</span>
+          <p class="price-note">501 - 1,500 students</p>
+        </div>
+        <ul class="plan-features">
+          <li>501 to 1,500 students</li>
+          <li>Everything in Standard</li>
+          <li>Dedicated onboarding</li>
+          <li>CTE pathway tracking</li>
+          <li>Advanced reporting</li>
+        </ul>
+        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Growth%20Plan&body=Hi%20ScholarPath%20team,%0A%0AWe're%20interested%20in%20the%20GradTrack%20Growth%20plan.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0AContact%20Name:%0APhone:%0A%0AThank%20you!" class="plan-button secondary">Get Started</a>
+      </div>
+      
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Enterprise</h3>
+        <p class="plan-desc">For large schools & districts</p>
+        <div class="plan-price">
+          <span class="price-amount">$4</span>
+          <span class="price-period">/ student / year</span>
+          <p class="price-note">1,500+ students</p>
+        </div>
+        <ul class="plan-features">
+          <li>Unlimited students</li>
+          <li>Everything in Growth</li>
+          <li>Multi-school dashboard</li>
+          <li>Custom integrations</li>
+          <li>SLA guarantee</li>
+        </ul>
+        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Enterprise%20Inquiry&body=Hi%20ScholarPath%20team,%0A%0AWe're%20interested%20in%20learning%20about%20GradTrack%20Enterprise%20for%20our%20district.%0A%0ADistrict/School%20Name:%0ANumber%20of%20Schools:%0ATotal%20Students:%0AContact%20Name:%0APhone:%0A%0AThank%20you!" class="plan-button secondary">Contact Us</a>
+      </div>
+    </div>
+    
+    <!-- Pricing Examples -->
+    <div class="pricing-examples">
+      <h3>💡 Example Pricing by School Size</h3>
+      <div class="examples-grid">
+        <div class="example-item">
+          <div class="example-size">300 students</div>
+          <div class="example-price">$3,000/year</div>
+        </div>
+        <div class="example-item">
+          <div class="example-size">750 students</div>
+          <div class="example-price">$5,000/year</div>
+        </div>
+        <div class="example-item">
+          <div class="example-size">1,200 students</div>
+          <div class="example-price">$5,000/year</div>
+        </div>
+        <div class="example-item">
+          <div class="example-size">2,000 students</div>
+          <div class="example-price">$8,000/year</div>
+        </div>
+        <div class="example-item">
+          <div class="example-size">5,000 students</div>
+          <div class="example-price">$20,000/year</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Features -->
+    <section class="features-section">
+      <h2 class="features-title">Everything You Need</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h4 class="feature-name">Progress Tracking</h4>
+          <p class="feature-desc">Visual dashboards showing credit completion by category with percentage progress</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h4 class="feature-name">Dual Credit</h4>
+          <p class="feature-desc">Track transfer credits vs. associate degree credits separately</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛤️</div>
+          <h4 class="feature-name">CTE Pathways</h4>
+          <p class="feature-desc">Monitor career pathway completion with course-level detail</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚠️</div>
+          <h4 class="feature-name">At-Risk Alerts</h4>
+          <p class="feature-desc">Automatic identification of students falling behind</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍👩‍👧</div>
+          <h4 class="feature-name">Parent Portal</h4>
+          <p class="feature-desc">Keep parents informed with their own secure login</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📥</div>
+          <h4 class="feature-name">Easy Import</h4>
+          <p class="feature-desc">Import student data from Excel files exported from any SIS</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h4 class="feature-name">FERPA Compliant</h4>
+          <p class="feature-desc">Secure access controls, encryption, and audit logging</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h4 class="feature-name">Counselor Notes</h4>
+          <p class="feature-desc">Add, edit, and track notes for each student meeting</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Transform Graduation Tracking?</h2>
+      <p class="cta-desc">Join schools that are empowering students with real-time progress visibility.</p>
+      <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'd%20like%20to%20schedule%20a%20demo%20of%20GradTrack.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="cta-button">Schedule a Demo →</a>
+    </section>
+    
+    <footer class="footer">
+      <p>© 2026 ScholarPath Systems, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
