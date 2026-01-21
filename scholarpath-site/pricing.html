@@ -35,7 +35,7 @@
     /* Pricing Grid */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
       margin-bottom: 60px;
     }
@@ -94,7 +94,7 @@
       gap: 12px;
     }
     .plan-features li::before {
-      content: 'âœ“';
+      content: '✓';
       color: #10b981;
       font-weight: bold;
     }
@@ -189,15 +189,15 @@
     <div class="pricing-grid">
       <!-- Pilot -->
       <div class="pricing-card">
-        <h3 class="plan-name">Pilot Program</h3>
-        <p class="plan-desc">Try GradTrack risk-free with a small group of students</p>
+        <h3 class="plan-name">Pilot</h3>
+        <p class="plan-desc">Try GradTrack with full features before committing</p>
         <div class="plan-price">
-          <span class="price-amount">Free</span>
+          <span class="price-amount">$500</span>
           <span class="price-period">/ semester</span>
-          <p class="price-note">or $500 for extended pilot</p>
+          <p class="price-note">Credited toward annual plan</p>
         </div>
         <ul class="plan-features">
-          <li>Up to 100 students</li>
+          <li>Unlimited students</li>
           <li>All core features</li>
           <li>Email support</li>
           <li>Data import assistance</li>
@@ -224,29 +224,43 @@
         <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Standard%20Plan%20Interest" class="plan-button primary" style="display:block;text-align:center;text-decoration:none;">Get Started</a>
       </div>
       
-      <!-- Enterprise -->
+      <!-- Growth -->
       <div class="pricing-card">
-        <h3 class="plan-name">Enterprise</h3>
-        <p class="plan-desc">For large schools and districts</p>
+        <h3 class="plan-name">Growth</h3>
+        <p class="plan-desc">For growing schools and small districts</p>
         <div class="plan-price">
-          <span class="price-amount">$5,000+</span>
+          <span class="price-amount">$5,000</span>
           <span class="price-period">/ year</span>
-          <p class="price-note">Unlimited students</p>
+          <p class="price-note">501 - 1,500 students</p>
         </div>
         <ul class="plan-features">
           <li>Everything in Standard</li>
           <li>Dedicated support manager</li>
+          <li>Advanced reporting</li>
           <li>Custom integrations</li>
+          <li>Staff training included</li>
+        </ul>
+        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Growth%20Plan%20Interest" class="plan-button secondary" style="display:block;text-align:center;text-decoration:none;">Get Started</a>
+      </div>
+      
+      <!-- Enterprise -->
+      <div class="pricing-card">
+        <h3 class="plan-name">Enterprise</h3>
+        <p class="plan-desc">For large districts at scale</p>
+        <div class="plan-price">
+          <span class="price-amount">$4</span>
+          <span class="price-period">/ student / year</span>
+          <p class="price-note">1,500+ students</p>
+        </div>
+        <ul class="plan-features">
+          <li>Everything in Growth</li>
           <li>Multi-school dashboard</li>
           <li>SLA guarantee</li>
+          <li>Custom contract terms</li>
+          <li>Dedicated onboarding</li>
         </ul>
         <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Enterprise%20Inquiry" class="plan-button secondary" style="display:block;text-align:center;text-decoration:none;">Contact Us</a>
       </div>
-    </div>
-    
-    <!-- Alternative Pricing -->
-    <div style="text-align: center; color: #94a3b8; margin-bottom: 40px;">
-      <p>Prefer per-student pricing? We also offer <strong style="color: #fff;">$5-8 per student/year</strong></p>
     </div>
     
     <!-- Features -->
@@ -254,42 +268,47 @@
       <h2 class="features-title">Everything You Need</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">ðŸŽ¯</div>
+          <div class="feature-icon">🎯</div>
           <h4 class="feature-name">Progress Tracking</h4>
           <p class="feature-desc">Visual dashboards showing credit completion by category with percentage progress</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸŽ“</div>
+          <div class="feature-icon">🎓</div>
           <h4 class="feature-name">Dual Credit</h4>
           <p class="feature-desc">Track transfer credits vs. associate degree credits separately</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸ›¤ï¸</div>
+          <div class="feature-icon">🛤️</div>
           <h4 class="feature-name">CTE Pathways</h4>
           <p class="feature-desc">Monitor career pathway completion with course-level detail</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">âš ï¸</div>
+          <div class="feature-icon">⚠️</div>
           <h4 class="feature-name">At-Risk Alerts</h4>
           <p class="feature-desc">Automatic identification of students falling behind</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸ‘¨â€ðŸ‘©â€ðŸ‘§</div>
+          <div class="feature-icon">👨‍👩‍👧</div>
           <h4 class="feature-name">Parent Portal</h4>
           <p class="feature-desc">Keep parents informed with their own secure login</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸ“¥</div>
+          <div class="feature-icon">📝</div>
+          <h4 class="feature-name">Counselor Notes</h4>
+          <p class="feature-desc">Document student meetings, interventions, and follow-up plans</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📥</div>
           <h4 class="feature-name">Easy Import</h4>
           <p class="feature-desc">Import student data from Excel files exported from any SIS</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸ”’</div>
+          <div class="feature-icon">🔒</div>
           <h4 class="feature-name">FERPA Compliant</h4>
           <p class="feature-desc">Secure access controls, encryption, and audit logging</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">ðŸ“„</div>
+          <div class="feature-icon">📄</div>
           <h4 class="feature-name">PDF Transcripts</h4>
           <p class="feature-desc">Generate professional progress reports with one click</p>
         </div>
@@ -304,7 +323,7 @@
     </section>
     
     <footer class="footer">
-      <p>Â© 2025 GradTrack. All rights reserved.</p>
+      <p>© 2026 GradTrack. All rights reserved.</p>
     </footer>
   </div>
 </body>
