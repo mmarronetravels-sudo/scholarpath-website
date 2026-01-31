@@ -61,6 +61,67 @@
             color: #0d9488;
         }
         
+        /* Dropdown - FIXED hover gap */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            padding-top: 1rem;
+        }
+        
+        /* Invisible bridge to prevent hover gap */
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4a5568;
+            text-decoration: none;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f7fafc;
+            color: #4f46e5;
+        }
+        
+        .dropdown-content .product-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .dropdown-content .product-icon {
+            font-size: 1.25rem;
+        }
+        
+        .dropdown-content .product-desc {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+            display: block;
+        }
+        
         .btn-demo {
             background: #0d9488;
             color: white !important;
@@ -1096,10 +1157,40 @@
         <div class="container">
             <a href="/" class="logo">📚 ScholarPath Systems</a>
             <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="#features">Features</a>
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/tiertrak.html">
+                            <div class="product-item">
+                                <span class="product-icon">📈</span>
+                                <div>
+                                    <strong>TierTrak</strong>
+                                    <span class="product-desc">MTSS Intervention Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/gradtrack.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>GradTrack</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="product-item" style="padding: 0.75rem 1rem; opacity: 0.6; cursor: default;">
+                            <span class="product-icon">👥</span>
+                            <div>
+                                <strong>StaffTrak</strong> <span style="font-size: 0.7rem; color: #8b5cf6; font-weight: 600;">COMING SOON</span>
+                                <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
                 <a href="/pricing.html">Pricing</a>
-                <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn-demo">Request a Demo →</a>
+                <a href="#cta" class="btn-demo">Request a Demo →</a>
             </div>
         </div>
     </nav>
@@ -1112,7 +1203,7 @@
                 <h1>The Only MTSS Platform Where<span class="highlight">Parents Are Partners, Not Passengers</span></h1>
                 <p class="subtitle">Most intervention tools leave parents in the dark. TierTrak brings them into the light — with shared progress tracking, home logging, and real-time visibility.</p>
                 <div class="hero-buttons">
-                    <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-primary">Request a Demo</a>
+                    <a href="#cta" class="btn btn-primary">Request a Demo</a>
                     <a href="#features" class="btn btn-secondary">See All Features</a>
                 </div>
             </div>
@@ -1373,7 +1464,7 @@
                 
                 <div class="feature-card">
                     <div class="icon">👨‍👩‍👧</div>
-                    <h4>Parent Portal & Home Logging</h4>
+                    <h4>Parent Portal &amp; Home Logging</h4>
                     <p>Parents view interventions, log progress at home, and upload documents. True partnership, not just communication.</p>
                 </div>
                 
@@ -1428,7 +1519,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section" id="cta">
         <div class="container">
             <h2>Ready to Make Parents Partners?</h2>
             <p>See how TierTrak can transform your MTSS process with true school-home collaboration.</p>
@@ -1441,7 +1532,7 @@
                 </div>
             </div>
             
-            <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn">Open in Email App →</a>
+            <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name%3A%0ANumber%20of%20Students%20in%20MTSS%3A%0ABest%20time%20to%20connect%3A%0A%0AThank%20you!" class="btn">Open in Email App →</a>
         </div>
     </section>
 
@@ -1456,7 +1547,7 @@
                 <h4>Products</h4>
                 <ul>
                     <li><a href="/tiertrak.html">TierTrak</a></li>
-                    <li><a href="/#gradtrack">GradTrack</a></li>
+                    <li><a href="/gradtrack.html">GradTrack</a></li>
                 </ul>
             </div>
             <div>
