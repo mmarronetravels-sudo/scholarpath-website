@@ -43,6 +43,7 @@
             justify-content: center;
             gap: 1rem;
             padding: 2rem;
+            flex-wrap: wrap;
         }
         
         .product-tab {
@@ -74,6 +75,11 @@
         .product-tab.active.teal {
             border-color: #0d9488;
             background: #0d9488;
+        }
+        
+        .product-tab.active.gradient {
+            border-color: #8b5cf6;
+            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
         }
         
         .product-tab .icon {
@@ -109,6 +115,13 @@
             color: #a78bfa;
         }
         
+        .pricing-header h1.gradient {
+            background: linear-gradient(135deg, #5eead4 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
         .pricing-header p {
             color: #94a3b8;
             font-size: 1.1rem;
@@ -135,6 +148,18 @@
             }
         }
         
+        /* Bundle grid - 3 columns */
+        .pricing-grid.bundle-grid {
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 950px;
+        }
+        
+        @media (max-width: 800px) {
+            .pricing-grid.bundle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .pricing-card {
             background: #1e293b;
             border-radius: 16px;
@@ -156,6 +181,11 @@
             border-color: #0d9488;
         }
         
+        .pricing-card.popular.gradient {
+            border-color: #8b5cf6;
+            background: linear-gradient(135deg, #1e293b 0%, #1e1e3b 100%);
+        }
+        
         .popular-badge {
             position: absolute;
             top: -1px;
@@ -172,6 +202,10 @@
         
         .popular-badge.teal {
             background: #0d9488;
+        }
+        
+        .popular-badge.gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
         }
         
         .pricing-card h3 {
@@ -206,6 +240,17 @@
             color: #64748b;
             font-size: 0.85rem;
             margin-bottom: 1.5rem;
+        }
+        
+        .pricing-card .savings-badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #16a34a;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
         
         .pricing-card .divider {
@@ -279,6 +324,15 @@
             border-color: #0f766e;
         }
         
+        .pricing-card .btn-solid.gradient {
+            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
+            border: none;
+        }
+        
+        .pricing-card .btn-solid.gradient:hover {
+            opacity: 0.9;
+        }
+        
         /* FAQ Section */
         .faq-section {
             background: #1e293b;
@@ -331,9 +385,59 @@
             margin-bottom: 1rem;
         }
         
-        .cta-section p {
+        .cta-section > p {
             color: rgba(255,255,255,0.9);
             margin-bottom: 2rem;
+        }
+        
+        .cta-section .contact-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-section .contact-box p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section .email-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .email-address {
+            background: white;
+            color: #4f46e5;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section .btn-copy {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .cta-section .btn-copy:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .cta-section .btn-copy.copied {
+            background: #22c55e;
         }
         
         .cta-section .btn {
@@ -443,6 +547,10 @@
             <span class="icon">📊</span>
             GradTrack
         </button>
+        <button class="product-tab" data-product="bundle">
+            <span class="icon">📦</span>
+            Bundle &amp; Save
+        </button>
     </div>
     
     <!-- TierTrak Pricing (shown by default) -->
@@ -479,7 +587,7 @@
                 <h3>Standard</h3>
                 <p class="description">Perfect for small to medium schools</p>
                 <div class="price">
-                    <span class="amount">$2,500</span><span class="period">/year</span>
+                    <span class="amount">$3,000</span><span class="period">/year</span>
                 </div>
                 <p class="price-note">Up to 500 students</p>
                 <div class="divider"></div>
@@ -499,7 +607,7 @@
                 <h3>Growth</h3>
                 <p class="description">For growing schools and small districts</p>
                 <div class="price">
-                    <span class="amount">$4,000</span><span class="period">/year</span>
+                    <span class="amount">$5,000</span><span class="period">/year</span>
                 </div>
                 <p class="price-note">501 - 1,500 students</p>
                 <div class="divider"></div>
@@ -519,7 +627,7 @@
                 <h3>Enterprise</h3>
                 <p class="description">For large districts at scale</p>
                 <div class="price">
-                    <span class="amount">$3</span><span class="period">/ student / year</span>
+                    <span class="amount">$4</span><span class="period">/ student / year</span>
                 </div>
                 <p class="price-note">1,500+ students</p>
                 <div class="divider"></div>
@@ -569,7 +677,7 @@
                 <h3>Standard</h3>
                 <p class="description">Perfect for small to medium schools</p>
                 <div class="price">
-                    <span class="amount">$3,000</span><span class="period">/year</span>
+                    <span class="amount">$2,500</span><span class="period">/year</span>
                 </div>
                 <p class="price-note">Up to 500 students</p>
                 <div class="divider"></div>
@@ -588,7 +696,7 @@
                 <h3>Growth</h3>
                 <p class="description">For growing schools and small districts</p>
                 <div class="price">
-                    <span class="amount">$5,000</span><span class="period">/year</span>
+                    <span class="amount">$4,000</span><span class="period">/year</span>
                 </div>
                 <p class="price-note">501 - 1,500 students</p>
                 <div class="divider"></div>
@@ -607,7 +715,7 @@
                 <h3>Enterprise</h3>
                 <p class="description">For large districts at scale</p>
                 <div class="price">
-                    <span class="amount">$4</span><span class="period">/ student / year</span>
+                    <span class="amount">$3</span><span class="period">/ student / year</span>
                 </div>
                 <p class="price-note">1,500+ students</p>
                 <div class="divider"></div>
@@ -623,6 +731,79 @@
         </div>
     </section>
     
+    <!-- Bundle Pricing (hidden by default) -->
+    <section class="pricing-section hidden" id="bundle-pricing">
+        <div class="pricing-header">
+            <div class="product-icon">📦</div>
+            <h1 class="gradient">TierTrak + GradTrack Bundle</h1>
+            <p>Get both products and save! Complete visibility from intervention through graduation.</p>
+        </div>
+        
+        <div class="pricing-grid bundle-grid">
+            <!-- Standard Bundle -->
+            <div class="pricing-card">
+                <h3>Standard Bundle</h3>
+                <p class="description">Both products for small to medium schools</p>
+                <div class="savings-badge">Save $1,000/year</div>
+                <div class="price">
+                    <span class="amount">$4,500</span><span class="period">/year</span>
+                </div>
+                <p class="price-note">Up to 500 students<br><s style="color:#64748b;">$5,500 if purchased separately</s></p>
+                <div class="divider"></div>
+                <ul class="features">
+                    <li><span class="check teal">✓</span> Full TierTrak Standard</li>
+                    <li><span class="check">✓</span> Full GradTrack Standard</li>
+                    <li><span class="check teal">✓</span> Unified staff training</li>
+                    <li><span class="check teal">✓</span> Priority support</li>
+                    <li><span class="check teal">✓</span> Single invoice</li>
+                </ul>
+                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Standard%20Plan%20Inquiry" class="btn btn-solid gradient">Get Bundle</a>
+            </div>
+            
+            <!-- Growth Bundle -->
+            <div class="pricing-card popular gradient">
+                <div class="popular-badge gradient">Best Value</div>
+                <h3>Growth Bundle</h3>
+                <p class="description">Both products for growing schools & districts</p>
+                <div class="savings-badge">Save $1,500/year</div>
+                <div class="price">
+                    <span class="amount">$7,500</span><span class="period">/year</span>
+                </div>
+                <p class="price-note">501 - 1,500 students<br><s style="color:#64748b;">$9,000 if purchased separately</s></p>
+                <div class="divider"></div>
+                <ul class="features">
+                    <li><span class="check teal">✓</span> Full TierTrak Growth</li>
+                    <li><span class="check">✓</span> Full GradTrack Growth</li>
+                    <li><span class="check teal">✓</span> Dedicated support manager</li>
+                    <li><span class="check teal">✓</span> Advanced reporting (both)</li>
+                    <li><span class="check teal">✓</span> Custom integrations</li>
+                </ul>
+                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Growth%20Plan%20Inquiry" class="btn btn-solid gradient">Get Bundle</a>
+            </div>
+            
+            <!-- Enterprise Bundle -->
+            <div class="pricing-card">
+                <h3>Enterprise Bundle</h3>
+                <p class="description">Both products for large districts at scale</p>
+                <div class="savings-badge">Save $2/student/year</div>
+                <div class="price">
+                    <span class="amount">$5</span><span class="period">/ student / year</span>
+                </div>
+                <p class="price-note">1,500+ students<br><s style="color:#64748b;">$7/student if purchased separately</s></p>
+                <div class="divider"></div>
+                <ul class="features">
+                    <li><span class="check teal">✓</span> Full TierTrak Enterprise</li>
+                    <li><span class="check">✓</span> Full GradTrack Enterprise</li>
+                    <li><span class="check teal">✓</span> Multi-school dashboard</li>
+                    <li><span class="check teal">✓</span> SLA guarantee</li>
+                    <li><span class="check teal">✓</span> Dedicated onboarding</li>
+                    <li><span class="check teal">✓</span> API access (both)</li>
+                </ul>
+                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Enterprise%20Inquiry" class="btn btn-outline">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
     <!-- FAQ Section -->
     <section class="faq-section">
         <h2>Frequently Asked Questions</h2>
@@ -632,8 +813,8 @@
                 <p>Yes! Our Pilot plan lets you use the full product for a trimester or semester. The pilot fee is credited toward your annual plan if you continue.</p>
             </div>
             <div class="faq-item">
-                <h4>Do you offer discounts for multiple products?</h4>
-                <p>Yes! Schools using both TierTrak and GradTrack receive a 15% discount on the combined annual cost. Contact us for bundle pricing.</p>
+                <h4>How much do I save with a bundle?</h4>
+                <p>Bundle pricing saves you $1,000-$1,500/year (or $2/student for Enterprise). You also get unified training and a single point of contact.</p>
             </div>
             <div class="faq-item">
                 <h4>What's included in staff training?</h4>
@@ -656,9 +837,18 @@
     
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2>Not Sure Which Plan Is Right?</h2>
+        <h2>Ready to Get Started?</h2>
         <p>Schedule a free consultation and we'll help you find the perfect fit for your school.</p>
-        <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Pricing%20Consultation" class="btn">Schedule a Call →</a>
+        
+        <div class="contact-box">
+            <p>📧 Email us directly:</p>
+            <div class="email-display">
+                <span class="email-address">sps@scholarpathsystems.org</span>
+                <button class="btn-copy" onclick="copyEmail()">📋 Copy</button>
+            </div>
+        </div>
+        
+        <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Pricing%20Consultation" class="btn">Open in Email App →</a>
     </section>
     
     <!-- Footer -->
@@ -696,36 +886,57 @@
         </div>
     </footer>
     
-    <!-- Tab Switching Script -->
+    <!-- Scripts -->
     <script>
+        // Tab Switching
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.product-tab');
             const tiertrakPricing = document.getElementById('tiertrak-pricing');
             const gradtrackPricing = document.getElementById('gradtrack-pricing');
+            const bundlePricing = document.getElementById('bundle-pricing');
             
             tabs.forEach(function(tab) {
                 tab.addEventListener('click', function() {
                     // Remove active class from all tabs
                     tabs.forEach(function(t) {
-                        t.classList.remove('active');
-                        t.classList.remove('teal');
+                        t.classList.remove('active', 'teal', 'gradient');
                     });
                     
                     // Add active class to clicked tab
                     tab.classList.add('active');
                     
-                    // Show/hide appropriate pricing
+                    // Hide all pricing sections
+                    tiertrakPricing.classList.add('hidden');
+                    gradtrackPricing.classList.add('hidden');
+                    bundlePricing.classList.add('hidden');
+                    
+                    // Show appropriate pricing
                     if (tab.dataset.product === 'tiertrak') {
                         tab.classList.add('teal');
                         tiertrakPricing.classList.remove('hidden');
-                        gradtrackPricing.classList.add('hidden');
-                    } else {
-                        tiertrakPricing.classList.add('hidden');
+                    } else if (tab.dataset.product === 'gradtrack') {
                         gradtrackPricing.classList.remove('hidden');
+                    } else if (tab.dataset.product === 'bundle') {
+                        tab.classList.add('gradient');
+                        bundlePricing.classList.remove('hidden');
                     }
                 });
             });
         });
+        
+        // Copy Email Function
+        function copyEmail() {
+            const email = 'sps@scholarpathsystems.org';
+            navigator.clipboard.writeText(email).then(function() {
+                const btn = document.querySelector('.btn-copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
