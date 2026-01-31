@@ -680,6 +680,57 @@
             color: white;
         }
         
+        .contact-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            margin: 0 auto 2rem;
+        }
+        
+        .contact-box p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .email-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .email-address {
+            background: white;
+            color: #4f46e5;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .btn-copy {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+        }
+        
+        .btn-copy:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .btn-copy.copied {
+            background: #22c55e;
+        }
+        
         .btn-contact {
             background: #4f46e5;
             color: white;
@@ -794,7 +845,7 @@
                 <a href="#portals">Portals</a>
                 <a href="#about">About</a>
                 <a href="/pricing.html">Pricing</a>
-                <a href="#contact" class="btn-demo">Request a Demo →</a>
+                <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn-demo">Request a Demo →</a>
             </div>
         </div>
     </nav>
@@ -828,7 +879,7 @@
                     
                     <div class="buttons">
                         <a href="/tiertrak.html" class="btn btn-outline-teal">Learn More</a>
-                        <a href="#contact" class="btn btn-solid-teal">Request Demo</a>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-solid-teal">Request Demo</a>
                     </div>
                 </div>
                 
@@ -851,7 +902,7 @@
                     
                     <div class="buttons">
                         <a href="#portals" class="btn btn-outline-purple">View Portals</a>
-                        <a href="#contact" class="btn btn-solid-purple">Request Demo</a>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20GradTrack%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-solid-purple">Request Demo</a>
                     </div>
                 </div>
             </div>
@@ -1116,7 +1167,7 @@
             
             <div class="cta-section">
                 <p>Want to see the full platform in action?</p>
-                <a href="#contact" class="btn btn-solid">Schedule a Live Demo →</a>
+                <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Live%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'd%20like%20to%20schedule%20a%20live%20demo%20of%20your%20products.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-solid">Schedule a Live Demo →</a>
             </div>
         </div>
     </section>
@@ -1167,13 +1218,15 @@
             
             <p>Whether you're interested in TierTrak, GradTrack, or both—we'd love to show you how ScholarPath can work for your school.</p>
             
-            <div class="contact-method">
-                <div class="icon">✉️</div>
-                <div><strong>Email</strong></div>
-                <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
+            <div class="contact-box">
+                <p>📧 Email us directly:</p>
+                <div class="email-display">
+                    <span class="email-address">sps@scholarpathsystems.org</span>
+                    <button class="btn-copy" onclick="copyEmail()">📋 Copy</button>
+                </div>
             </div>
             
-            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Request a Demo →</a>
+            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Open in Email App →</a>
         </div>
     </section>
 
@@ -1240,6 +1293,35 @@
                 });
             });
         });
+        
+        // Copy Email Function
+        function copyEmail() {
+            const email = 'sps@scholarpathsystems.org';
+            navigator.clipboard.writeText(email).then(function() {
+                const btn = document.querySelector('.btn-copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                const btn = document.querySelector('.btn-copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
     </script>
 </body>
 </html>
