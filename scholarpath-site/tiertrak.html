@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TierTrak | MTSS Intervention Tracking Software | ScholarPath Systems</title>
-    <meta name="description" content="TierTrak streamlines MTSS and RTI intervention tracking with progress monitoring, parent collaboration, document management, and dashboard alerts. FERPA compliant.">
+    <title>TierTrak | The Only MTSS Platform Where Parents Are Partners | ScholarPath Systems</title>
+    <meta name="description" content="TierTrak transforms MTSS intervention tracking by making parents true partners. Progress logging at school AND home. Real-time visibility. Better outcomes. FERPA compliant.">
     <style>
         * {
             margin: 0;
@@ -75,239 +75,765 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0891b2 100%);
-            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 30%, #0891b2 70%, #06b6d4 100%);
+            padding: 8rem 2rem 5rem;
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
         
         .hero .container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
-        @media (max-width: 900px) {
-            .hero .container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .hero-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
             border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
         }
         
         .hero h1 {
-            font-size: 2.75rem;
-            line-height: 1.2;
+            font-size: 3rem;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
+            font-weight: 700;
         }
         
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+        .hero h1 .highlight {
+            display: block;
+            color: #fef3c7;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-buttons {
             display: flex;
             gap: 1rem;
+            justify-content: center;
             flex-wrap: wrap;
-        }
-        
-        @media (max-width: 900px) {
-            .hero-buttons {
-                justify-content: center;
-            }
+            margin-bottom: 3rem;
         }
         
         .btn {
-            padding: 0.875rem 2rem;
+            padding: 1rem 2rem;
             border-radius: 8px;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
+            font-size: 1rem;
         }
         
         .btn-primary {
             background: white;
-            color: #059669;
+            color: #0d9488;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
         
         .btn-secondary {
             background: transparent;
             color: white;
-            border: 2px solid white;
+            border: 2px solid rgba(255,255,255,0.5);
         }
         
         .btn-secondary:hover {
-            background: white;
-            color: #059669;
+            background: rgba(255,255,255,0.1);
+            border-color: white;
         }
         
-        /* Hero Preview */
-        .hero-preview {
+        /* Hero Visual */
+        .hero-visual {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-visual {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+        
+        .hero-card {
             background: white;
             border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            color: #1a1a2e;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
         
-        .preview-header {
+        .hero-card .card-label {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #64748b;
             margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        .preview-title {
-            color: #1a1a2e;
-            font-weight: 700;
+        .hero-card .card-label .icon {
             font-size: 1.1rem;
         }
         
-        .preview-badge {
-            background: #dcfce7;
-            color: #16a34a;
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
+        .hero-card.school .card-label {
+            color: #0d9488;
         }
         
-        .student-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.75rem;
-            background: #f7fafc;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
+        .hero-card.home .card-label {
+            color: #8b5cf6;
         }
         
-        .student-info {
+        .log-item {
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            padding: 0.75rem;
+            background: #f7fafc;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
         }
         
-        .student-avatar {
+        .log-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .log-avatar {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, #059669 0%, #0891b2 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
-            font-size: 0.8rem;
-        }
-        
-        .student-name {
-            font-weight: 600;
-            color: #1a1a2e;
-            font-size: 0.9rem;
-        }
-        
-        .student-grade {
             font-size: 0.75rem;
-            color: #718096;
+            flex-shrink: 0;
         }
         
-        .tier-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
+        .log-avatar.teacher {
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+        }
+        
+        .log-avatar.parent {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+        
+        .log-details {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .log-name {
             font-weight: 600;
-        }
-        
-        .tier-1 { background: #dbeafe; color: #1d4ed8; }
-        .tier-2 { background: #fef3c7; color: #d97706; }
-        .tier-3 { background: #fee2e2; color: #dc2626; }
-        
-        /* Trust badges */
-        .trust-section {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            margin-top: 3rem;
-            border-radius: 12px;
-        }
-        
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .trust-badge {
-            text-align: center;
-        }
-        
-        .trust-badge .number {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .trust-badge .label {
             font-size: 0.85rem;
+            color: #1a1a2e;
+        }
+        
+        .log-action {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        .log-score {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0d9488;
+        }
+        
+        .hero-card.home .log-score {
+            color: #8b5cf6;
+        }
+        
+        .connection-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .connection-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .connection-text {
+            font-size: 0.75rem;
+            text-align: center;
             opacity: 0.9;
+            max-width: 100px;
         }
         
-        /* Features Section */
-        .features {
+        /* Problem Section */
+        .problem-section {
             padding: 5rem 2rem;
-            background: white;
+            background: #1a1a2e;
+            color: white;
         }
         
-        .features .container {
-            max-width: 1200px;
+        .problem-section .container {
+            max-width: 1000px;
             margin: 0 auto;
         }
         
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-label {
-            color: #059669;
+        .problem-section .section-label {
+            color: #f87171;
             font-weight: 600;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            text-align: center;
         }
         
-        .section-title {
+        .problem-section h2 {
+            text-align: center;
             font-size: 2.25rem;
-            margin-top: 0.5rem;
+            margin: 0.75rem 0 3rem;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 800px) {
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .problem-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .problem-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #f87171;
+        }
+        
+        .problem-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+        }
+        
+        .solution-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .solution-section .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .solution-section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin: 0.75rem 0 1rem;
             color: #1a1a2e;
         }
         
-        .section-subtitle {
-            color: #718096;
-            font-size: 1.05rem;
-            margin-top: 0.5rem;
+        .solution-section .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 800px) {
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .solution-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .solution-card .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+        
+        .solution-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        
+        .solution-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-card .example {
+            background: #f0fdfa;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: #0f766e;
+            border-left: 3px solid #0d9488;
+        }
+        
+        .solution-card .example strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        /* Parent Portal Showcase */
+        .parent-showcase {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .parent-showcase .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .parent-showcase .section-label {
+            color: #8b5cf6;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .parent-showcase h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin: 0.75rem 0 1rem;
+            color: #1a1a2e;
+        }
+        
+        .parent-showcase .section-subtitle {
+            text-align: center;
+            color: #64748b;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 3rem;
+        }
+        
+        .portal-demo {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+        }
+        
+        .portal-demo-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .portal-demo-avatar {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #8b5cf6;
+        }
+        
+        .portal-demo-user {
+            color: white;
+        }
+        
+        .portal-demo-user .name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .portal-demo-user .role {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .portal-demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 700px) {
+            .portal-demo-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .portal-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        
+        .portal-panel h4 {
+            color: #1a1a2e;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .portal-panel .student-card {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portal-panel .student-name {
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portal-panel .tier-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .tier-badge.tier-2 {
+            background: #fef3c7;
+            color: #d97706;
+        }
+        
+        .portal-panel .intervention-info {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+        
+        .portal-panel .action-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: #8b5cf6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .portal-panel .progress-chart {
+            height: 100px;
+            background: linear-gradient(to top, #c4b5fd 0%, #c4b5fd 30%, #a78bfa 30%, #a78bfa 50%, #8b5cf6 50%, #8b5cf6 65%, #7c3aed 65%, #7c3aed 80%);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-chart .bar {
+            width: 12%;
+            background: rgba(255,255,255,0.9);
+            border-radius: 4px 4px 0 0;
+        }
+        
+        .portal-panel .legend {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .legend-dot.school {
+            background: #0d9488;
+        }
+        
+        .legend-dot.home {
+            background: #8b5cf6;
+        }
+        
+        .portal-features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .portal-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .portal-feature .check {
+            background: rgba(255,255,255,0.2);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        /* MTSS Section */
+        .mtss-section {
+            padding: 5rem 2rem;
+            background: #f7fafc;
+        }
+        
+        .mtss-section .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .mtss-section .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .mtss-section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin: 0.75rem 0 3rem;
+            color: #1a1a2e;
+        }
+        
+        .mtss-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 800px) {
+            .mtss-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .pyramid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pyramid-tier {
+            text-align: center;
+            padding: 1.25rem 2rem;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .pyramid-tier.tier-3 {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            width: 160px;
+        }
+        
+        .pyramid-tier.tier-2 {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            width: 240px;
+        }
+        
+        .pyramid-tier.tier-1 {
+            background: linear-gradient(135deg, #059669, #10b981);
+            width: 320px;
+        }
+        
+        .pyramid-tier .tier-name {
+            font-size: 1rem;
+        }
+        
+        .pyramid-tier .tier-percent {
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+        }
+        
+        .mtss-explanation h4 {
+            color: #1a1a2e;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mtss-explanation p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mtss-list {
+            list-style: none;
+        }
+        
+        .mtss-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+        
+        .mtss-list .icon {
+            width: 24px;
+            height: 24px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .features-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features-section .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        
+        .features-section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin: 0.75rem 0 3rem;
+            color: #1a1a2e;
         }
         
         .features-grid {
@@ -330,7 +856,7 @@
         
         .feature-card {
             background: #f7fafc;
-            border-radius: 12px;
+            border-radius: 16px;
             padding: 2rem;
             transition: transform 0.3s, box-shadow 0.3s;
         }
@@ -341,127 +867,154 @@
         }
         
         .feature-card .icon {
-            font-size: 2.5rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
         }
         
-        .feature-card h3 {
-            font-size: 1.2rem;
+        .feature-card h4 {
+            font-size: 1.15rem;
             margin-bottom: 0.75rem;
             color: #1a1a2e;
         }
         
         .feature-card p {
-            color: #4a5568;
+            color: #64748b;
             font-size: 0.95rem;
         }
         
-        /* MTSS Pyramid */
-        .mtss-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%);
+        /* Security Section */
+        .security-section {
+            padding: 4rem 2rem;
+            background: #1a1a2e;
+            color: white;
         }
         
-        .mtss-section .container {
-            max-width: 1000px;
+        .security-section .container {
+            max-width: 900px;
             margin: 0 auto;
+            text-align: center;
         }
         
-        .pyramid-container {
+        .security-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .security-badges {
             display: flex;
             justify-content: center;
-            margin: 3rem 0;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
         
-        .pyramid {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .pyramid-tier {
+        .security-badge {
             text-align: center;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            color: white;
+        }
+        
+        .security-badge .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .security-badge .label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .security-badge .value {
             font-weight: 600;
-        }
-        
-        .pyramid-tier.tier-3-bg {
-            background: linear-gradient(135deg, #dc2626, #ef4444);
-            width: 200px;
-        }
-        
-        .pyramid-tier.tier-2-bg {
-            background: linear-gradient(135deg, #d97706, #f59e0b);
-            width: 300px;
-        }
-        
-        .pyramid-tier.tier-1-bg {
-            background: linear-gradient(135deg, #059669, #10b981);
-            width: 400px;
-        }
-        
-        .pyramid-tier .tier-name {
             font-size: 1.1rem;
-        }
-        
-        .pyramid-tier .tier-desc {
-            font-size: 0.8rem;
-            opacity: 0.9;
-            font-weight: 400;
-        }
-        
-        .pyramid-tier .tier-percent {
-            font-size: 1.5rem;
-            margin-top: 0.25rem;
-        }
-        
-        .mtss-description {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .mtss-description p {
-            color: #4a5568;
-            font-size: 1rem;
-            margin-bottom: 1rem;
         }
         
         /* CTA Section */
-        .cta {
+        .cta-section {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #059669 0%, #0891b2 100%);
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #0891b2 100%);
             color: white;
             text-align: center;
         }
         
-        .cta .container {
+        .cta-section .container {
             max-width: 700px;
             margin: 0 auto;
         }
         
-        .cta h2 {
-            font-size: 2.25rem;
+        .cta-section h2 {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
-        .cta p {
-            font-size: 1.1rem;
+        .cta-section p {
+            font-size: 1.15rem;
             opacity: 0.9;
             margin-bottom: 2rem;
         }
         
-        .cta .btn-primary {
-            background: white;
-            color: #059669;
-            font-size: 1.05rem;
-            padding: 1rem 2.5rem;
+        .cta-section .contact-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .cta .btn-primary:hover {
+        .cta-section .contact-box .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section .email-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .cta-section .email-address {
+            background: white;
+            color: #0d9488;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section .btn-copy {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-section .btn-copy:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .cta-section .btn-copy.copied {
+            background: #22c55e;
+        }
+        
+        .cta-section .btn {
+            background: white;
+            color: #0d9488;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-section .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
@@ -556,164 +1109,339 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">📈 MTSS Intervention Tracking</div>
-                <h1>Streamline Your Multi-Tiered Support System</h1>
-                <p>TierTrak gives intervention specialists, teachers, and parents real-time visibility into student interventions, progress monitoring, and support documentation.</p>
+                <h1>The Only MTSS Platform Where<span class="highlight">Parents Are Partners, Not Passengers</span></h1>
+                <p class="subtitle">Most intervention tools leave parents in the dark. TierTrak brings them into the light — with shared progress tracking, home logging, and real-time visibility.</p>
                 <div class="hero-buttons">
                     <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-primary">Request a Demo</a>
-                    <a href="#features" class="btn btn-secondary">See Features</a>
+                    <a href="#features" class="btn btn-secondary">See All Features</a>
                 </div>
             </div>
             
-            <div class="hero-preview">
-                <div class="preview-header">
-                    <span class="preview-title">📈 TierTrak Dashboard</span>
-                    <span class="preview-badge">Live Demo</span>
-                </div>
-                <div class="student-row">
-                    <div class="student-info">
-                        <div class="student-avatar">MJ</div>
-                        <div>
-                            <div class="student-name">Martinez, Juan</div>
-                            <div class="student-grade">Grade 4 • Math Fluency</div>
+            <div class="hero-visual">
+                <div class="hero-card school">
+                    <div class="card-label"><span class="icon">🏫</span> At School</div>
+                    <div class="log-item">
+                        <div class="log-avatar teacher">JT</div>
+                        <div class="log-details">
+                            <div class="log-name">Ms. Thompson</div>
+                            <div class="log-action">Reading fluency</div>
                         </div>
+                        <div class="log-score">7/10</div>
                     </div>
-                    <span class="tier-badge tier-2">Tier 2</span>
-                </div>
-                <div class="student-row">
-                    <div class="student-info">
-                        <div class="student-avatar">SG</div>
-                        <div>
-                            <div class="student-name">Garcia, Sophia</div>
-                            <div class="student-grade">Grade 3 • Reading Intervention</div>
+                    <div class="log-item">
+                        <div class="log-avatar teacher">MR</div>
+                        <div class="log-details">
+                            <div class="log-name">Mr. Rodriguez</div>
+                            <div class="log-action">Math intervention</div>
                         </div>
+                        <div class="log-score">8/10</div>
                     </div>
-                    <span class="tier-badge tier-3">Tier 3</span>
                 </div>
-                <div class="student-row">
-                    <div class="student-info">
-                        <div class="student-avatar">TW</div>
-                        <div>
-                            <div class="student-name">Williams, Tyler</div>
-                            <div class="student-grade">Grade 5 • Behavior Support</div>
+                
+                <div class="connection-visual">
+                    <div class="connection-icon">🔄</div>
+                    <div class="connection-text">Unified data in real-time</div>
+                </div>
+                
+                <div class="hero-card home">
+                    <div class="card-label"><span class="icon">🏠</span> At Home</div>
+                    <div class="log-item">
+                        <div class="log-avatar parent">MG</div>
+                        <div class="log-details">
+                            <div class="log-name">Maria Garcia</div>
+                            <div class="log-action">Reading practice</div>
                         </div>
+                        <div class="log-score">8/10</div>
                     </div>
-                    <span class="tier-badge tier-1">Tier 1</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="trust-section">
-            <div class="trust-badges">
-                <div class="trust-badge">
-                    <div class="number">100%</div>
-                    <div class="label">FERPA Compliant</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="number">AWS</div>
-                    <div class="label">Secure Cloud Storage</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="number">24/7</div>
-                    <div class="label">Data Encryption</div>
-                </div>
-                <div class="trust-badge">
-                    <div class="number">🔒</div>
-                    <div class="label">Role-Based Access</div>
+                    <div class="log-item">
+                        <div class="log-avatar parent">DG</div>
+                        <div class="log-details">
+                            <div class="log-name">David Garcia</div>
+                            <div class="log-action">Math flashcards</div>
+                        </div>
+                        <div class="log-score">9/10</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MTSS Overview -->
-    <section class="mtss-section">
+    <!-- Problem Section -->
+    <section class="problem-section">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label">What is MTSS?</div>
-                <h2 class="section-title">Multi-Tiered System of Supports</h2>
-            </div>
+            <div class="section-label">The Problem</div>
+            <h2>Traditional MTSS Tools Leave Parents Behind</h2>
             
-            <div class="pyramid-container">
-                <div class="pyramid">
-                    <div class="pyramid-tier tier-3-bg">
-                        <div class="tier-name">Tier 3</div>
-                        <div class="tier-desc">Intensive Intervention</div>
-                        <div class="tier-percent">~5%</div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="icon">🔒</div>
+                    <h4>Locked Out</h4>
+                    <p>Parents only see their child's progress at quarterly meetings — if they can attend. They're left guessing what happens at school.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">📊</div>
+                    <h4>One-Sided Data</h4>
+                    <p>Teachers log everything, but parents can't contribute. The 16 hours a day students spend at home? Invisible to the system.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">🤷</div>
+                    <h4>Misaligned Efforts</h4>
+                    <p>Without shared goals and data, school interventions and home support work in silos — or sometimes at cross purposes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="section-label">The TierTrak Difference</div>
+            <h2>When Parents Log Progress at Home, Everything Changes</h2>
+            <p class="section-subtitle">TierTrak is the only MTSS platform designed from the ground up for true school-home partnership.</p>
+            
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <div class="icon-box">📱</div>
+                    <div>
+                        <h4>Parents Log Progress at Home</h4>
+                        <p>Reading minutes, behavior charts, homework completion — parents track the same interventions teachers do.</p>
+                        <div class="example">
+                            <strong>Example:</strong> Maria logs 20 minutes of reading practice every night. The teacher sees it the next morning.
+                        </div>
                     </div>
-                    <div class="pyramid-tier tier-2-bg">
-                        <div class="tier-name">Tier 2</div>
-                        <div class="tier-desc">Targeted Support</div>
-                        <div class="tier-percent">~15%</div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="icon-box">👁️</div>
+                    <div>
+                        <h4>Same Data, Same View</h4>
+                        <p>Parents see the exact same progress charts teachers see. No more "how is my child doing?" — they already know.</p>
+                        <div class="example">
+                            <strong>Example:</strong> Before the MTSS meeting, both teacher and parent have reviewed the same 6-week trend line.
+                        </div>
                     </div>
-                    <div class="pyramid-tier tier-1-bg">
-                        <div class="tier-name">Tier 1</div>
-                        <div class="tier-desc">Universal Instruction</div>
-                        <div class="tier-percent">~80%</div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="icon-box">📁</div>
+                    <div>
+                        <h4>Document Collaboration</h4>
+                        <p>Parents can view 504 Plans and IEPs, and upload medical records, therapy notes, or outside evaluations.</p>
+                        <div class="example">
+                            <strong>Example:</strong> Dad uploads the speech therapy report. The MTSS team reviews it before the next meeting.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="icon-box">🎯</div>
+                    <div>
+                        <h4>Aligned Interventions</h4>
+                        <p>When school and home work on the same goals with shared data, students get consistent support — and better outcomes.</p>
+                        <div class="example">
+                            <strong>Example:</strong> The reading fluency intervention continues seamlessly from classroom to living room.
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Parent Portal Showcase -->
+    <section class="parent-showcase">
+        <div class="container">
+            <div class="section-label">Parent Portal</div>
+            <h2>A Portal Parents Actually Want to Use</h2>
+            <p class="section-subtitle">Clean, intuitive, mobile-friendly — designed for busy parents, not IT departments.</p>
             
-            <div class="mtss-description">
-                <p>MTSS is a framework for providing targeted support to students who need additional help. TierTrak helps you manage the entire process—from initial identification through progress monitoring to successful tier transitions.</p>
-                <p><strong>TierTrak supports RTI (Response to Intervention), PBIS (Positive Behavioral Interventions and Supports), and comprehensive MTSS frameworks.</strong></p>
+            <div class="portal-demo">
+                <div class="portal-demo-header">
+                    <div class="portal-demo-avatar">MG</div>
+                    <div class="portal-demo-user">
+                        <div class="name">Maria Garcia</div>
+                        <div class="role">Parent of Sophia • Grade 3</div>
+                    </div>
+                </div>
+                
+                <div class="portal-demo-content">
+                    <div class="portal-panel">
+                        <h4>📋 Current Intervention</h4>
+                        <div class="student-card">
+                            <div class="student-name">Sophia Garcia</div>
+                            <span class="tier-badge tier-2">Tier 2 - Reading</span>
+                            <div class="intervention-info">
+                                <strong>Focus:</strong> Reading Fluency<br>
+                                <strong>Goal:</strong> 85 words/min by May<br>
+                                <strong>Current:</strong> 72 words/min
+                            </div>
+                        </div>
+                        <button class="action-btn">+ Log Today's Progress</button>
+                    </div>
+                    
+                    <div class="portal-panel">
+                        <h4>📈 Progress This Month</h4>
+                        <div class="progress-chart">
+                            <div class="bar" style="height: 40%"></div>
+                            <div class="bar" style="height: 50%"></div>
+                            <div class="bar" style="height: 45%"></div>
+                            <div class="bar" style="height: 60%"></div>
+                            <div class="bar" style="height: 55%"></div>
+                            <div class="bar" style="height: 70%"></div>
+                            <div class="bar" style="height: 75%"></div>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item"><span class="legend-dot school"></span> School</div>
+                            <div class="legend-item"><span class="legend-dot home"></span> Home</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-features">
+                    <div class="portal-feature"><span class="check">✓</span> View intervention details</div>
+                    <div class="portal-feature"><span class="check">✓</span> Log progress at home</div>
+                    <div class="portal-feature"><span class="check">✓</span> Access 504/IEP documents</div>
+                    <div class="portal-feature"><span class="check">✓</span> Upload medical records</div>
+                    <div class="portal-feature"><span class="check">✓</span> See real-time charts</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MTSS Section -->
+    <section class="mtss-section">
+        <div class="container">
+            <div class="section-label">Understanding MTSS</div>
+            <h2>Built for Multi-Tiered Support Systems</h2>
+            
+            <div class="mtss-content">
+                <div class="pyramid">
+                    <div class="pyramid-tier tier-3">
+                        <div class="tier-name">Tier 3</div>
+                        <div class="tier-percent">~5%</div>
+                    </div>
+                    <div class="pyramid-tier tier-2">
+                        <div class="tier-name">Tier 2</div>
+                        <div class="tier-percent">~15%</div>
+                    </div>
+                    <div class="pyramid-tier tier-1">
+                        <div class="tier-name">Tier 1</div>
+                        <div class="tier-percent">~80%</div>
+                    </div>
+                </div>
+                
+                <div class="mtss-explanation">
+                    <h4>TierTrak supports the entire MTSS framework</h4>
+                    <p>Whether you call it MTSS, RTI, or PBIS — TierTrak helps you manage interventions across all tiers with the documentation and progress monitoring you need.</p>
+                    
+                    <ul class="mtss-list">
+                        <li>
+                            <span class="icon">✓</span>
+                            <span><strong>Tier 1:</strong> Universal screening and classroom-level interventions</span>
+                        </li>
+                        <li>
+                            <span class="icon">✓</span>
+                            <span><strong>Tier 2:</strong> Targeted small-group support with progress monitoring</span>
+                        </li>
+                        <li>
+                            <span class="icon">✓</span>
+                            <span><strong>Tier 3:</strong> Intensive individual interventions and documentation for referrals</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features" id="features">
+    <section class="features-section" id="features">
         <div class="container">
-            <div class="section-header">
-                <div class="section-label">Features</div>
-                <h2 class="section-title">Everything You Need to Manage Interventions</h2>
-                <p class="section-subtitle">TierTrak streamlines the entire intervention process from identification to documentation.</p>
-            </div>
+            <div class="section-label">Features</div>
+            <h2>Everything You Need to Manage Interventions</h2>
             
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="icon">🔺</div>
-                    <h3>Tiered Intervention Management</h3>
-                    <p>Organize students by tier level with clear visibility into intervention assignments and progress.</p>
+                    <h4>Tiered Student Management</h4>
+                    <p>Organize students by tier level with clear visibility into current interventions, assigned staff, and progress status.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="icon">📊</div>
-                    <h3>Progress Monitoring</h3>
-                    <p>Log progress with flexible frequency options (daily, weekly, bi-weekly) and visualize growth over time.</p>
+                    <h4>Flexible Progress Monitoring</h4>
+                    <p>Log progress daily, weekly, or bi-weekly. Numeric scores, percentages, or qualitative notes — whatever fits your intervention.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="icon">👨‍👩‍👧</div>
-                    <h3>Parent Portal</h3>
-                    <p>Engage families as partners—parents can view interventions, log progress at home, and upload documents.</p>
+                    <h4>Parent Portal & Home Logging</h4>
+                    <p>Parents view interventions, log progress at home, and upload documents. True partnership, not just communication.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="icon">📁</div>
-                    <h3>Document Management</h3>
-                    <p>Store 504 Plans, IEPs, evaluations, and more with automatic expiration tracking.</p>
+                    <h4>Document Management</h4>
+                    <p>Store 504 Plans, IEPs, evaluations, and medical records with automatic expiration alerts. Everything in one secure place.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="icon">🔔</div>
-                    <h3>Smart Dashboard Alerts</h3>
-                    <p>Never miss a deadline with proactive alerts for missing progress logs and expiring documents.</p>
+                    <h4>Smart Dashboard Alerts</h4>
+                    <p>Never miss a deadline. Alerts for missing progress logs, expiring documents, and students needing tier transitions.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="icon">👥</div>
-                    <h3>Role-Based Access</h3>
-                    <p>Control who sees what with granular permissions for admins, teachers, specialists, and parents.</p>
+                    <h4>Role-Based Permissions</h4>
+                    <p>Admins, teachers, specialists, and parents each see exactly what they need — no more, no less. FERPA-compliant by design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security-section">
+        <div class="container">
+            <h3>Enterprise-Grade Security for Student Data</h3>
+            <div class="security-badges">
+                <div class="security-badge">
+                    <div class="icon">🛡️</div>
+                    <div class="value">100% FERPA</div>
+                    <div class="label">Compliant</div>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">☁️</div>
+                    <div class="value">AWS S3</div>
+                    <div class="label">Secure Storage</div>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">🔐</div>
+                    <div class="value">AES-256</div>
+                    <div class="label">Encryption</div>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">👤</div>
+                    <div class="value">Role-Based</div>
+                    <div class="label">Access Control</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="cta">
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Streamline Your MTSS Process?</h2>
-            <p>See how TierTrak can help your school manage interventions more effectively and engage parents as partners in student success.</p>
-            <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-primary">Request a Demo →</a>
+            <h2>Ready to Make Parents Partners?</h2>
+            <p>See how TierTrak can transform your MTSS process with true school-home collaboration.</p>
+            
+            <div class="contact-box">
+                <div class="label">📧 Email us directly:</div>
+                <div class="email-display">
+                    <span class="email-address">sps@scholarpathsystems.org</span>
+                    <button class="btn-copy" onclick="copyEmail()">📋 Copy</button>
+                </div>
+            </div>
+            
+            <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20TierTrak%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students%20in%20MTSS:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn">Open in Email App →</a>
         </div>
     </section>
 
@@ -735,7 +1463,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="/#about">About Us</a></li>
-                    <li><a href="#cta">Contact</a></li>
+                    <li><a href="/#contact">Contact</a></li>
                 </ul>
             </div>
             <div>
@@ -751,5 +1479,34 @@
             FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
         </div>
     </footer>
+    
+    <script>
+        function copyEmail() {
+            const email = 'sps@scholarpathsystems.org';
+            navigator.clipboard.writeText(email).then(function() {
+                const btn = document.querySelector('.btn-copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                const btn = document.querySelector('.btn-copy');
+                btn.textContent = '✓ Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = '📋 Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

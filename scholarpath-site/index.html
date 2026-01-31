@@ -567,6 +567,217 @@
             background: #4338ca;
         }
         
+        /* Parent Partnership Section */
+        .parent-partnership {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 50%, #f0fdf4 100%);
+        }
+        
+        .parent-partnership .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .partnership-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        @media (max-width: 900px) {
+            .partnership-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        .partnership-text h2 {
+            font-size: 2.5rem;
+            color: #1a1a2e;
+            margin: 0.5rem 0 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .partnership-text .lead {
+            font-size: 1.15rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+        
+        .partnership-text p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        
+        .partnership-stats {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .partnership-stats .stat {
+            text-align: center;
+        }
+        
+        .partnership-stats .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0d9488;
+        }
+        
+        .partnership-stats .stat-label {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 150px;
+        }
+        
+        .partnership-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .partnership-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid;
+        }
+        
+        .partnership-card.school {
+            border-color: #0d9488;
+        }
+        
+        .partnership-card.home {
+            border-color: #8b5cf6;
+        }
+        
+        .partnership-card .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .partnership-card .location-icon {
+            font-size: 1.25rem;
+        }
+        
+        .partnership-card .log-entry {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .partnership-card .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        .partnership-card .avatar.teacher {
+            background: linear-gradient(135deg, #0d9488, #0891b2);
+        }
+        
+        .partnership-card .avatar.parent {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+        
+        .partnership-card .entry-name {
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 0.9rem;
+        }
+        
+        .partnership-card .entry-action {
+            font-size: 0.85rem;
+            color: #4a5568;
+        }
+        
+        .partnership-card .entry-time {
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+        
+        .partnership-card .log-note {
+            background: #f7fafc;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #64748b;
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+        
+        .connection-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+        
+        .connection-line .sync-icon {
+            font-size: 1.5rem;
+        }
+        
+        .differentiator-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 900px) {
+            .differentiator-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .differentiator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .diff-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .diff-card .diff-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .diff-card h4 {
+            color: #1a1a2e;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .diff-card p {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+        
         /* About Section */
         .about {
             padding: 5rem 2rem;
@@ -1168,6 +1379,99 @@
             <div class="cta-section">
                 <p>Want to see the full platform in action?</p>
                 <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Live%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'd%20like%20to%20schedule%20a%20live%20demo%20of%20your%20products.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-solid">Schedule a Live Demo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent Partnership Section -->
+    <section class="parent-partnership">
+        <div class="container">
+            <div class="partnership-content">
+                <div class="partnership-text">
+                    <div class="section-label" style="color: #0d9488;">What Makes TierTrak Different</div>
+                    <h2>Parents as Partners,<br>Not Passengers</h2>
+                    <p class="lead">Most MTSS tools treat parents as an afterthought — occasional reports, limited visibility. TierTrak is different.</p>
+                    <p>With TierTrak, parents aren't just informed — they're <strong>involved</strong>. They log progress at home, see the same data teachers see, and become true partners in their child's success.</p>
+                    
+                    <div class="partnership-stats">
+                        <div class="stat">
+                            <div class="stat-number">2x</div>
+                            <div class="stat-label">More touchpoints when parents log at home</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Visibility for families into their child's interventions</div>
+                        </div>
+                    </div>
+                    
+                    <a href="/tiertrak.html" class="btn btn-solid-teal">See How It Works →</a>
+                </div>
+                
+                <div class="partnership-visual">
+                    <div class="partnership-card school">
+                        <div class="card-header">
+                            <span class="location-icon">🏫</span>
+                            <span>At School</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="log-entry">
+                                <div class="avatar teacher">JT</div>
+                                <div class="entry-details">
+                                    <div class="entry-name">Ms. Thompson</div>
+                                    <div class="entry-action">Logged reading fluency: <strong>7/10</strong></div>
+                                    <div class="entry-time">Today, 2:30 PM</div>
+                                </div>
+                            </div>
+                            <div class="log-note">"Great focus during small group today!"</div>
+                        </div>
+                    </div>
+                    
+                    <div class="connection-line">
+                        <div class="sync-icon">🔄</div>
+                        <span>Same student. Same goals. Unified data.</span>
+                    </div>
+                    
+                    <div class="partnership-card home">
+                        <div class="card-header">
+                            <span class="location-icon">🏠</span>
+                            <span>At Home</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="log-entry">
+                                <div class="avatar parent">MG</div>
+                                <div class="entry-details">
+                                    <div class="entry-name">Maria Garcia (Mom)</div>
+                                    <div class="entry-action">Logged reading practice: <strong>8/10</strong></div>
+                                    <div class="entry-time">Today, 7:15 PM</div>
+                                </div>
+                            </div>
+                            <div class="log-note">"Read for 20 mins before bed. She loved the book!"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="differentiator-grid">
+                <div class="diff-card">
+                    <div class="diff-icon">📊</div>
+                    <h4>Shared Progress View</h4>
+                    <p>Parents see the same charts and trends that teachers do. No more wondering how their child is doing.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">📝</div>
+                    <h4>Home Progress Logging</h4>
+                    <p>Parents log reading minutes, behavior charts, or practice sessions. Every data point helps.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">📁</div>
+                    <h4>Document Access</h4>
+                    <p>Parents view 504 Plans and IEPs, and can upload medical records — all in one secure place.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="diff-icon">🤝</div>
+                    <h4>True Collaboration</h4>
+                    <p>MTSS meetings are more productive when everyone has the same information beforehand.</p>
+                </div>
             </div>
         </div>
     </section>
