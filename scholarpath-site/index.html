@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScholarPath Systems | Educational Software That Empowers</title>
-    <meta name="description" content="Educational software for schools. GradTrack for graduation progress tracking. TierTrak for MTSS intervention management. FERPA compliant.">
+    <meta name="description" content="Educational software for schools. TierTrak for MTSS intervention management with parent collaboration. GradTrack for graduation progress tracking. FERPA compliant.">
     <style>
         * {
             margin: 0;
@@ -20,13 +20,14 @@
         
         /* Navigation */
         nav {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(79, 70, 229, 0.08);
+            backdrop-filter: blur(10px);
         }
         
         nav .container {
@@ -61,7 +62,7 @@
             color: #4f46e5;
         }
         
-        /* Dropdown */
+        /* Dropdown - FIXED hover gap */
         .dropdown {
             position: relative;
         }
@@ -72,7 +73,7 @@
             top: 100%;
             left: 0;
             background: white;
-            min-width: 200px;
+            min-width: 220px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border-radius: 8px;
             padding: 0.5rem 0;
@@ -96,6 +97,7 @@
             display: block;
             padding: 0.75rem 1rem;
             color: #4a5568;
+            text-decoration: none;
         }
         
         .dropdown-content a:hover {
@@ -107,6 +109,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            pointer-events: none;
         }
         
         .dropdown-content .product-icon {
@@ -133,8 +136,8 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            padding: 4rem 2rem;
             color: white;
             text-align: center;
         }
@@ -226,12 +229,12 @@
         
         /* Products Section */
         .products {
-            padding: 5rem 2rem;
-            background: #f7fafc;
+            padding: 7rem 2rem 5rem;
+            background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 50%, #fdf4ff 100%);
         }
         
         .products .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
@@ -262,11 +265,11 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .products-grid {
                 grid-template-columns: 1fr;
             }
@@ -276,13 +279,14 @@
             background: white;
             border-radius: 16px;
             padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(79, 70, 229, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(79, 70, 229, 0.1);
         }
         
         .product-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(79, 70, 229, 0.18);
         }
         
         .product-card .badge {
@@ -296,9 +300,9 @@
             margin-bottom: 1rem;
         }
         
-        .product-card .badge.new {
-            background: #dcfce7;
-            color: #16a34a;
+        .product-card .badge.featured {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #b45309;
         }
         
         .product-card .icon {
@@ -360,34 +364,39 @@
         
         .btn-outline {
             background: transparent;
-            color: #4f46e5;
-            border: 2px solid #4f46e5;
+            color: #6366f1;
+            border: 2px solid #6366f1;
             padding: 0.75rem 1.5rem;
+            transition: all 0.3s;
         }
         
         .btn-outline:hover {
-            background: #4f46e5;
+            background: #6366f1;
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
         }
         
         .btn-solid {
-            background: #4f46e5;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
             padding: 0.75rem 1.5rem;
+            transition: all 0.3s;
         }
         
         .btn-solid:hover {
-            background: #4338ca;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
         
         /* Portals Section */
         .portals {
             padding: 5rem 2rem;
-            background: white;
+            background: linear-gradient(180deg, #faf5ff 0%, #fdf4ff 50%, #fefce8 100%);
         }
         
         .portals .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
@@ -410,62 +419,485 @@
             transition: all 0.3s;
         }
         
-        .portal-tab:hover, .portal-tab.active {
+        .portal-tab:hover {
             border-color: #4f46e5;
             color: #4f46e5;
-            background: #f0f0ff;
         }
         
-        .portals-grid {
+        .portal-tab.active {
+            border-color: #4f46e5;
+            color: white;
+            background: #4f46e5;
+        }
+        
+        /* Partnership Sections */
+        .partnership-section {
+            display: none;
+            margin-bottom: 3rem;
+        }
+        
+        .partnership-section.active {
+            display: block;
+        }
+        
+        /* TierTrak Partnership */
+        .tiertrak-partnership {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
         
-        .portal-card {
-            background: #f7fafc;
-            border-radius: 12px;
-            padding: 2rem;
+        @media (max-width: 900px) {
+            .tiertrak-partnership {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .partnership-content .label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .partnership-content h3 {
+            font-size: 2rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .partnership-content p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        
+        .partnership-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stat-item {
             text-align: center;
         }
         
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0d9488;
+        }
+        
+        .stat-item .text {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        
+        .partnership-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .log-card {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 4px solid #0d9488;
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.08);
+        }
+        
+        .log-card.home {
+            background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+            border-left-color: #8b5cf6;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.08);
+        }
+        
+        .log-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .log-header .icon {
+            font-size: 1.25rem;
+        }
+        
+        .log-header .location {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .log-entry {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .log-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .log-avatar.parent {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+        
+        .log-details .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a1a2e;
+        }
+        
+        .log-details .action {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+        
+        .log-details .time {
+            font-size: 0.75rem;
+            color: #718096;
+        }
+        
+        .log-note {
+            background: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #4a5568;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .unified-data {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+            border-radius: 8px;
+            color: #0d9488;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(13, 148, 136, 0.1);
+        }
+        
+        .partnership-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 600px) {
+            .partnership-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .partnership-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+        
+        .partnership-feature .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .partnership-feature h4 {
+            font-size: 1rem;
+            color: #1a1a2e;
+            margin-bottom: 0.25rem;
+        }
+        
+        .partnership-feature p {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        
+        /* GradTrack Partnership */
+        .gradtrack-partnership {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .gradtrack-partnership {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .gradtrack-partnership .partnership-content .label {
+            color: #4f46e5;
+        }
+        
+        .gradtrack-partnership .stat-item .number {
+            color: #4f46e5;
+        }
+        
+        .progress-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .viewer-card {
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 4px solid #4f46e5;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.08);
+        }
+        
+        .viewer-card.parent {
+            background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+            border-left-color: #8b5cf6;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.08);
+        }
+        
+        .viewer-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .viewer-header .icon {
+            font-size: 1.25rem;
+        }
+        
+        .viewer-header .viewer {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .viewer-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .viewer-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .viewer-avatar.parent {
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+        }
+        
+        .viewer-details .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a1a2e;
+        }
+        
+        .viewer-details .role {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+        
+        .progress-preview {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-top: 0.75rem;
+        }
+        
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.25rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .progress-item .label {
+            color: #718096;
+        }
+        
+        .progress-item .value {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .progress-item .value.success {
+            color: #16a34a;
+        }
+        
+        .progress-bar-mini {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .progress-bar-mini .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            border-radius: 3px;
+        }
+        
+        .same-view {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+            border-radius: 8px;
+            color: #4f46e5;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+        }
+        
+        .gradtrack-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 600px) {
+            .gradtrack-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .gradtrack-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+        
+        .gradtrack-feature .icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .gradtrack-feature h4 {
+            font-size: 1rem;
+            color: #1a1a2e;
+            margin-bottom: 0.25rem;
+        }
+        
+        .gradtrack-feature p {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        
+        /* Portal Cards */
+        .portals-grid {
+            display: none;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 900px) {
+            .portals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .portals-grid.active {
+            display: grid;
+        }
+        
+        .portal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.12);
+        }
+        
         .portal-card .portal-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
         }
         
         .portal-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.35rem;
             color: #1a1a2e;
         }
         
         .portal-card p {
             color: #718096;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            margin-bottom: 0;
+            line-height: 1.4;
         }
         
         .portal-preview {
-            background: white;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-top: 1.5rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
             text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
         
         .preview-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
             border-bottom: 1px solid #e2e8f0;
         }
         
         .preview-avatar {
-            width: 36px;
-            height: 36px;
+            width: 28px;
+            height: 28px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 50%;
             display: flex;
@@ -473,17 +905,17 @@
             justify-content: center;
             color: white;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.65rem;
         }
         
         .preview-name {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #1a1a2e;
         }
         
         .preview-role {
-            font-size: 0.75rem;
+            font-size: 0.65rem;
             color: #718096;
         }
         
@@ -491,7 +923,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.5rem 0;
+            padding: 0.25rem 0;
             border-bottom: 1px solid #f0f0f0;
         }
         
@@ -500,14 +932,14 @@
         }
         
         .preview-stat .label {
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             color: #718096;
         }
         
         .preview-stat .value {
             font-weight: 600;
             color: #1a1a2e;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
         }
         
         .preview-stat .value.success {
@@ -538,7 +970,7 @@
         /* About Section */
         .about {
             padding: 5rem 2rem;
-            background: #f7fafc;
+            background: linear-gradient(180deg, #fefce8 0%, #fef3c7 100%);
         }
         
         .about .container {
@@ -562,6 +994,10 @@
         
         .value-item {
             text-align: center;
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.1);
         }
         
         .value-item .icon {
@@ -586,7 +1022,8 @@
             padding: 2rem;
             border-radius: 12px;
             margin-top: 3rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.15);
+            border-left: 4px solid #f59e0b;
         }
         
         .testimonial blockquote {
@@ -604,7 +1041,7 @@
         /* Contact Section */
         .contact {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%);
             color: white;
         }
         
@@ -663,7 +1100,7 @@
         
         /* Footer */
         footer {
-            background: #0f0f1a;
+            background: linear-gradient(180deg, #1e1b4b 0%, #0f0d24 100%);
             color: white;
             padding: 3rem 2rem 2rem;
         }
@@ -741,15 +1178,6 @@
                 <div class="dropdown">
                     <a href="#products">Products ▾</a>
                     <div class="dropdown-content">
-                        <a href="#gradtrack">
-                            <div class="product-item">
-                                <span class="product-icon">📊</span>
-                                <div>
-                                    <strong>GradTrack</strong>
-                                    <span class="product-desc">Graduation Progress Tracking</span>
-                                </div>
-                            </div>
-                        </a>
                         <a href="/tiertrak.html">
                             <div class="product-item">
                                 <span class="product-icon">📈</span>
@@ -759,7 +1187,16 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="product-item" style="padding: 0.75rem 1rem; opacity: 0.7; cursor: default;">
+                        <a href="/gradtrack.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>GradTrack</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="product-item" style="padding: 0.75rem 1rem; opacity: 0.6; cursor: default;">
                             <span class="product-icon">👥</span>
                             <div>
                                 <strong>StaffTrak</strong> <span style="font-size: 0.7rem; color: #8b5cf6; font-weight: 600;">COMING SOON</span>
@@ -776,31 +1213,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-badge">🎓 Educational Software That Empowers</div>
-        <h1>Tools to Help Every Student Succeed</h1>
-        <p>From graduation tracking to intervention management, ScholarPath Systems provides schools with the visibility they need to support student success.</p>
-        <div class="hero-buttons">
-            <a href="#products" class="btn btn-primary">Explore Our Products</a>
-            <a href="#contact" class="btn btn-secondary">Request a Demo</a>
-        </div>
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <div class="number">100%</div>
-                <div class="label">FERPA Compliant</div>
-            </div>
-            <div class="trust-badge">
-                <div class="number">SOC 2</div>
-                <div class="label">Certified Infrastructure</div>
-            </div>
-            <div class="trust-badge">
-                <div class="number">24/7</div>
-                <div class="label">Data Encryption</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
@@ -811,70 +1223,13 @@
             </div>
             
             <div class="products-grid">
-                <!-- GradTrack -->
-                <div class="product-card" id="gradtrack">
-                    <span class="badge">Flagship Product</span>
-                    <div class="icon">📊</div>
-                    <h3>GradTrack</h3>
-                    <div class="tagline">Graduation Progress Tracking System</div>
-                    <p>Give students, counselors, and parents real-time visibility into graduation requirements, credit completion, and career pathway progress.</p>
-                    
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <span class="icon">📥</span>
-                            <div class="text">
-                                <strong>Easy SIS Import</strong>
-                                PowerSchool, Synergy, Skyward & more
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">🎯</span>
-                            <div class="text">
-                                <strong>Progress Tracking</strong>
-                                Visual credit completion dashboards
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">🎓</span>
-                            <div class="text">
-                                <strong>Dual Credit Support</strong>
-                                Track transfer vs. associate credits
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">🛤ï¸</span>
-                            <div class="text">
-                                <strong>CTE Pathways</strong>
-                                Career pathway completion tracking
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">⚠ï¸</span>
-                            <div class="text">
-                                <strong>At-Risk Alerts</strong>
-                                Identify students falling behind
-                            </div>
-                        </div>
-                        <div class="feature-item">
-                            <span class="icon">🔒</span>
-                            <div class="text">
-                                <strong>FERPA Compliant</strong>
-                                Secure access & audit logging
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#portals" class="btn btn-outline">View Portals</a>
-                    <a href="#contact" class="btn btn-solid">Request Demo</a>
-                </div>
-                
-                <!-- TierTrak -->
+                <!-- TierTrak (Featured) -->
                 <div class="product-card" id="tiertrak">
-                    <span class="badge new">New Product</span>
+                    <span class="badge featured">Featured Product</span>
                     <div class="icon">📈</div>
                     <h3>TierTrak</h3>
                     <div class="tagline">MTSS Intervention Tracking System</div>
-                    <p>Streamline your Multi-Tiered System of Supports with comprehensive intervention tracking, progress monitoring, and parent collaboration tools.</p>
+                    <p>The only MTSS platform where parents are partners, not passengers. Streamline interventions with comprehensive tracking, progress monitoring, and true parent collaboration.</p>
                     
                     <div class="features-list">
                         <div class="feature-item">
@@ -892,24 +1247,24 @@
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="icon">👨â€👩â€👧</span>
+                            <span class="icon">👨‍👩‍👧</span>
                             <div class="text">
                                 <strong>Parent Portal</strong>
-                                Families log progress & view data
+                                Families log progress &amp; view data
                             </div>
                         </div>
                         <div class="feature-item">
-                            <span class="icon">ðŸ“</span>
+                            <span class="icon">📁</span>
                             <div class="text">
                                 <strong>Document Management</strong>
-                                504 Plans, IEPs & evaluations
+                                504 Plans, IEPs &amp; evaluations
                             </div>
                         </div>
                         <div class="feature-item">
                             <span class="icon">🔔</span>
                             <div class="text">
                                 <strong>Smart Alerts</strong>
-                                Missing logs & expiring docs
+                                Missing logs &amp; expiring docs
                             </div>
                         </div>
                         <div class="feature-item">
@@ -925,8 +1280,65 @@
                     <a href="#contact" class="btn btn-solid">Request Demo</a>
                 </div>
                 
+                <!-- GradTrack -->
+                <div class="product-card" id="gradtrack">
+                    <span class="badge">Flagship Product</span>
+                    <div class="icon">📊</div>
+                    <h3>GradTrack</h3>
+                    <div class="tagline">Graduation Progress Tracking System</div>
+                    <p>Give students, counselors, and parents real-time visibility into graduation requirements, credit completion, and career pathway progress.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="icon">📥</span>
+                            <div class="text">
+                                <strong>Easy SIS Import</strong>
+                                PowerSchool, Synergy, Skyward &amp; more
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">🎯</span>
+                            <div class="text">
+                                <strong>Progress Tracking</strong>
+                                Visual credit completion dashboards
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">🎓</span>
+                            <div class="text">
+                                <strong>Dual Credit Support</strong>
+                                Track transfer vs. associate credits
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">🛤️</span>
+                            <div class="text">
+                                <strong>CTE Pathways</strong>
+                                Career pathway completion tracking
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">⚠️</span>
+                            <div class="text">
+                                <strong>At-Risk Alerts</strong>
+                                Identify students falling behind
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <span class="icon">🔒</span>
+                            <div class="text">
+                                <strong>FERPA Compliant</strong>
+                                Secure access &amp; audit logging
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="/gradtrack.html" class="btn btn-outline">Learn More</a>
+                    <a href="#contact" class="btn btn-solid">Request Demo</a>
+                </div>
+                
                 <!-- StaffTrak - Coming Soon -->
-                <div class="product-card" id="stafftrak" style="opacity: 0.85; position: relative;">
+                <div class="product-card" id="stafftrak" style="opacity: 0.85;">
                     <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #a855f7); color: white;">Coming Soon</span>
                     <div class="icon">👥</div>
                     <h3>StaffTrak</h3>
@@ -984,6 +1396,31 @@
         </div>
     </section>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">🎓 Educational Software That Empowers</div>
+        <h1>Tools to Help Every Student Succeed</h1>
+        <p>From intervention management to graduation tracking, ScholarPath Systems provides schools with the visibility they need to support student success.</p>
+        <div class="hero-buttons">
+            <a href="#portals" class="btn btn-primary">View Portal Demos</a>
+            <a href="#contact" class="btn btn-secondary">Request a Demo</a>
+        </div>
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <div class="number">100%</div>
+                <div class="label">FERPA Compliant</div>
+            </div>
+            <div class="trust-badge">
+                <div class="number">SOC 2</div>
+                <div class="label">Certified Infrastructure</div>
+            </div>
+            <div class="trust-badge">
+                <div class="number">24/7</div>
+                <div class="label">Data Encryption</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Portals Section -->
     <section class="portals" id="portals">
         <div class="container">
@@ -994,10 +1431,272 @@
             </div>
             
             <div class="portal-tabs">
-                <span class="portal-tab active">GradTrack Portals</span>
-                <span class="portal-tab">TierTrak Portals</span>
+                <button class="portal-tab active" data-product="tiertrak">TierTrak Portals</button>
+                <button class="portal-tab" data-product="gradtrack">GradTrack Portals</button>
             </div>
             
+            <!-- TierTrak Partnership Section -->
+            <div class="partnership-section active" id="tiertrak-partnership">
+                <div class="tiertrak-partnership">
+                    <div class="partnership-content">
+                        <div class="label">What Makes TierTrak Different</div>
+                        <h3>Parents as Partners,<br>Not Passengers</h3>
+                        <p>Most MTSS tools treat parents as an afterthought — occasional reports, limited visibility. TierTrak is different.</p>
+                        <p>With TierTrak, parents aren't just informed — they're <strong>involved</strong>. They log progress at home, see the same data teachers see, and become true partners in their child's success.</p>
+                        
+                        <div class="partnership-stats">
+                            <div class="stat-item">
+                                <div class="number">2x</div>
+                                <div class="text">More touchpoints when<br>parents log at home</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number">100%</div>
+                                <div class="text">Visibility for families<br>into their child's interventions</div>
+                            </div>
+                        </div>
+                        
+                        <a href="/tiertrak.html" class="btn btn-solid">See How It Works →</a>
+                    </div>
+                    
+                    <div class="partnership-visual">
+                        <div class="log-card">
+                            <div class="log-header">
+                                <span class="icon">🏫</span>
+                                <span class="location">At School</span>
+                            </div>
+                            <div class="log-entry">
+                                <div class="log-avatar">JT</div>
+                                <div class="log-details">
+                                    <div class="name">Ms. Thompson</div>
+                                    <div class="action">Logged reading fluency: <strong>7/10</strong></div>
+                                    <div class="time">Today, 2:30 PM</div>
+                                </div>
+                            </div>
+                            <div class="log-note">"Great focus during small group today!"</div>
+                        </div>
+                        
+                        <div class="unified-data">
+                            <span>🔄</span>
+                            <span>Same student. Same goals. Unified data.</span>
+                        </div>
+                        
+                        <div class="log-card home">
+                            <div class="log-header">
+                                <span class="icon">🏠</span>
+                                <span class="location">At Home</span>
+                            </div>
+                            <div class="log-entry">
+                                <div class="log-avatar parent">MG</div>
+                                <div class="log-details">
+                                    <div class="name">Maria Garcia (Mom)</div>
+                                    <div class="action">Logged reading practice: <strong>8/10</strong></div>
+                                    <div class="time">Today, 7:15 PM</div>
+                                </div>
+                            </div>
+                            <div class="log-note">"Read for 20 mins before bed. She loved the book!"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GradTrack Partnership Section -->
+            <div class="partnership-section" id="gradtrack-partnership">
+                <div class="gradtrack-partnership">
+                    <div class="partnership-content">
+                        <div class="label">What Makes GradTrack Different</div>
+                        <h3>Progress They Can See,<br>Anytime They Need It</h3>
+                        <p>Too often, students and parents only learn about graduation progress at annual meetings — or worse, when it's too late to course correct.</p>
+                        <p>GradTrack gives students and families <strong>instant visibility</strong> into credit completion, pathway progress, and what's needed to graduate. No phone calls. No waiting. Just clarity.</p>
+                        
+                        <div class="partnership-stats">
+                            <div class="stat-item">
+                                <div class="number">0</div>
+                                <div class="text">Phone calls needed to<br>check graduation status</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number">24/7</div>
+                                <div class="text">Access for students<br>and families</div>
+                            </div>
+                        </div>
+                        
+                        <a href="/gradtrack.html" class="btn btn-solid">See How It Works →</a>
+                    </div>
+                    
+                    <div class="progress-visual">
+                        <div class="viewer-card">
+                            <div class="viewer-header">
+                                <span class="icon">🎓</span>
+                                <span class="viewer">Student View</span>
+                            </div>
+                            <div class="viewer-content">
+                                <div class="viewer-avatar">JS</div>
+                                <div class="viewer-details">
+                                    <div class="name">Jamie Smith</div>
+                                    <div class="role">Grade 11 • Class of 2027</div>
+                                </div>
+                            </div>
+                            <div class="progress-preview">
+                                <div class="progress-item">
+                                    <span class="label">Credits Earned</span>
+                                    <span class="value">15.5 / 24</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="label">On Track</span>
+                                    <span class="value success">✓ Yes</span>
+                                </div>
+                                <div class="progress-bar-mini">
+                                    <div class="fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="same-view">
+                            <span>👁️</span>
+                            <span>Same data. Same view. No surprises.</span>
+                        </div>
+                        
+                        <div class="viewer-card parent">
+                            <div class="viewer-header">
+                                <span class="icon">👨‍👩‍👧</span>
+                                <span class="viewer">Parent View</span>
+                            </div>
+                            <div class="viewer-content">
+                                <div class="viewer-avatar parent">PS</div>
+                                <div class="viewer-details">
+                                    <div class="name">Parent of Jamie</div>
+                                    <div class="role">Family Account</div>
+                                </div>
+                            </div>
+                            <div class="progress-preview">
+                                <div class="progress-item">
+                                    <span class="label">Credits Earned</span>
+                                    <span class="value">15.5 / 24</span>
+                                </div>
+                                <div class="progress-item">
+                                    <span class="label">On Track</span>
+                                    <span class="value success">✓ Yes</span>
+                                </div>
+                                <div class="progress-bar-mini">
+                                    <div class="fill" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TierTrak Portals Grid -->
+            <div class="portals-grid active" id="tiertrak-portals">
+                <div class="portal-card">
+                    <div class="portal-icon">📋</div>
+                    <h3>Staff Portal</h3>
+                    <p>View assigned students and log intervention progress.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar">JT</div>
+                            <div>
+                                <div class="preview-name">Ms. Thompson</div>
+                                <div class="preview-role">3rd Grade Teacher</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">My Students</span>
+                            <span class="value">8</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Tier 2</span>
+                            <span class="value warning">5</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Tier 3</span>
+                            <span class="value warning">3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">👨‍👩‍👧</div>
+                    <h3>Parent Portal</h3>
+                    <p>View interventions, log progress, access documents.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar">PG</div>
+                            <div>
+                                <div class="preview-name">Parent of Sophia</div>
+                                <div class="preview-role">Family Account</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Student</span>
+                            <span class="value">Sophia Garcia</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Current Tier</span>
+                            <span class="value warning">Tier 3</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Intervention</span>
+                            <span class="value">Reading Support</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">⚙️</div>
+                    <h3>Admin Portal</h3>
+                    <p>Manage students, staff, and view alerts.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar">AD</div>
+                            <div>
+                                <div class="preview-name">Dr. Williams</div>
+                                <div class="preview-role">Administrator</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Total Students</span>
+                            <span class="value">47</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Interventions</span>
+                            <span class="value">62</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Docs Expiring</span>
+                            <span class="value warning">3</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">📊</div>
+                    <h3>Reports</h3>
+                    <p>Track progress trends and intervention effectiveness.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar">RP</div>
+                            <div>
+                                <div class="preview-name">MTSS Reports</div>
+                                <div class="preview-role">Data &amp; Analytics</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Avg Progress</span>
+                            <span class="value success">+2.4 pts</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Tier Transitions</span>
+                            <span class="value">12 this month</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Logs This Week</span>
+                            <span class="value success">94%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GradTrack Portals Grid -->
             <div class="portals-grid" id="gradtrack-portals">
                 <div class="portal-card">
                     <div class="portal-icon">🎓</div>
@@ -1008,7 +1707,7 @@
                             <div class="preview-avatar">JS</div>
                             <div>
                                 <div class="preview-name">Jamie Smith</div>
-                                <div class="preview-role">Grade 11 â€¢ Class of 2027</div>
+                                <div class="preview-role">Grade 11 • Class of 2027</div>
                             </div>
                         </div>
                         <div class="preview-stat">
@@ -1059,7 +1758,7 @@
                 </div>
                 
                 <div class="portal-card">
-                    <div class="portal-icon">👨â€👩â€👧</div>
+                    <div class="portal-icon">👨‍👩‍👧</div>
                     <h3>Parent Portal</h3>
                     <p>Monitor student progress and stay informed without calling school.</p>
                     <div class="portal-preview">
@@ -1080,13 +1779,13 @@
                         </div>
                         <div class="preview-stat">
                             <span class="label">On Track</span>
-                            <span class="value success">âœ“ Yes</span>
+                            <span class="value success">✓ Yes</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="portal-card">
-                    <div class="portal-icon">⚙ï¸</div>
+                    <div class="portal-icon">⚙️</div>
                     <h3>Admin Portal</h3>
                     <p>Import data, configure requirements, and manage staff access.</p>
                     <div class="portal-preview">
@@ -1138,12 +1837,12 @@
                     <p>Every feature is designed with student success in mind.</p>
                 </div>
                 <div class="value-item">
-                    <div class="icon">ðŸ”</div>
+                    <div class="icon">🔐</div>
                     <h4>Privacy-First</h4>
                     <p>Student data security is non-negotiable.</p>
                 </div>
                 <div class="value-item">
-                    <div class="icon">ðŸ¤</div>
+                    <div class="icon">🤝</div>
                     <h4>School Partners</h4>
                     <p>We work alongside schools, not around them.</p>
                 </div>
@@ -1164,17 +1863,17 @@
                 <h2 class="section-title" style="color: white;">Ready to Support Student Success?</h2>
             </div>
             
-            <p>Whether you're interested in GradTrack, TierTrak, or both—we'd love to show you how ScholarPath can work for your school.</p>
+            <p>Whether you're interested in TierTrak, GradTrack, or both—we'd love to show you how ScholarPath can work for your school.</p>
             
             <div class="contact-methods">
                 <div class="contact-method">
-                    <div class="icon">✉ï¸</div>
+                    <div class="icon">✉️</div>
                     <div><strong>Email</strong></div>
                     <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
                 </div>
             </div>
             
-            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20GradTrack%20/%20TierTrak%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Request a Demo →</a>
+            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Request a Demo →</a>
         </div>
     </section>
 
@@ -1188,8 +1887,8 @@
             <div>
                 <h4>Products</h4>
                 <ul>
-                    <li><a href="#gradtrack">GradTrack</a></li>
                     <li><a href="/tiertrak.html">TierTrak</a></li>
+                    <li><a href="/gradtrack.html">GradTrack</a></li>
                 </ul>
             </div>
             <div>
@@ -1212,5 +1911,30 @@
             FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
         </div>
     </footer>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.portal-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const product = tab.dataset.product;
+                
+                // Update active tab
+                document.querySelectorAll('.portal-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Show correct partnership section
+                document.querySelectorAll('.partnership-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(`${product}-partnership`).classList.add('active');
+                
+                // Show correct portals grid
+                document.querySelectorAll('.portals-grid').forEach(grid => {
+                    grid.classList.remove('active');
+                });
+                document.getElementById(`${product}-portals`).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
