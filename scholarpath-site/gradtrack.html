@@ -20,13 +20,14 @@
         
         /* Navigation */
         nav {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(79, 70, 229, 0.08);
+            backdrop-filter: blur(10px);
         }
         
         nav .container {
@@ -87,6 +88,7 @@
             display: block;
             padding: 0.75rem 1rem;
             color: #4a5568;
+            text-decoration: none;
         }
         
         .dropdown-content a:hover {
@@ -98,6 +100,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            pointer-events: none;
         }
         
         .dropdown-content .product-icon {
@@ -124,7 +127,7 @@
         
         /* Hero Section - GradTrack Purple Theme */
         .hero {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             padding: 8rem 2rem 5rem;
             color: white;
         }
@@ -315,7 +318,7 @@
         
         /* Problem Section */
         .problem {
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
             color: white;
             padding: 5rem 2rem;
         }
@@ -335,7 +338,7 @@
         }
         
         .problem .section-label {
-            color: #f87171;
+            color: #fbbf24;
         }
         
         .section-title {
@@ -362,10 +365,11 @@
         }
         
         .problem-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.08);
             border-radius: 12px;
             padding: 2rem;
             text-align: left;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .problem-card .icon {
@@ -376,18 +380,18 @@
         .problem-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
-            color: #f87171;
+            color: #fbbf24;
         }
         
         .problem-card p {
-            opacity: 0.8;
+            opacity: 0.85;
             font-size: 0.95rem;
         }
         
         /* Solution Section */
         .solution {
             padding: 5rem 2rem;
-            background: white;
+            background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 100%);
         }
         
         .solution .container {
@@ -603,7 +607,7 @@
         /* Portals Section */
         .portals {
             padding: 5rem 2rem;
-            background: #f7fafc;
+            background: linear-gradient(180deg, #f5f3ff 0%, #fefce8 100%);
         }
         
         .portals .container {
@@ -617,7 +621,7 @@
         }
         
         .portals .section-label {
-            color: #4f46e5;
+            color: #6366f1;
         }
         
         .portals-grid {
@@ -643,13 +647,14 @@
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .portal-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
         }
         
         .portal-card .icon {
@@ -671,7 +676,7 @@
         /* Features Section */
         .features {
             padding: 5rem 2rem;
-            background: white;
+            background: linear-gradient(180deg, #fefce8 0%, #fef3c7 100%);
         }
         
         .features .container {
@@ -707,9 +712,17 @@
         }
         
         .feature-card {
-            background: #f7fafc;
+            background: white;
             border-radius: 12px;
             padding: 2rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.15);
         }
         
         .feature-card .icon {
@@ -731,7 +744,7 @@
         /* Security Section */
         .security {
             padding: 5rem 2rem;
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
             color: white;
         }
         
@@ -742,7 +755,7 @@
         }
         
         .security .section-label {
-            color: #a5b4fc;
+            color: #c4b5fd;
         }
         
         .security-badges {
@@ -775,7 +788,7 @@
         /* CTA Section */
         .cta {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             color: white;
             text-align: center;
         }
@@ -830,19 +843,20 @@
         
         .btn-cta {
             background: white;
-            color: #4f46e5;
+            color: #6366f1;
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
+            transition: all 0.3s;
         }
         
         .btn-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
         }
         
         /* Footer */
         footer {
-            background: #0f0f1a;
+            background: linear-gradient(180deg, #1e1b4b 0%, #0f0d24 100%);
             color: white;
             padding: 3rem 2rem 2rem;
         }
