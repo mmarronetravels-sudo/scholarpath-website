@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradTrack - Graduation Progress Tracking | ScholarPath Systems</title>
+    <meta name="description" content="GradTrack gives students, parents, and counselors real-time visibility into graduation progress. No phone calls. No surprises. Just clarity. FERPA compliant.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+        
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+        
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4a5568;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f7fafc;
+            color: #4f46e5;
+        }
+        
+        .dropdown-content .product-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .dropdown-content .product-icon {
+            font-size: 1.25rem;
+        }
+        
+        .dropdown-content .product-desc {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+        }
+        
+        .btn-demo {
+            background: #4f46e5;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .btn-demo:hover {
+            background: #4338ca;
+        }
+        
+        /* Hero Section - GradTrack Purple Theme */
+        .hero {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            padding: 8rem 2rem 5rem;
+            color: white;
+        }
+        
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 900px) {
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #4f46e5;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #4f46e5;
+        }
+        
+        /* Hero Visual */
+        .hero-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .viewer-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .viewer-card.student {
+            border-left: 4px solid #fbbf24;
+        }
+        
+        .viewer-card.parent {
+            border-left: 4px solid #a78bfa;
+        }
+        
+        .viewer-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .viewer-header .icon {
+            font-size: 1.25rem;
+        }
+        
+        .viewer-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .viewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .viewer-details .name {
+            font-weight: 600;
+        }
+        
+        .viewer-details .role {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .progress-preview {
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+        }
+        
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .progress-item .value {
+            font-weight: 600;
+        }
+        
+        .progress-bar-mini {
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .progress-bar-mini .fill {
+            height: 100%;
+            background: #fbbf24;
+            border-radius: 4px;
+        }
+        
+        .same-view-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 8px;
+            font-weight: 500;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: #1a1a2e;
+            color: white;
+            padding: 5rem 2rem;
+        }
+        
+        .problem .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .problem .section-label {
+            color: #f87171;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 3rem;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .problems-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .problem-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: left;
+        }
+        
+        .problem-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #f87171;
+        }
+        
+        .problem-card p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .solution .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .solution .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .solution .section-label {
+            color: #4f46e5;
+        }
+        
+        .solution-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .solution-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .solution-item.reverse {
+            direction: rtl;
+        }
+        
+        .solution-item.reverse > * {
+            direction: ltr;
+        }
+        
+        @media (max-width: 900px) {
+            .solution-item, .solution-item.reverse {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+        }
+        
+        .solution-content .number {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #eef2ff;
+            color: #4f46e5;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-content h3 {
+            font-size: 1.5rem;
+            color: #1a1a2e;
+            margin-bottom: 1rem;
+        }
+        
+        .solution-content p {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        
+        .solution-example {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 3px solid #4f46e5;
+        }
+        
+        .solution-example .label {
+            font-size: 0.75rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .solution-example .text {
+            color: #1a1a2e;
+            font-style: italic;
+        }
+        
+        .solution-visual {
+            background: #f7fafc;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        
+        .solution-visual img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        
+        /* Mock UI Cards */
+        .mock-student-view {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .mock-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .mock-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .mock-name {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .mock-role {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+        
+        .mock-stat {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .mock-stat:last-child {
+            border-bottom: none;
+        }
+        
+        .mock-stat .label {
+            color: #718096;
+        }
+        
+        .mock-stat .value {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .mock-stat .value.success {
+            color: #16a34a;
+        }
+        
+        .mock-stat .value.warning {
+            color: #ea580c;
+        }
+        
+        .mock-progress {
+            margin-top: 1rem;
+        }
+        
+        .mock-progress-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .mock-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            border-radius: 6px;
+        }
+        
+        .mock-requirements {
+            margin-top: 1.5rem;
+        }
+        
+        .mock-requirements h4 {
+            font-size: 0.9rem;
+            color: #1a1a2e;
+            margin-bottom: 0.75rem;
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .requirement-item .check {
+            color: #16a34a;
+        }
+        
+        .requirement-item .pending {
+            color: #718096;
+        }
+        
+        /* Portals Section */
+        .portals {
+            padding: 5rem 2rem;
+            background: #f7fafc;
+        }
+        
+        .portals .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .portals .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .portals .section-label {
+            color: #4f46e5;
+        }
+        
+        .portals-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1000px) {
+            .portals-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .portals-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .portal-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .portal-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portal-card h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portal-card p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        
+        .features .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .features .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .features .section-label {
+            color: #4f46e5;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feature-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .feature-card .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+        
+        /* Security Section */
+        .security {
+            padding: 5rem 2rem;
+            background: #1a1a2e;
+            color: white;
+        }
+        
+        .security .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .security .section-label {
+            color: #a5b4fc;
+        }
+        
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .security-badge {
+            text-align: center;
+        }
+        
+        .security-badge .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .security-badge h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .security-badge p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255,255,255,0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-email a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .cta-email button {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+        }
+        
+        .cta-email button:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .btn-cta {
+            background: white;
+            color: #4f46e5;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+        
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        footer .brand {
+            color: #a5b4fc;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer .brand-desc {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+        
+        footer h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #9ca3af;
+        }
+        
+        footer ul {
+            list-style: none;
+        }
+        
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer ul a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        footer ul a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #2d2d44;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/tiertrak.html">
+                            <div class="product-item">
+                                <span class="product-icon">📈</span>
+                                <div>
+                                    <strong>TierTrak</strong>
+                                    <span class="product-desc">MTSS Intervention Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/gradtrack.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>GradTrack</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="#cta" class="btn-demo">Request a Demo →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">📊 Graduation Progress Tracking</div>
+                <h1>Progress They Can See, Anytime They Need It</h1>
+                <p>Give students, parents, and counselors instant visibility into graduation requirements. No phone calls. No waiting. No surprises at report card time.</p>
+                <div class="hero-buttons">
+                    <a href="#cta" class="btn btn-primary">Request a Demo</a>
+                    <a href="#solution" class="btn btn-secondary">See How It Works</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="viewer-card student">
+                    <div class="viewer-header">
+                        <span class="icon">🎓</span>
+                        <span>Student View</span>
+                    </div>
+                    <div class="viewer-content">
+                        <div class="viewer-avatar">JS</div>
+                        <div class="viewer-details">
+                            <div class="name">Jamie Smith</div>
+                            <div class="role">Grade 11 • Class of 2027</div>
+                        </div>
+                    </div>
+                    <div class="progress-preview">
+                        <div class="progress-item">
+                            <span>Credits Earned</span>
+                            <span class="value">15.5 / 24</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>On Track</span>
+                            <span class="value">✓ Yes</span>
+                        </div>
+                        <div class="progress-bar-mini">
+                            <div class="fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="same-view-badge">
+                    <span>👁️</span>
+                    <span>Same data. Same view. No surprises.</span>
+                </div>
+                
+                <div class="viewer-card parent">
+                    <div class="viewer-header">
+                        <span class="icon">👨‍👩‍👧</span>
+                        <span>Parent View</span>
+                    </div>
+                    <div class="viewer-content">
+                        <div class="viewer-avatar">PS</div>
+                        <div class="viewer-details">
+                            <div class="name">Parent of Jamie</div>
+                            <div class="role">Family Account</div>
+                        </div>
+                    </div>
+                    <div class="progress-preview">
+                        <div class="progress-item">
+                            <span>Credits Earned</span>
+                            <span class="value">15.5 / 24</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>On Track</span>
+                            <span class="value">✓ Yes</span>
+                        </div>
+                        <div class="progress-bar-mini">
+                            <div class="fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-label">The Problem</div>
+            <h2 class="section-title">When Progress Is Invisible, Problems Grow</h2>
+            <p class="section-subtitle">Too many students and families only discover graduation issues when it's too late to course correct.</p>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon">📞</div>
+                    <h3>Phone Tag with Counselors</h3>
+                    <p>Parents call the school, leave messages, wait for callbacks — just to get a simple progress update.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">😰</div>
+                    <h3>Report Card Surprises</h3>
+                    <p>Students don't realize they're behind until grades come out. By then, catching up is twice as hard.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon">📋</div>
+                    <h3>Counselor Overload</h3>
+                    <p>Counselors spend hours answering "how many credits do I have?" instead of providing real support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">The GradTrack Difference</div>
+                <h2 class="section-title">Visibility That Empowers Everyone</h2>
+            </div>
+            
+            <div class="solution-item">
+                <div class="solution-content">
+                    <div class="number">1</div>
+                    <h3>Students Own Their Journey</h3>
+                    <p>Students log in anytime to see exactly where they stand — credits earned, requirements remaining, and whether they're on track to graduate. No guessing. No waiting.</p>
+                    <div class="solution-example">
+                        <div class="label">Student thinks:</div>
+                        <div class="text">"I can see I need 2 more science credits. I'll talk to my counselor about adding AP Biology."</div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="mock-student-view">
+                        <div class="mock-header">
+                            <div class="mock-avatar">JS</div>
+                            <div>
+                                <div class="mock-name">Jamie Smith</div>
+                                <div class="mock-role">Grade 11 • Class of 2027</div>
+                            </div>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Total Credits Earned</span>
+                            <span class="value">15.5 / 24</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">On Track to Graduate</span>
+                            <span class="value success">✓ Yes</span>
+                        </div>
+                        <div class="mock-progress">
+                            <div class="mock-progress-bar">
+                                <div class="mock-progress-fill" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="mock-requirements">
+                            <h4>Requirements Progress</h4>
+                            <div class="requirement-item">
+                                <span class="check">✓</span>
+                                <span>English: 4/4 credits</span>
+                            </div>
+                            <div class="requirement-item">
+                                <span class="check">✓</span>
+                                <span>Math: 3/3 credits</span>
+                            </div>
+                            <div class="requirement-item">
+                                <span class="pending">○</span>
+                                <span>Science: 2/3 credits</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution-item reverse">
+                <div class="solution-content">
+                    <div class="number">2</div>
+                    <h3>Parents Stay Informed — Automatically</h3>
+                    <p>Parents see the same dashboard their student sees. No phone calls needed. No waiting for parent-teacher conferences. Just log in and know.</p>
+                    <div class="solution-example">
+                        <div class="label">Parent thinks:</div>
+                        <div class="text">"Jamie is on track — I can see it right here. One less thing to worry about."</div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="mock-student-view">
+                        <div class="mock-header">
+                            <div class="mock-avatar" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">PS</div>
+                            <div>
+                                <div class="mock-name">Parent of Jamie</div>
+                                <div class="mock-role">Family Account</div>
+                            </div>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Student</span>
+                            <span class="value">Jamie Smith</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Grade</span>
+                            <span class="value">11</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Credits Earned</span>
+                            <span class="value">15.5 / 24</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">On Track</span>
+                            <span class="value success">✓ Yes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution-item">
+                <div class="solution-content">
+                    <div class="number">3</div>
+                    <h3>Counselors Focus on Support, Not Status</h3>
+                    <p>When students and parents can check progress themselves, counselors get their time back. Less status update calls means more time for real conversations about goals, challenges, and college planning.</p>
+                    <div class="solution-example">
+                        <div class="label">Counselor thinks:</div>
+                        <div class="text">"Instead of answering 20 'how many credits?' emails, I can actually help the 3 students who are at risk."</div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="mock-student-view">
+                        <div class="mock-header">
+                            <div class="mock-avatar" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">RM</div>
+                            <div>
+                                <div class="mock-name">Raquel MacSwain</div>
+                                <div class="mock-role">School Counselor</div>
+                            </div>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Total Students</span>
+                            <span class="value">142</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">On Track</span>
+                            <span class="value success">94%</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">At Risk</span>
+                            <span class="value warning">8 students</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Status Calls This Week</span>
+                            <span class="value success">↓ 70% fewer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="solution-item reverse">
+                <div class="solution-content">
+                    <div class="number">4</div>
+                    <h3>Early Alerts Catch Problems Before They Grow</h3>
+                    <p>GradTrack automatically flags students who are falling behind on credits. Counselors see at-risk students at a glance — not when it's too late, but when there's still time to help.</p>
+                    <div class="solution-example">
+                        <div class="label">Alert example:</div>
+                        <div class="text">"Marcus needs 1 more elective credit to stay on track for graduation. Recommend course adjustment."</div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="mock-student-view" style="border-left: 4px solid #ea580c;">
+                        <div style="background: #fef3c7; color: #92400e; padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1rem; font-size: 0.9rem;">
+                            ⚠️ <strong>At-Risk Alert:</strong> 8 students need attention
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Marcus Johnson (Grade 10)</span>
+                            <span class="value warning">Behind 1 credit</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Sofia Rodriguez (Grade 11)</span>
+                            <span class="value warning">Missing PE req</span>
+                        </div>
+                        <div class="mock-stat">
+                            <span class="label">Tyler Chen (Grade 12)</span>
+                            <span class="value warning">Needs 0.5 elective</span>
+                        </div>
+                        <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; text-align: center;">
+                            <a href="#" style="color: #4f46e5; text-decoration: none; font-weight: 600;">View All At-Risk Students →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portals Section -->
+    <section class="portals">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Role-Based Portals</div>
+                <h2 class="section-title">The Right View for Every User</h2>
+                <p class="section-subtitle">Each stakeholder sees exactly what they need — nothing more, nothing less.</p>
+            </div>
+            
+            <div class="portals-grid">
+                <div class="portal-card">
+                    <div class="icon">🎓</div>
+                    <h3>Student Portal</h3>
+                    <p>Check credits, track progress, see requirements at a glance</p>
+                </div>
+                <div class="portal-card">
+                    <div class="icon">👨‍👩‍👧</div>
+                    <h3>Parent Portal</h3>
+                    <p>Monitor your child's progress without calling the school</p>
+                </div>
+                <div class="portal-card">
+                    <div class="icon">📋</div>
+                    <h3>Counselor Portal</h3>
+                    <p>Manage caseloads and identify at-risk students instantly</p>
+                </div>
+                <div class="portal-card">
+                    <div class="icon">⚙️</div>
+                    <h3>Admin Portal</h3>
+                    <p>Import data, configure requirements, manage access</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Features</div>
+                <h2 class="section-title">Everything You Need to Track Graduation</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">📥</div>
+                    <h3>Easy SIS Import</h3>
+                    <p>Import student data from PowerSchool, Synergy, Skyward, and more with just a few clicks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>Visual Progress Tracking</h3>
+                    <p>Beautiful dashboards show credit completion at a glance — for students, parents, and staff.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🛤️</div>
+                    <h3>CTE Pathway Tracking</h3>
+                    <p>Track career pathway completion alongside traditional graduation requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎓</div>
+                    <h3>Dual Credit Support</h3>
+                    <p>Differentiate between transfer credits and associate degree credits for dual enrollment students.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">⚠️</div>
+                    <h3>At-Risk Alerts</h3>
+                    <p>Automatically flag students who are falling behind before it becomes a crisis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">📊</div>
+                    <h3>Reports & Analytics</h3>
+                    <p>School-wide graduation projections, cohort tracking, and requirement completion rates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security">
+        <div class="container">
+            <div class="section-label">Security & Compliance</div>
+            <h2 class="section-title">Student Data Protected, Always</h2>
+            <p class="section-subtitle">GradTrack is built with security and FERPA compliance at its core.</p>
+            
+            <div class="security-badges">
+                <div class="security-badge">
+                    <div class="icon">🛡️</div>
+                    <h4>FERPA Compliant</h4>
+                    <p>Full compliance with student privacy regulations</p>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">🔒</div>
+                    <h4>Data Encryption</h4>
+                    <p>AES-256 encryption at rest and in transit</p>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">👤</div>
+                    <h4>Role-Based Access</h4>
+                    <p>Users only see what they're authorized to see</p>
+                </div>
+                <div class="security-badge">
+                    <div class="icon">📝</div>
+                    <h4>Audit Logging</h4>
+                    <p>Complete trail of who accessed what and when</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <h2>Ready to Give Students Visibility into Their Future?</h2>
+            <p>See how GradTrack can reduce counselor workload while empowering students and families.</p>
+            
+            <div class="cta-email">
+                <span>✉️</span>
+                <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
+                <button onclick="navigator.clipboard.writeText('sps@scholarpathsystems.org'); this.textContent='Copied!';">Copy</button>
+            </div>
+            
+            <br>
+            
+            <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20GradTrack%20for%20our%20school.%0A%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-cta">Schedule a Demo →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <div class="brand">📚 ScholarPath Systems</div>
+                <p class="brand-desc">Educational software that empowers students and schools.</p>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/tiertrak.html">TierTrak</a></li>
+                    <li><a href="/gradtrack.html">GradTrack</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="#cta">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 ScholarPath Systems, LLC. All rights reserved.<br>
+            FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
+        </div>
+    </footer>
+</body>
+</html>
