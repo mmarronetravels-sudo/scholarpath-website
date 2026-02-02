@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScholarPath Systems | Educational Software That Empowers</title>
-    <meta name="description" content="Educational software for schools. TierTrak for MTSS intervention management with parent collaboration. GradTrack for graduation progress tracking. FERPA compliant.">
+    <meta name="description" content="Educational software for schools. TierTrak for MTSS intervention management with parent collaboration. GradTrack for graduation progress tracking. StaffTrak for staff evaluation and goal-setting. FERPA compliant.">
     <style>
         * {
             margin: 0;
@@ -109,7 +109,6 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            pointer-events: none;
         }
         
         .dropdown-content .product-icon {
@@ -303,6 +302,11 @@
         .product-card .badge.featured {
             background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
             color: #b45309;
+        }
+        
+        .product-card .badge.new {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            color: #16a34a;
         }
         
         .product-card .icon {
@@ -1196,13 +1200,15 @@
                                 </div>
                             </div>
                         </a>
-                        <div class="product-item" style="padding: 0.75rem 1rem; opacity: 0.6; cursor: default;">
-                            <span class="product-icon">👥</span>
-                            <div>
-                                <strong>StaffTrak</strong> <span style="font-size: 0.7rem; color: #8b5cf6; font-weight: 600;">COMING SOON</span>
-                                <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+                        <a href="/stafftrak.html">
+                            <div class="product-item">
+                                <span class="product-icon">👥</span>
+                                <div>
+                                    <strong>StaffTrak</strong> <span style="font-size: 0.7rem; color: #16a34a; font-weight: 600;">NOW AVAILABLE</span>
+                                    <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <a href="#portals">Portals</a>
@@ -1337,9 +1343,9 @@
                     <a href="#contact" class="btn btn-solid">Request Demo</a>
                 </div>
                 
-                <!-- StaffTrak - Coming Soon -->
-                <div class="product-card" id="stafftrak" style="opacity: 0.85;">
-                    <span class="badge" style="background: linear-gradient(135deg, #8b5cf6, #a855f7); color: white;">Coming Soon</span>
+                <!-- StaffTrak - Now Available -->
+                <div class="product-card" id="stafftrak">
+                    <span class="badge new">Now Available</span>
                     <div class="icon">👥</div>
                     <h3>StaffTrak</h3>
                     <div class="tagline">Staff Goal-Setting &amp; Evaluation System</div>
@@ -1390,7 +1396,8 @@
                         </div>
                     </div>
                     
-                    <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Interest&amp;body=I'm%20interested%20in%20learning%20more%20about%20StaffTrak%20when%20it%20launches." class="btn btn-outline">Get Notified</a>
+                    <a href="/stafftrak.html" class="btn btn-outline">Learn More</a>
+                    <a href="#contact" class="btn btn-solid">Request Demo</a>
                 </div>
             </div>
         </div>
@@ -1863,7 +1870,7 @@
                 <h2 class="section-title" style="color: white;">Ready to Support Student Success?</h2>
             </div>
             
-            <p>Whether you're interested in TierTrak, GradTrack, or both—we'd love to show you how ScholarPath can work for your school.</p>
+            <p>Whether you're interested in TierTrak, GradTrack, StaffTrak, or all three—we'd love to show you how ScholarPath can work for your school.</p>
             
             <div class="contact-methods">
                 <div class="contact-method">
@@ -1873,7 +1880,7 @@
                 </div>
             </div>
             
-            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20Both%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Request a Demo →</a>
+            <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products%20for%20our%20school.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20StaffTrak%20/%20All%0ASchool%20Name:%0ANumber%20of%20Students:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn btn-contact">Request a Demo →</a>
         </div>
     </section>
 
@@ -1889,6 +1896,7 @@
                 <ul>
                     <li><a href="/tiertrak.html">TierTrak</a></li>
                     <li><a href="/gradtrack.html">GradTrack</a></li>
+                    <li><a href="/stafftrak.html">StaffTrak</a></li>
                 </ul>
             </div>
             <div>
