@@ -281,6 +281,8 @@
             box-shadow: 0 8px 30px rgba(79, 70, 229, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid rgba(79, 70, 229, 0.1);
+            display: flex;
+            flex-direction: column;
         }
         
         .product-card:hover {
@@ -336,6 +338,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
+            flex-grow: 1;
         }
         
         .feature-item {
@@ -358,6 +361,11 @@
             display: block;
             color: #1a1a2e;
             font-size: 0.85rem;
+        }
+        
+        .card-buttons {
+            margin-top: auto;
+            padding-top: 0.5rem;
         }
         
         .product-card .btn {
@@ -824,6 +832,119 @@
             color: #718096;
         }
         
+        /* StaffTrak Partnership */
+        .stafftrak-partnership {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .stafftrak-partnership {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .stafftrak-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .eval-card {
+            background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 4px solid #7c3aed;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.08);
+        }
+        
+        .eval-card.staff {
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+            border-left-color: #0d9488;
+            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.08);
+        }
+        
+        .eval-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .eval-header .icon {
+            font-size: 1.25rem;
+        }
+        
+        .eval-header .role {
+            font-weight: 600;
+            color: #1a1a2e;
+        }
+        
+        .eval-entry {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .eval-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .eval-avatar.staff {
+            background: linear-gradient(135deg, #0d9488, #14b8a6);
+        }
+        
+        .eval-details .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1a1a2e;
+        }
+        
+        .eval-details .action {
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+        
+        .eval-details .time {
+            font-size: 0.75rem;
+            color: #718096;
+        }
+        
+        .eval-note {
+            background: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #4a5568;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+        
+        .collab-data {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 8px;
+            color: #7c3aed;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.1);
+        }
+        
         /* Portal Cards */
         .portals-grid {
             display: none;
@@ -1282,8 +1403,10 @@
                         </div>
                     </div>
                     
-                    <a href="/tiertrak.html" class="btn btn-outline">Learn More</a>
-                    <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    <div class="card-buttons">
+                        <a href="/tiertrak.html" class="btn btn-outline">Learn More</a>
+                        <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    </div>
                 </div>
                 
                 <!-- GradTrack -->
@@ -1339,8 +1462,10 @@
                         </div>
                     </div>
                     
-                    <a href="/gradtrack.html" class="btn btn-outline">Learn More</a>
-                    <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    <div class="card-buttons">
+                        <a href="/gradtrack.html" class="btn btn-outline">Learn More</a>
+                        <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    </div>
                 </div>
                 
                 <!-- StaffTrak - Now Available -->
@@ -1396,8 +1521,10 @@
                         </div>
                     </div>
                     
-                    <a href="/stafftrak.html" class="btn btn-outline">Learn More</a>
-                    <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    <div class="card-buttons">
+                        <a href="/stafftrak.html" class="btn btn-outline">Learn More</a>
+                        <a href="#contact" class="btn btn-solid">Request Demo</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1440,6 +1567,7 @@
             <div class="portal-tabs">
                 <button class="portal-tab active" data-product="tiertrak">TierTrak Portals</button>
                 <button class="portal-tab" data-product="gradtrack">GradTrack Portals</button>
+                <button class="portal-tab" data-product="stafftrak">StaffTrak Portals</button>
             </div>
             
             <!-- TierTrak Partnership Section -->
@@ -1587,6 +1715,70 @@
                                     <div class="fill" style="width: 65%"></div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- StaffTrak Partnership Section -->
+            <div class="partnership-section" id="stafftrak-partnership">
+                <div class="stafftrak-partnership">
+                    <div class="partnership-content">
+                        <div class="label" style="color: #7c3aed;">What Makes StaffTrak Different</div>
+                        <h3>Evaluation That Grows,<br>Not Just Rates</h3>
+                        <p>Most evaluation systems feel like compliance checkboxes. StaffTrak makes them collaborative.</p>
+                        <p>When goals are <strong>collaborative</strong>, feedback is <strong>timely</strong>, and progress is <strong>visible</strong> — evaluation becomes something staff look forward to, not dread.</p>
+                        
+                        <div class="partnership-stats">
+                            <div class="stat-item">
+                                <div class="number" style="color: #7c3aed;">100%</div>
+                                <div class="text">Goal visibility for<br>all stakeholders</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="number" style="color: #7c3aed;">2x</div>
+                                <div class="text">More feedback<br>touchpoints</div>
+                            </div>
+                        </div>
+                        
+                        <a href="/stafftrak.html" class="btn btn-solid" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);">See How It Works →</a>
+                    </div>
+                    
+                    <div class="stafftrak-visual">
+                        <div class="eval-card admin">
+                            <div class="eval-header">
+                                <span class="icon">👔</span>
+                                <span class="role">Administrator View</span>
+                            </div>
+                            <div class="eval-entry">
+                                <div class="eval-avatar admin">DW</div>
+                                <div class="eval-details">
+                                    <div class="name">Dr. Williams</div>
+                                    <div class="action">Completed observation</div>
+                                    <div class="time">Today, 10:30 AM</div>
+                                </div>
+                            </div>
+                            <div class="eval-note">"Great use of think-pair-share strategies"</div>
+                        </div>
+                        
+                        <div class="collab-data">
+                            <span>🤝</span>
+                            <span>Collaborative growth process</span>
+                        </div>
+                        
+                        <div class="eval-card staff">
+                            <div class="eval-header">
+                                <span class="icon">📋</span>
+                                <span class="role">Staff View</span>
+                            </div>
+                            <div class="eval-entry">
+                                <div class="eval-avatar staff">JT</div>
+                                <div class="eval-details">
+                                    <div class="name">Ms. Thompson</div>
+                                    <div class="action">Goal progress: <strong>75%</strong></div>
+                                    <div class="time">Student engagement</div>
+                                </div>
+                            </div>
+                            <div class="eval-note">"Received feedback — ready to implement!"</div>
                         </div>
                     </div>
                 </div>
@@ -1814,6 +2006,117 @@
                         <div class="preview-stat">
                             <span class="label">Courses Mapped</span>
                             <span class="value success">267</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- StaffTrak Portals Grid -->
+            <div class="portals-grid" id="stafftrak-portals">
+                <div class="portal-card">
+                    <div class="portal-icon">👔</div>
+                    <h3>Administrator Portal</h3>
+                    <p>Schedule observations, deliver feedback, complete evaluations.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">DW</div>
+                            <div>
+                                <div class="preview-name">Dr. Williams</div>
+                                <div class="preview-role">Principal</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Staff Members</span>
+                            <span class="value">24</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Observations Due</span>
+                            <span class="value warning">5</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Evals Complete</span>
+                            <span class="value success">79%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">📋</div>
+                    <h3>Staff Portal</h3>
+                    <p>View goals, track progress, access feedback and evaluations.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">JT</div>
+                            <div>
+                                <div class="preview-name">Ms. Thompson</div>
+                                <div class="preview-role">3rd Grade Teacher</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Active Goals</span>
+                            <span class="value">3</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">New Feedback</span>
+                            <span class="value warning">1</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Goal Progress</span>
+                            <span class="value success">75%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">📊</div>
+                    <h3>District Portal</h3>
+                    <p>View aggregate data and monitor district-wide progress.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">DA</div>
+                            <div>
+                                <div class="preview-name">District Admin</div>
+                                <div class="preview-role">HR Director</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Total Staff</span>
+                            <span class="value">142</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Evals Complete</span>
+                            <span class="value success">84%</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Schools</span>
+                            <span class="value">6</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portal-card">
+                    <div class="portal-icon">📈</div>
+                    <h3>Reports</h3>
+                    <p>Track evaluation trends and professional growth metrics.</p>
+                    <div class="portal-preview">
+                        <div class="preview-header">
+                            <div class="preview-avatar" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">RP</div>
+                            <div>
+                                <div class="preview-name">Staff Reports</div>
+                                <div class="preview-role">Data &amp; Analytics</div>
+                            </div>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Avg Goal Progress</span>
+                            <span class="value success">78%</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Feedback Given</span>
+                            <span class="value">156</span>
+                        </div>
+                        <div class="preview-stat">
+                            <span class="label">Observations</span>
+                            <span class="value success">94%</span>
                         </div>
                     </div>
                 </div>
