@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | ScholarPath Systems</title>
-    <meta name="description" content="Pricing for TierTrak MTSS intervention tracking and GradTrack graduation progress tracking. Flexible plans for schools of all sizes.">
+    <meta name="description" content="Transparent pricing for TierTrak, GradTrack, and StaffTrak. Plans designed for charter schools, private schools, and districts of all sizes.">
     <style>
         * {
             margin: 0;
@@ -16,115 +16,259 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
             color: #1a1a2e;
-            background: #0f172a;
         }
         
-        /* Back Link */
-        .back-link {
+        /* Navigation */
+        nav {
+            background: white;
             padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+        
+        .nav-links a.active {
+            color: #4f46e5;
+        }
+        
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 280px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding-top: 1rem;
+            padding-bottom: 0.5rem;
+        }
+        
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4a5568;
+        }
+        
+        .dropdown-content a:hover {
+            background: #f7fafc;
+            color: #4f46e5;
+        }
+        
+        .dropdown-content .product-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .dropdown-content .product-icon {
+            font-size: 1.25rem;
+        }
+        
+        .dropdown-content .product-desc {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+        }
+        
+        .btn-demo {
+            background: #4f46e5;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        
+        .btn-demo:hover {
+            background: #4338ca;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #faf5ff 0%, #f5f3ff 50%, #ede9fe 100%);
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.75rem;
+            max-width: 800px;
+            margin: 0 auto 1rem;
+            line-height: 1.2;
+            color: #1a1a2e;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #4a5568;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Pricing Section */
+        .pricing {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        
+        .pricing .container {
             max-width: 1200px;
             margin: 0 auto;
         }
         
-        .back-link a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        
-        .back-link a:hover {
-            color: white;
-        }
-        
-        /* Product Tabs */
-        .product-tabs {
+        /* Tabs */
+        .tabs {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            padding: 2rem;
+            gap: 0.5rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
         
-        .product-tab {
-            padding: 1rem 2rem;
-            border: 2px solid #334155;
+        .tab-btn {
+            padding: 0.875rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
             border-radius: 8px;
-            background: transparent;
-            cursor: pointer;
             font-weight: 600;
-            font-size: 1rem;
-            color: #94a3b8;
+            cursor: pointer;
             transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1rem;
         }
         
-        .product-tab:hover {
-            border-color: #6366f1;
+        .tab-btn:hover {
+            border-color: #4f46e5;
+            color: #4f46e5;
+        }
+        
+        .tab-btn.active {
+            background: #4f46e5;
+            border-color: #4f46e5;
             color: white;
         }
         
-        .product-tab.active {
-            border-color: #6366f1;
-            background: #6366f1;
-            color: white;
+        .tab-btn.active.tiertrak {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-color: #f59e0b;
         }
         
-        .product-tab.active.teal {
-            border-color: #0d9488;
-            background: #0d9488;
+        .tab-btn.active.gradtrack {
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            border-color: #4f46e5;
         }
         
-        .product-tab.active.gradient {
-            border-color: #8b5cf6;
-            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
+        .tab-btn.active.stafftrak {
+            background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+            border-color: #7c3aed;
         }
         
-        .product-tab .icon {
-            font-size: 1.25rem;
+        .tab-btn.active.bundle {
+            background: linear-gradient(135deg, #059669, #10b981);
+            border-color: #059669;
         }
         
-        /* Pricing Section */
-        .pricing-section {
-            padding: 0 2rem 4rem;
+        .tab-content {
+            display: none;
         }
         
-        .pricing-header {
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Product Header */
+        .product-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
         
-        .pricing-header .product-icon {
+        .product-header .icon {
             font-size: 3rem;
             margin-bottom: 0.5rem;
         }
         
-        .pricing-header h1 {
-            font-size: 2.5rem;
-            color: white;
+        .product-header h2 {
+            font-size: 2rem;
+            color: #1a1a2e;
             margin-bottom: 0.5rem;
         }
         
-        .pricing-header h1.teal {
-            color: #5eead4;
-        }
-        
-        .pricing-header h1.purple {
-            color: #a78bfa;
-        }
-        
-        .pricing-header h1.gradient {
-            background: linear-gradient(135deg, #5eead4 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .pricing-header p {
-            color: #94a3b8;
+        .product-header p {
+            color: #718096;
             font-size: 1.1rem;
+        }
+        
+        .product-header .sizing-note {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #166534;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            border: 1px solid #bbf7d0;
         }
         
         /* Pricing Grid */
@@ -132,8 +276,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
         }
         
         @media (max-width: 1000px) {
@@ -148,316 +291,273 @@
             }
         }
         
-        /* Bundle grid - 3 columns */
-        .pricing-grid.bundle-grid {
-            grid-template-columns: repeat(3, 1fr);
-            max-width: 950px;
-        }
-        
-        @media (max-width: 800px) {
-            .pricing-grid.bundle-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         .pricing-card {
-            background: #1e293b;
+            background: #fafafa;
             border-radius: 16px;
             padding: 2rem;
-            position: relative;
-            border: 2px solid transparent;
-            transition: border-color 0.3s;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         
         .pricing-card:hover {
-            border-color: #334155;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
         }
         
         .pricing-card.popular {
-            border-color: #6366f1;
+            border-color: #4f46e5;
+            background: linear-gradient(180deg, #f5f3ff 0%, #fafafa 100%);
+            position: relative;
         }
         
-        .pricing-card.popular.teal {
-            border-color: #0d9488;
-        }
-        
-        .pricing-card.popular.gradient {
-            border-color: #8b5cf6;
-            background: linear-gradient(135deg, #1e293b 0%, #1e1e3b 100%);
-        }
-        
-        .popular-badge {
+        .pricing-card.popular::before {
+            content: 'Most Popular';
             position: absolute;
-            top: -1px;
+            top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: #6366f1;
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
             color: white;
             padding: 0.25rem 1rem;
-            border-radius: 0 0 8px 8px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        
-        .popular-badge.teal {
-            background: #0d9488;
-        }
-        
-        .popular-badge.gradient {
-            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
-        }
-        
-        .pricing-card h3 {
-            color: white;
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .pricing-card .description {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            min-height: 40px;
-        }
-        
-        .pricing-card .price {
-            margin-bottom: 0.5rem;
-        }
-        
-        .pricing-card .price .amount {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .pricing-card .price .period {
-            color: #64748b;
-            font-size: 1rem;
-        }
-        
-        .pricing-card .price-note {
-            color: #64748b;
-            font-size: 0.85rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pricing-card .savings-badge {
-            display: inline-block;
-            background: #dcfce7;
-            color: #16a34a;
-            padding: 0.25rem 0.75rem;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 1rem;
         }
         
-        .pricing-card .divider {
-            border-top: 1px solid #334155;
-            margin: 1.5rem 0;
+        .pricing-card .tier-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-card .tier-desc {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin-bottom: 0.25rem;
+        }
+        
+        .pricing-card .price-period {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 1.5rem;
         }
         
         .pricing-card .features {
-            list-style: none;
+            text-align: left;
             margin-bottom: 2rem;
+            flex-grow: 1;
         }
         
         .pricing-card .features li {
-            color: #cbd5e1;
-            font-size: 0.9rem;
+            list-style: none;
             padding: 0.5rem 0;
+            color: #4a5568;
+            font-size: 0.95rem;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
         }
         
-        .pricing-card .features li .check {
-            color: #22c55e;
-            font-weight: bold;
-        }
-        
-        .pricing-card .features li .check.teal {
-            color: #2dd4bf;
+        .pricing-card .features li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
         .pricing-card .btn {
             display: block;
-            width: 100%;
-            padding: 0.875rem;
+            padding: 0.875rem 1.5rem;
             border-radius: 8px;
             font-weight: 600;
-            text-align: center;
             text-decoration: none;
             transition: all 0.3s;
+            margin-top: auto;
+        }
+        
+        .pricing-card .btn-primary {
+            background: #4f46e5;
+            color: white;
+        }
+        
+        .pricing-card .btn-primary:hover {
+            background: #4338ca;
         }
         
         .pricing-card .btn-outline {
-            background: transparent;
-            border: 2px solid #475569;
-            color: white;
+            background: white;
+            color: #4f46e5;
+            border: 2px solid #4f46e5;
         }
         
         .pricing-card .btn-outline:hover {
-            background: #334155;
-            border-color: #334155;
-        }
-        
-        .pricing-card .btn-solid {
-            background: #6366f1;
-            border: 2px solid #6366f1;
-            color: white;
-        }
-        
-        .pricing-card .btn-solid:hover {
             background: #4f46e5;
-            border-color: #4f46e5;
-        }
-        
-        .pricing-card .btn-solid.teal {
-            background: #0d9488;
-            border-color: #0d9488;
-        }
-        
-        .pricing-card .btn-solid.teal:hover {
-            background: #0f766e;
-            border-color: #0f766e;
-        }
-        
-        .pricing-card .btn-solid.gradient {
-            background: linear-gradient(135deg, #0d9488 0%, #6366f1 100%);
-            border: none;
-        }
-        
-        .pricing-card .btn-solid.gradient:hover {
-            opacity: 0.9;
-        }
-        
-        /* FAQ Section */
-        .faq-section {
-            background: #1e293b;
-            padding: 4rem 2rem;
-            margin-top: 3rem;
-        }
-        
-        .faq-section h2 {
-            text-align: center;
             color: white;
-            font-size: 2rem;
+        }
+        
+        /* Bundle Savings */
+        .bundle-header {
+            text-align: center;
             margin-bottom: 2rem;
         }
         
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            max-width: 900px;
+        .bundle-header .savings-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .bundle-comparison {
+            background: #f0fdf4;
+            border: 2px solid #bbf7d0;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .bundle-comparison h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #166534;
+        }
+        
+        .bundle-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .bundle-table th,
+        .bundle-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+        }
+        
+        .bundle-table th {
+            background: #dcfce7;
+            color: #166534;
+            font-weight: 600;
+        }
+        
+        .bundle-table td {
+            border-bottom: 1px solid #bbf7d0;
+        }
+        
+        .bundle-table .savings {
+            color: #059669;
+            font-weight: 700;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 100%);
+        }
+        
+        .faq .container {
+            max-width: 800px;
             margin: 0 auto;
         }
         
-        @media (max-width: 700px) {
-            .faq-grid {
-                grid-template-columns: 1fr;
-            }
+        .faq h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
         }
         
-        .faq-item h4 {
-            color: white;
-            font-size: 1rem;
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item h3 {
+            font-size: 1.1rem;
+            color: #1a1a2e;
             margin-bottom: 0.5rem;
         }
         
         .faq-item p {
-            color: #94a3b8;
-            font-size: 0.9rem;
+            color: #4a5568;
+            font-size: 0.95rem;
         }
         
         /* CTA Section */
-        .cta-section {
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #3730a3 100%);
+            color: white;
             text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .cta-section h2 {
-            color: white;
-            font-size: 2rem;
+        .cta .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 2.25rem;
             margin-bottom: 1rem;
         }
         
-        .cta-section > p {
-            color: rgba(255,255,255,0.9);
+        .cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
             margin-bottom: 2rem;
         }
         
-        .cta-section .contact-box {
-            background: rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 2rem;
-            max-width: 500px;
-            margin: 0 auto 2rem;
-        }
-        
-        .cta-section .contact-box p {
-            color: rgba(255,255,255,0.8);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .cta-section .email-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .cta-section .email-address {
-            background: white;
-            color: #4f46e5;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .cta-section .btn-copy {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .cta-section .btn-copy:hover {
-            background: rgba(255,255,255,0.3);
-        }
-        
-        .cta-section .btn-copy.copied {
-            background: #22c55e;
-        }
-        
-        .cta-section .btn {
+        .cta .btn-cta {
             display: inline-block;
             background: white;
             color: #4f46e5;
             padding: 1rem 2.5rem;
             border-radius: 8px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: transform 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
         }
         
-        .cta-section .btn:hover {
+        .cta .btn-cta:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta .contact-email {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .cta .contact-email a {
+            color: #a5b4fc;
+            text-decoration: none;
+        }
+        
+        .cta .contact-email a:hover {
+            color: white;
         }
         
         /* Footer */
         footer {
-            background: #0f0f1a;
+            background: linear-gradient(180deg, #1e1b4b 0%, #0f0d24 100%);
             color: white;
             padding: 3rem 2rem 2rem;
         }
@@ -466,18 +566,11 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
         }
         
-        @media (max-width: 768px) {
-            footer .container {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
         footer .brand {
-            color: #a5b4fc;
             font-size: 1.25rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -489,7 +582,7 @@
         }
         
         footer h4 {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 1rem;
@@ -524,333 +617,403 @@
             color: #9ca3af;
             font-size: 0.85rem;
         }
-        
-        /* Hidden sections */
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
-    <!-- Back Link -->
-    <div class="back-link">
-        <a href="/">← Back to ScholarPath Systems</a>
-    </div>
-    
-    <!-- Product Tabs -->
-    <div class="product-tabs">
-        <button class="product-tab active teal" data-product="tiertrak">
-            <span class="icon">📈</span>
-            TierTrak
-        </button>
-        <button class="product-tab" data-product="gradtrack">
-            <span class="icon">📊</span>
-            GradTrack
-        </button>
-        <button class="product-tab" data-product="bundle">
-            <span class="icon">📦</span>
-            Bundle &amp; Save
-        </button>
-    </div>
-    
-    <!-- TierTrak Pricing (shown by default) -->
-    <section class="pricing-section" id="tiertrak-pricing">
-        <div class="pricing-header">
-            <div class="product-icon">📈</div>
-            <h1 class="teal">TierTrak</h1>
-            <p>Streamline your MTSS process with comprehensive intervention tracking</p>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="/#products">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/tiertrak.html">
+                            <div class="product-item">
+                                <span class="product-icon">📈</span>
+                                <div>
+                                    <strong>TierTrak</strong>
+                                    <span class="product-desc">MTSS Intervention Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/gradtrack.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>GradTrack</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/stafftrak.html">
+                            <div class="product-item">
+                                <span class="product-icon">👥</span>
+                                <div>
+                                    <strong>StaffTrak</strong> 
+                                    <span style="font-size: 0.7rem; color: #16a34a; font-weight: 600;">NOW AVAILABLE</span>
+                                    <span class="product-desc">Goal-Setting & Evaluation</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="/#about">About</a>
+                <a href="/pricing.html" class="active">Pricing</a>
+                <a href="mailto:sps@scholarpathsystems.org?subject=Demo%20Request" class="btn-demo">Request a Demo →</a>
+            </div>
         </div>
-        
-        <div class="pricing-grid">
-            <!-- Pilot -->
-            <div class="pricing-card">
-                <h3>Pilot</h3>
-                <p class="description">Try TierTrak with full features before committing</p>
-                <div class="price">
-                    <span class="amount">$500</span><span class="period">/</span>
-                </div>
-                <p class="price-note">trimester or semester<br>Credited toward annual plan</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Unlimited students</li>
-                    <li><span class="check teal">✓</span> All core features</li>
-                    <li><span class="check teal">✓</span> Parent portal access</li>
-                    <li><span class="check teal">✓</span> Email support</li>
-                    <li><span class="check teal">✓</span> Data import assistance</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Pilot%20Request" class="btn btn-outline">Start Pilot</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-badge">💰 Transparent Pricing</div>
+        <h1>Plans Built for Schools Like Yours</h1>
+        <p>Straightforward pricing designed for charter schools, private schools, and small districts. No hidden fees, no surprises.</p>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn tiertrak active" onclick="showTab('tiertrak')">📈 TierTrak</button>
+                <button class="tab-btn gradtrack" onclick="showTab('gradtrack')">📊 GradTrack</button>
+                <button class="tab-btn stafftrak" onclick="showTab('stafftrak')">👥 StaffTrak</button>
+                <button class="tab-btn bundle" onclick="showTab('bundle')">🎁 Bundle & Save</button>
             </div>
-            
-            <!-- Standard -->
-            <div class="pricing-card popular teal">
-                <div class="popular-badge teal">Most Popular</div>
-                <h3>Standard</h3>
-                <p class="description">Perfect for small to medium schools</p>
-                <div class="price">
-                    <span class="amount">$3,000</span><span class="period">/year</span>
+
+            <!-- TierTrak Pricing -->
+            <div id="tiertrak" class="tab-content active">
+                <div class="product-header">
+                    <div class="icon">📈</div>
+                    <h2>TierTrak</h2>
+                    <p>MTSS Intervention Tracking with Parent Portal</p>
+                    <div class="sizing-note">📏 Priced by student enrollment</div>
                 </div>
-                <p class="price-note">Up to 500 students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Everything in Pilot</li>
-                    <li><span class="check teal">✓</span> Unlimited staff accounts</li>
-                    <li><span class="check teal">✓</span> Unlimited parent accounts</li>
-                    <li><span class="check teal">✓</span> Document storage (25GB)</li>
-                    <li><span class="check teal">✓</span> Priority support</li>
-                    <li><span class="check teal">✓</span> Staff training included</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Standard%20Plan" class="btn btn-solid teal">Get Started</a>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="tier-name">Pilot</div>
+                        <div class="tier-desc">Up to 150 students</div>
+                        <div class="price">$500</div>
+                        <div class="price-period">one-time (90 days)</div>
+                        <ul class="features">
+                            <li>Full platform access</li>
+                            <li>Parent Portal included</li>
+                            <li>Document uploads</li>
+                            <li>Email support</li>
+                            <li>Perfect for evaluation</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Pilot%20Request" class="btn btn-outline">Start Pilot</a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="tier-name">Standard</div>
+                        <div class="tier-desc">Up to 1,000 students</div>
+                        <div class="price">$3,000</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Pilot</li>
+                            <li>Unlimited staff accounts</li>
+                            <li>Progress tracking & alerts</li>
+                            <li>MTSS meeting tools</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Standard%20Request" class="btn btn-primary">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-desc">1,001 – 1,500 students</div>
+                        <div class="price">$4,500</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Standard</li>
+                            <li>Advanced reporting</li>
+                            <li>Data exports</li>
+                            <li>Dedicated support</li>
+                            <li>Onboarding assistance</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Growth%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Enterprise</div>
+                        <div class="tier-desc">1,500+ students</div>
+                        <div class="price">Custom</div>
+                        <div class="price-period">contact for quote</div>
+                        <ul class="features">
+                            <li>Everything in Growth</li>
+                            <li>Multi-school dashboard</li>
+                            <li>District-level reporting</li>
+                            <li>SIS integration support</li>
+                            <li>Custom training</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Enterprise%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Growth -->
-            <div class="pricing-card">
-                <h3>Growth</h3>
-                <p class="description">For growing schools and small districts</p>
-                <div class="price">
-                    <span class="amount">$5,000</span><span class="period">/year</span>
+
+            <!-- GradTrack Pricing -->
+            <div id="gradtrack" class="tab-content">
+                <div class="product-header">
+                    <div class="icon">📊</div>
+                    <h2>GradTrack</h2>
+                    <p>Graduation Progress Tracking for Students, Parents & Counselors</p>
+                    <div class="sizing-note">📏 Priced by student enrollment</div>
                 </div>
-                <p class="price-note">501 - 1,500 students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Everything in Standard</li>
-                    <li><span class="check teal">✓</span> Dedicated support manager</li>
-                    <li><span class="check teal">✓</span> Advanced reporting</li>
-                    <li><span class="check teal">✓</span> Document storage (100GB)</li>
-                    <li><span class="check teal">✓</span> Custom intervention library</li>
-                    <li><span class="check teal">✓</span> Staff training included</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Growth%20Plan" class="btn btn-outline">Get Started</a>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="tier-name">Pilot</div>
+                        <div class="tier-desc">Up to 150 students</div>
+                        <div class="price">$500</div>
+                        <div class="price-period">one-time (90 days)</div>
+                        <ul class="features">
+                            <li>Full platform access</li>
+                            <li>Student & parent portals</li>
+                            <li>Credit tracking</li>
+                            <li>Email support</li>
+                            <li>Perfect for evaluation</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Pilot%20Request" class="btn btn-outline">Start Pilot</a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="tier-name">Standard</div>
+                        <div class="tier-desc">Up to 1,000 students</div>
+                        <div class="price">$2,500</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Pilot</li>
+                            <li>Unlimited staff accounts</li>
+                            <li>At-risk alerts</li>
+                            <li>CTE pathway tracking</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Standard%20Request" class="btn btn-primary">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-desc">1,001 – 1,500 students</div>
+                        <div class="price">$3,500</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Standard</li>
+                            <li>Cohort analytics</li>
+                            <li>Dual credit support</li>
+                            <li>Dedicated support</li>
+                            <li>Onboarding assistance</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Growth%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Enterprise</div>
+                        <div class="tier-desc">1,500+ students</div>
+                        <div class="price">Custom</div>
+                        <div class="price-period">contact for quote</div>
+                        <ul class="features">
+                            <li>Everything in Growth</li>
+                            <li>Multi-school dashboard</li>
+                            <li>District-level reporting</li>
+                            <li>SIS integration support</li>
+                            <li>Custom training</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Enterprise%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
             </div>
-            
-            <!-- Enterprise -->
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <p class="description">For large districts at scale</p>
-                <div class="price">
-                    <span class="amount">$4</span><span class="period">/ student / year</span>
+
+            <!-- StaffTrak Pricing -->
+            <div id="stafftrak" class="tab-content">
+                <div class="product-header">
+                    <div class="icon">👥</div>
+                    <h2>StaffTrak</h2>
+                    <p>Staff Goal-Setting, Observations & Evaluation</p>
+                    <div class="sizing-note">👔 Priced by staff count</div>
                 </div>
-                <p class="price-note">1,500+ students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Everything in Growth</li>
-                    <li><span class="check teal">✓</span> Multi-school dashboard</li>
-                    <li><span class="check teal">✓</span> SLA guarantee</li>
-                    <li><span class="check teal">✓</span> Custom contract terms</li>
-                    <li><span class="check teal">✓</span> Dedicated onboarding</li>
-                    <li><span class="check teal">✓</span> API access</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=TierTrak%20Enterprise%20Inquiry" class="btn btn-outline">Contact Us</a>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="tier-name">Pilot</div>
+                        <div class="tier-desc">Up to 20 staff</div>
+                        <div class="price">$400</div>
+                        <div class="price-period">one-time (90 days)</div>
+                        <ul class="features">
+                            <li>Full platform access</li>
+                            <li>Goal setting tools</li>
+                            <li>Observation forms</li>
+                            <li>Email support</li>
+                            <li>Perfect for evaluation</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Pilot%20Request" class="btn btn-outline">Start Pilot</a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="tier-name">Standard</div>
+                        <div class="tier-desc">Up to 75 staff</div>
+                        <div class="price">$2,000</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Pilot</li>
+                            <li>Evaluation workflows</li>
+                            <li>Feedback tools</li>
+                            <li>Growth documentation</li>
+                            <li>Priority support</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Standard%20Request" class="btn btn-primary">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Growth</div>
+                        <div class="tier-desc">76 – 150 staff</div>
+                        <div class="price">$3,500</div>
+                        <div class="price-period">per year</div>
+                        <ul class="features">
+                            <li>Everything in Standard</li>
+                            <li>Advanced analytics</li>
+                            <li>Custom rubrics</li>
+                            <li>Dedicated support</li>
+                            <li>Admin training</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Growth%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <div class="tier-name">Enterprise</div>
+                        <div class="tier-desc">150+ staff</div>
+                        <div class="price">Custom</div>
+                        <div class="price-period">contact for quote</div>
+                        <ul class="features">
+                            <li>Everything in Growth</li>
+                            <li>Multi-school support</li>
+                            <li>District-level reporting</li>
+                            <li>HR system integration</li>
+                            <li>Custom training</li>
+                        </ul>
+                        <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Enterprise%20Request" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bundle Pricing -->
+            <div id="bundle" class="tab-content">
+                <div class="bundle-header">
+                    <div class="savings-badge">🎁 Save Up to 20%</div>
+                    <h2>Bundle & Save</h2>
+                    <p style="color: #4a5568; margin-top: 0.5rem;">Combine products for maximum value and a unified experience</p>
+                </div>
+                
+                <div class="bundle-comparison">
+                    <h3>TierTrak + GradTrack Bundle</h3>
+                    <table class="bundle-table">
+                        <thead>
+                            <tr>
+                                <th>Tier</th>
+                                <th>Individual Total</th>
+                                <th>Bundle Price</th>
+                                <th>You Save</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Standard</strong><br><small>Up to 1,000 students</small></td>
+                                <td>$5,500/yr</td>
+                                <td><strong>$4,500/yr</strong></td>
+                                <td class="savings">$1,000 (18%)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Growth</strong><br><small>1,001 – 1,500 students</small></td>
+                                <td>$8,000/yr</td>
+                                <td><strong>$6,500/yr</strong></td>
+                                <td class="savings">$1,500 (19%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bundle-comparison" style="background: #fef3c7; border-color: #fcd34d;">
+                    <h3 style="color: #92400e;">All Three Products Bundle</h3>
+                    <table class="bundle-table">
+                        <thead>
+                            <tr style="background: #fde68a;">
+                                <th style="color: #92400e;">Tier</th>
+                                <th style="color: #92400e;">Individual Total</th>
+                                <th style="color: #92400e;">Bundle Price</th>
+                                <th style="color: #92400e;">You Save</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-color: #fcd34d;"><strong>Standard</strong><br><small>Up to 1,000 students / 75 staff</small></td>
+                                <td style="border-color: #fcd34d;">$7,500/yr</td>
+                                <td style="border-color: #fcd34d;"><strong>$6,000/yr</strong></td>
+                                <td style="border-color: #fcd34d;" class="savings">$1,500 (20%)</td>
+                            </tr>
+                            <tr>
+                                <td style="border-color: #fcd34d;"><strong>Growth</strong><br><small>1,001 – 1,500 students / 76-150 staff</small></td>
+                                <td style="border-color: #fcd34d;">$11,500/yr</td>
+                                <td style="border-color: #fcd34d;"><strong>$9,000/yr</strong></td>
+                                <td style="border-color: #fcd34d;" class="savings">$2,500 (22%)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Pricing%20Inquiry" class="btn btn-primary" style="display: inline-block; background: linear-gradient(135deg, #059669, #10b981); border: none; padding: 1rem 2rem; font-size: 1.1rem;">Request Bundle Quote →</a>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- GradTrack Pricing (hidden by default) -->
-    <section class="pricing-section hidden" id="gradtrack-pricing">
-        <div class="pricing-header">
-            <div class="product-icon">📊</div>
-            <h1 class="purple">GradTrack</h1>
-            <p>Empower students, counselors, and parents with real-time graduation progress tracking</p>
-        </div>
-        
-        <div class="pricing-grid">
-            <!-- Pilot -->
-            <div class="pricing-card">
-                <h3>Pilot</h3>
-                <p class="description">Try GradTrack with full features before committing</p>
-                <div class="price">
-                    <span class="amount">$500</span><span class="period">/</span>
-                </div>
-                <p class="price-note">trimester or semester<br>Credited toward annual plan</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check">✓</span> Unlimited students</li>
-                    <li><span class="check">✓</span> All core features</li>
-                    <li><span class="check">✓</span> Email support</li>
-                    <li><span class="check">✓</span> Data import assistance</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Pilot%20Request" class="btn btn-outline">Start Pilot</a>
-            </div>
-            
-            <!-- Standard -->
-            <div class="pricing-card popular">
-                <div class="popular-badge">Most Popular</div>
-                <h3>Standard</h3>
-                <p class="description">Perfect for small to medium schools</p>
-                <div class="price">
-                    <span class="amount">$2,500</span><span class="period">/year</span>
-                </div>
-                <p class="price-note">Up to 500 students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check">✓</span> Everything in Pilot</li>
-                    <li><span class="check">✓</span> Unlimited counselors & parents</li>
-                    <li><span class="check">✓</span> Priority support</li>
-                    <li><span class="check">✓</span> Staff training included</li>
-                    <li><span class="check">✓</span> Custom categories & pathways</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Standard%20Plan" class="btn btn-solid">Get Started</a>
-            </div>
-            
-            <!-- Growth -->
-            <div class="pricing-card">
-                <h3>Growth</h3>
-                <p class="description">For growing schools and small districts</p>
-                <div class="price">
-                    <span class="amount">$4,000</span><span class="period">/year</span>
-                </div>
-                <p class="price-note">501 - 1,500 students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check">✓</span> Everything in Standard</li>
-                    <li><span class="check">✓</span> Dedicated support manager</li>
-                    <li><span class="check">✓</span> Advanced reporting</li>
-                    <li><span class="check">✓</span> Custom integrations</li>
-                    <li><span class="check">✓</span> Staff training included</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Growth%20Plan" class="btn btn-outline">Get Started</a>
-            </div>
-            
-            <!-- Enterprise -->
-            <div class="pricing-card">
-                <h3>Enterprise</h3>
-                <p class="description">For large districts at scale</p>
-                <div class="price">
-                    <span class="amount">$3</span><span class="period">/ student / year</span>
-                </div>
-                <p class="price-note">1,500+ students</p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check">✓</span> Everything in Growth</li>
-                    <li><span class="check">✓</span> Multi-school dashboard</li>
-                    <li><span class="check">✓</span> SLA guarantee</li>
-                    <li><span class="check">✓</span> Custom contract terms</li>
-                    <li><span class="check">✓</span> Dedicated onboarding</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=GradTrack%20Enterprise%20Inquiry" class="btn btn-outline">Contact Us</a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Bundle Pricing (hidden by default) -->
-    <section class="pricing-section hidden" id="bundle-pricing">
-        <div class="pricing-header">
-            <div class="product-icon">📦</div>
-            <h1 class="gradient">TierTrak + GradTrack Bundle</h1>
-            <p>Get both products and save! Complete visibility from intervention through graduation.</p>
-        </div>
-        
-        <div class="pricing-grid bundle-grid">
-            <!-- Standard Bundle -->
-            <div class="pricing-card">
-                <h3>Standard Bundle</h3>
-                <p class="description">Both products for small to medium schools</p>
-                <div class="savings-badge">Save $1,000/year</div>
-                <div class="price">
-                    <span class="amount">$4,500</span><span class="period">/year</span>
-                </div>
-                <p class="price-note">Up to 500 students<br><s style="color:#64748b;">$5,500 if purchased separately</s></p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Full TierTrak Standard</li>
-                    <li><span class="check">✓</span> Full GradTrack Standard</li>
-                    <li><span class="check teal">✓</span> Unified staff training</li>
-                    <li><span class="check teal">✓</span> Priority support</li>
-                    <li><span class="check teal">✓</span> Single invoice</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Standard%20Plan%20Inquiry" class="btn btn-solid gradient">Get Bundle</a>
-            </div>
-            
-            <!-- Growth Bundle -->
-            <div class="pricing-card popular gradient">
-                <div class="popular-badge gradient">Best Value</div>
-                <h3>Growth Bundle</h3>
-                <p class="description">Both products for growing schools & districts</p>
-                <div class="savings-badge">Save $1,500/year</div>
-                <div class="price">
-                    <span class="amount">$7,500</span><span class="period">/year</span>
-                </div>
-                <p class="price-note">501 - 1,500 students<br><s style="color:#64748b;">$9,000 if purchased separately</s></p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Full TierTrak Growth</li>
-                    <li><span class="check">✓</span> Full GradTrack Growth</li>
-                    <li><span class="check teal">✓</span> Dedicated support manager</li>
-                    <li><span class="check teal">✓</span> Advanced reporting (both)</li>
-                    <li><span class="check teal">✓</span> Custom integrations</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Growth%20Plan%20Inquiry" class="btn btn-solid gradient">Get Bundle</a>
-            </div>
-            
-            <!-- Enterprise Bundle -->
-            <div class="pricing-card">
-                <h3>Enterprise Bundle</h3>
-                <p class="description">Both products for large districts at scale</p>
-                <div class="savings-badge">Save $2/student/year</div>
-                <div class="price">
-                    <span class="amount">$5</span><span class="period">/ student / year</span>
-                </div>
-                <p class="price-note">1,500+ students<br><s style="color:#64748b;">$7/student if purchased separately</s></p>
-                <div class="divider"></div>
-                <ul class="features">
-                    <li><span class="check teal">✓</span> Full TierTrak Enterprise</li>
-                    <li><span class="check">✓</span> Full GradTrack Enterprise</li>
-                    <li><span class="check teal">✓</span> Multi-school dashboard</li>
-                    <li><span class="check teal">✓</span> SLA guarantee</li>
-                    <li><span class="check teal">✓</span> Dedicated onboarding</li>
-                    <li><span class="check teal">✓</span> API access (both)</li>
-                </ul>
-                <a href="mailto:sps@scholarpathsystems.org?subject=Bundle%20Enterprise%20Inquiry" class="btn btn-outline">Contact Us</a>
-            </div>
-        </div>
-    </section>
-    
+
     <!-- FAQ Section -->
-    <section class="faq-section">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-grid">
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            
             <div class="faq-item">
-                <h4>Can I try before I buy?</h4>
-                <p>Yes! Our Pilot plan lets you use the full product for a trimester or semester. The pilot fee is credited toward your annual plan if you continue.</p>
+                <h3>What's included in the Pilot?</h3>
+                <p>The Pilot gives you full access to all features for 90 days. It's designed to let you evaluate the platform with real data before committing to an annual subscription. The pilot fee is credited toward your first year if you continue.</p>
             </div>
+            
             <div class="faq-item">
-                <h4>How much do I save with a bundle?</h4>
-                <p>Bundle pricing saves you $1,000-$1,500/year (or $2/student for Enterprise). You also get unified training and a single point of contact.</p>
+                <h3>Can we switch tiers mid-year?</h3>
+                <p>Absolutely! If your enrollment grows during the school year, we'll pro-rate the difference. We want the pricing to work for you as your school grows.</p>
             </div>
+            
             <div class="faq-item">
-                <h4>What's included in staff training?</h4>
-                <p>Standard plans and above include live virtual training sessions for your team, plus recorded tutorials and documentation.</p>
+                <h3>Is there a discount for multi-year contracts?</h3>
+                <p>Yes! Contact us for special pricing on 2-year and 3-year agreements. Multi-year customers also receive priority access to new features.</p>
             </div>
+            
             <div class="faq-item">
-                <h4>How do I import my existing data?</h4>
-                <p>We accept Excel and CSV imports from any SIS. Our team will help you map your data and get up and running quickly.</p>
+                <h3>What if we have multiple schools?</h3>
+                <p>Our Enterprise tier includes multi-school support with district-level dashboards. Contact us for custom pricing based on your total enrollment across all schools.</p>
             </div>
+            
             <div class="faq-item">
-                <h4>Is my student data secure?</h4>
-                <p>Absolutely. We're 100% FERPA compliant with SOC 2 certified infrastructure. All data is encrypted at rest and in transit.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Can I cancel anytime?</h4>
-                <p>Annual plans are billed yearly. You can cancel before your renewal date. Pilot plans are pay-as-you-go with no long-term commitment.</p>
+                <h3>Do you offer discounts for Title I schools?</h3>
+                <p>We believe all schools deserve great tools. Contact us to discuss special pricing for Title I and high-need schools.</p>
             </div>
         </div>
     </section>
-    
+
     <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Ready to Get Started?</h2>
-        <p>Schedule a free consultation and we'll help you find the perfect fit for your school.</p>
-        
-        <div class="contact-box">
-            <p>📧 Email us directly:</p>
-            <div class="email-display">
-                <span class="email-address">sps@scholarpathsystems.org</span>
-                <button class="btn-copy" onclick="copyEmail()">📋 Copy</button>
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to See It in Action?</h2>
+            <p>Schedule a personalized demo and we'll show you exactly how ScholarPath products can work for your school.</p>
+            <a href="mailto:sps@scholarpathsystems.org?subject=Demo%20Request&body=Hi%20ScholarPath%20team,%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20products.%0A%0AProducts%20of%20interest:%20TierTrak%20/%20GradTrack%20/%20StaffTrak%20/%20Bundle%0ASchool%20Name:%0AStudent%20Enrollment:%0AStaff%20Count:%0ABest%20time%20to%20connect:%0A%0AThank%20you!" class="btn-cta">Request a Demo →</a>
+            <div class="contact-email">
+                Or email us directly: <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
             </div>
         </div>
-        
-        <a href="mailto:sps@scholarpathsystems.org?subject=ScholarPath%20Pricing%20Consultation" class="btn">Open in Email App →</a>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -862,7 +1025,8 @@
                 <h4>Products</h4>
                 <ul>
                     <li><a href="/tiertrak.html">TierTrak</a></li>
-                    <li><a href="/#gradtrack">GradTrack</a></li>
+                    <li><a href="/gradtrack.html">GradTrack</a></li>
+                    <li><a href="/stafftrak.html">StaffTrak</a></li>
                 </ul>
             </div>
             <div>
@@ -870,6 +1034,7 @@
                 <ul>
                     <li><a href="/#about">About Us</a></li>
                     <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/pricing.html">Pricing</a></li>
                 </ul>
             </div>
             <div>
@@ -885,57 +1050,24 @@
             FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
         </div>
     </footer>
-    
-    <!-- Scripts -->
+
     <script>
-        // Tab Switching
-        document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.product-tab');
-            const tiertrakPricing = document.getElementById('tiertrak-pricing');
-            const gradtrackPricing = document.getElementById('gradtrack-pricing');
-            const bundlePricing = document.getElementById('bundle-pricing');
+        function showTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
             
-            tabs.forEach(function(tab) {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    tabs.forEach(function(t) {
-                        t.classList.remove('active', 'teal', 'gradient');
-                    });
-                    
-                    // Add active class to clicked tab
-                    tab.classList.add('active');
-                    
-                    // Hide all pricing sections
-                    tiertrakPricing.classList.add('hidden');
-                    gradtrackPricing.classList.add('hidden');
-                    bundlePricing.classList.add('hidden');
-                    
-                    // Show appropriate pricing
-                    if (tab.dataset.product === 'tiertrak') {
-                        tab.classList.add('teal');
-                        tiertrakPricing.classList.remove('hidden');
-                    } else if (tab.dataset.product === 'gradtrack') {
-                        gradtrackPricing.classList.remove('hidden');
-                    } else if (tab.dataset.product === 'bundle') {
-                        tab.classList.add('gradient');
-                        bundlePricing.classList.remove('hidden');
-                    }
-                });
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
             });
-        });
-        
-        // Copy Email Function
-        function copyEmail() {
-            const email = 'sps@scholarpathsystems.org';
-            navigator.clipboard.writeText(email).then(function() {
-                const btn = document.querySelector('.btn-copy');
-                btn.textContent = '✓ Copied!';
-                btn.classList.add('copied');
-                setTimeout(function() {
-                    btn.textContent = '📋 Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
-            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            document.querySelector(`.tab-btn.${tabId}`).classList.add('active');
         }
     </script>
 </body>
