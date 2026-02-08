@@ -1044,7 +1044,7 @@
                 <a href="/#portals">Portals</a>
                 <a href="/#about">About</a>
                 <a href="/pricing.html">Pricing</a>
-                <a href="#cta" class="btn-demo">Request a Demo →</a>
+                href="javascript:void(0)" onclick="openDemoModal()"
             </div>
         </div>
     </nav>
@@ -1057,7 +1057,7 @@
                 <h1>Evaluation That<span class="highlight">Grows Your Staff, Not Just Rates Them</span></h1>
                 <p class="subtitle">Most evaluation systems feel like compliance checkboxes. StaffTrak makes them collaborative — with clear goals, timely feedback, and a focus on professional growth.</p>
                 <div class="hero-buttons">
-                    <a href="#cta" class="btn btn-primary">Request a Demo</a>
+                    href="javascript:void(0)" onclick="openDemoModal()"
                     <a href="#features" class="btn btn-secondary">See All Features</a>
                 </div>
             </div>
@@ -1132,8 +1132,7 @@
                         </div>
                     </div>
                     
-                    <a href="#cta" class="btn btn-primary" style="background: #7c3aed; color: white;">See How It Works →</a>
-                </div>
+href="javascript:void(0)" onclick="openDemoModal()"                </div>
                 
                 <div class="value-prop-visual">
                     <div class="workflow-card">
@@ -1411,8 +1410,7 @@
                 </div>
             </div>
             
-            <a href="mailto:sps@scholarpathsystems.org?subject=StaffTrak%20Demo%20Request&body=Hi%20ScholarPath%20team%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20StaffTrak%20for%20our%20school%2Fdistrict.%0A%0ASchool%2FDistrict%20Name%3A%0ANumber%20of%20Staff%3A%0ABest%20time%20to%20connect%3A%0A%0AThank%20you!" class="btn">Open in Email App →</a>
-        </div>
+href="javascript:void(0)" onclick="openDemoModal()"        </div>
     </section>
 
     <!-- Footer -->
@@ -1434,7 +1432,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="/#about">About Us</a></li>
-                    <li><a href="/#contact">Contact</a></li>
+                    href="javascript:void(0)" onclick="openDemoModal()"
                 </ul>
             </div>
             <div>
@@ -1478,6 +1476,176 @@
                 }, 2000);
             });
         }
+    </script>
+    <!-- Demo Request Modal -->
+    <div id="demoModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:9999; display:none; align-items:center; justify-content:center; padding:2rem;">
+      <div style="background:white; border-radius:16px; max-width:560px; width:100%; max-height:90vh; overflow-y:auto; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.3); animation:modalSlideIn 0.3s ease-out;">
+        <button onclick="closeDemoModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#9ca3af; width:36px; height:36px; border-radius:50; display:flex; align-items:center; justify-content:center;">&times;</button>
+        
+        <div style="background:linear-gradient(135deg, #312e81, #4f46e5); color:white; padding:2rem 2rem 1.5rem; border-radius:16px 16px 0 0;">
+          <h2 style="font-size:1.75rem; font-weight:800; letter-spacing:0.5px; margin-bottom:0.5rem;">LET'S CONNECT.</h2>
+          <p style="opacity:0.85; font-size:0.95rem;">Tell us about your school and we'll reach out within one business day.</p>
+        </div>
+
+        <form id="demoForm" style="padding:1.5rem 2rem 2rem;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">First Name <span style="color:#ef4444;">*</span></label>
+              <input type="text" name="firstName" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Last Name <span style="color:#ef4444;">*</span></label>
+              <input type="text" name="lastName" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Work Email <span style="color:#ef4444;">*</span></label>
+            <input type="email" name="email" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">School / District Name <span style="color:#ef4444;">*</span></label>
+            <input type="text" name="school" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">School Website</label>
+            <input type="url" name="website" placeholder="https://..." style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Number of Students <span style="color:#ef4444;">*</span></label>
+              <select name="students" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+                <option value="">Select...</option>
+                <option>Under 200</option>
+                <option>200 - 500</option>
+                <option>500 - 1,000</option>
+                <option>1,000 - 2,500</option>
+                <option>2,500+</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Your Role <span style="color:#ef4444;">*</span></label>
+              <select name="role" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+                <option value="">Select...</option>
+                <option>Administrator</option>
+                <option>Counselor</option>
+                <option>MTSS Coordinator</option>
+                <option>Special Education Director</option>
+                <option>Behavior Specialist</option>
+                <option>Teacher</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Products of Interest <span style="color:#ef4444;">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="TierTrak" style="width:18px; height:18px; accent-color:#4f46e5;"> TierTrak (MTSS Interventions)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="GradTrack" style="width:18px; height:18px; accent-color:#4f46e5;"> GradTrack (Graduation Tracking)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="StaffTrak" style="width:18px; height:18px; accent-color:#4f46e5;"> StaffTrak (Staff Evaluations)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="Not Sure Yet" style="width:18px; height:18px; accent-color:#4f46e5;"> Not Sure Yet - Tell Me More
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Tell Us About Your Needs</label>
+            <textarea name="needs" rows="3" placeholder="What challenges are you trying to solve?" style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem; font-family:inherit;"></textarea>
+          </div>
+
+          <button type="submit" style="width:100%; padding:0.85rem; background:linear-gradient(135deg, #4f46e5, #7c3aed); color:white; border:none; border-radius:10px; font-size:1.05rem; font-weight:700; letter-spacing:1px; cursor:pointer; margin-top:0.5rem;">SEND REQUEST</button>
+          <p style="text-align:center; font-size:0.8rem; color:#9ca3af; margin-top:0.75rem;">We'll respond within one business day. No spam, ever.</p>
+        </form>
+
+        <div id="demoSuccess" style="display:none; text-align:center; padding:3rem 2rem;">
+          <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+          <h3 style="margin-bottom:0.5rem;">Request Received!</h3>
+          <p style="color:#718096;">We'll be in touch within one business day.<br>Check your email for a confirmation.</p>
+          <button onclick="closeDemoModal()" style="margin-top:1.5rem; padding:0.75rem 2rem; background:#4f46e5; color:white; border:none; border-radius:8px; cursor:pointer; font-size:1rem;">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      @keyframes modalSlideIn {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    </style>
+
+    <script>
+    function openDemoModal() {
+        var modal = document.getElementById('demoModal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDemoModal() {
+        var modal = document.getElementById('demoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        document.getElementById('demoForm').reset();
+        document.getElementById('demoForm').style.display = '';
+        document.getElementById('demoSuccess').style.display = 'none';
+    }
+
+    document.getElementById('demoModal').addEventListener('click', function(e) {
+        if (e.target === this) closeDemoModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeDemoModal();
+    });
+
+    document.getElementById('demoForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'SENDING...';
+
+        var formData = new FormData(this);
+        var data = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            school: formData.get('school'),
+            website: formData.get('website'),
+            students: formData.get('students'),
+            role: formData.get('role'),
+            products: formData.getAll('products'),
+            needs: formData.get('needs')
+        };
+
+        try {
+            var response = await fetch('https://tiertrak-api.onrender.com/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                document.getElementById('demoForm').style.display = 'none';
+                document.getElementById('demoSuccess').style.display = 'block';
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please email us at sps@scholarpathsystems.org');
+            btn.disabled = false;
+            btn.textContent = 'SEND REQUEST';
+        }
+    });
     </script>
 </body>
 </html>
