@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GradTrak - Graduation Progress Tracking | ScholarPath Systems</title>
-    <meta name="description" content="GradTrak gives students, parents, and counselors real-time visibility into graduation progress. No phone calls. No surprises. Just clarity. FERPA compliant.">
+    <title>GradTrack - Graduation Progress Tracking | ScholarPath Systems</title>
+    <meta name="description" content="GradTrack gives students, parents, and counselors real-time visibility into graduation progress. No phone calls. No surprises. Just clarity. FERPA compliant.">
     <style>
         * {
             margin: 0;
@@ -20,13 +20,14 @@
         
         /* Navigation */
         nav {
-            background: white;
+            background: rgba(255, 255, 255, 0.98);
             padding: 1rem 2rem;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(79, 70, 229, 0.08);
+            backdrop-filter: blur(10px);
         }
         
         nav .container {
@@ -61,7 +62,7 @@
             color: #4f46e5;
         }
         
-        /* Dropdown */
+        /* Dropdown - FIXED hover gap */
         .dropdown {
             position: relative;
         }
@@ -72,11 +73,20 @@
             top: 100%;
             left: 0;
             background: white;
-            min-width: 200px;
+            min-width: 220px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             border-radius: 8px;
             padding: 0.5rem 0;
-            margin-top: 0.5rem;
+            padding-top: 1rem;
+        }
+        
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
         }
         
         .dropdown:hover .dropdown-content {
@@ -87,6 +97,7 @@
             display: block;
             padding: 0.75rem 1rem;
             color: #4a5568;
+            text-decoration: none;
         }
         
         .dropdown-content a:hover {
@@ -98,6 +109,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            pointer-events: none;
         }
         
         .dropdown-content .product-icon {
@@ -122,9 +134,9 @@
             background: #4338ca;
         }
         
-        /* Hero Section - GradTrak Purple Theme */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             padding: 8rem 2rem 5rem;
             color: white;
         }
@@ -315,7 +327,7 @@
         
         /* Problem Section */
         .problem {
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
             color: white;
             padding: 5rem 2rem;
         }
@@ -335,7 +347,7 @@
         }
         
         .problem .section-label {
-            color: #f87171;
+            color: #fbbf24;
         }
         
         .section-title {
@@ -362,10 +374,11 @@
         }
         
         .problem-card {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.08);
             border-radius: 12px;
             padding: 2rem;
             text-align: left;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         .problem-card .icon {
@@ -376,18 +389,18 @@
         .problem-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
-            color: #f87171;
+            color: #fbbf24;
         }
         
         .problem-card p {
-            opacity: 0.8;
+            opacity: 0.85;
             font-size: 0.95rem;
         }
         
         /* Solution Section */
         .solution {
             padding: 5rem 2rem;
-            background: white;
+            background: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 100%);
         }
         
         .solution .container {
@@ -483,11 +496,6 @@
             background: #f7fafc;
             border-radius: 16px;
             padding: 2rem;
-        }
-        
-        .solution-visual img {
-            width: 100%;
-            border-radius: 8px;
         }
         
         /* Mock UI Cards */
@@ -603,7 +611,7 @@
         /* Portals Section */
         .portals {
             padding: 5rem 2rem;
-            background: #f7fafc;
+            background: linear-gradient(180deg, #f5f3ff 0%, #fefce8 100%);
         }
         
         .portals .container {
@@ -617,7 +625,7 @@
         }
         
         .portals .section-label {
-            color: #4f46e5;
+            color: #6366f1;
         }
         
         .portals-grid {
@@ -643,13 +651,14 @@
             border-radius: 12px;
             padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.08);
+            border: 1px solid rgba(99, 102, 241, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
         }
         
         .portal-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
         }
         
         .portal-card .icon {
@@ -671,7 +680,7 @@
         /* Features Section */
         .features {
             padding: 5rem 2rem;
-            background: white;
+            background: linear-gradient(180deg, #fefce8 0%, #fef3c7 100%);
         }
         
         .features .container {
@@ -707,9 +716,17 @@
         }
         
         .feature-card {
-            background: #f7fafc;
+            background: white;
             border-radius: 12px;
             padding: 2rem;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.15);
         }
         
         .feature-card .icon {
@@ -731,7 +748,7 @@
         /* Security Section */
         .security {
             padding: 5rem 2rem;
-            background: #1a1a2e;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
             color: white;
         }
         
@@ -742,7 +759,7 @@
         }
         
         .security .section-label {
-            color: #a5b4fc;
+            color: #c4b5fd;
         }
         
         .security-badges {
@@ -775,7 +792,7 @@
         /* CTA Section */
         .cta {
             padding: 5rem 2rem;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
             color: white;
             text-align: center;
         }
@@ -830,19 +847,20 @@
         
         .btn-cta {
             background: white;
-            color: #4f46e5;
+            color: #6366f1;
             padding: 1rem 2.5rem;
             font-size: 1.1rem;
+            transition: all 0.3s;
         }
         
         .btn-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
         }
         
         /* Footer */
         footer {
-            background: #0f0f1a;
+            background: linear-gradient(180deg, #1e1b4b 0%, #0f0d24 100%);
             color: white;
             padding: 3rem 2rem 2rem;
         }
@@ -909,184 +927,6 @@
             color: #9ca3af;
             font-size: 0.85rem;
         }
-
-/* Demo Request Modal */
-.demo-modal-overlay {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.demo-modal {
-    background: white;
-    border-radius: 16px;
-    max-width: 560px;
-    width: 100%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-    animation: modalSlideIn 0.3s ease-out;
-}
-
-@keyframes modalSlideIn {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.demo-modal-close {
-    position: absolute;
-    top: 1rem; right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #9ca3af;
-    width: 36px; height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-
-.demo-modal-close:hover {
-    background: #f3f4f6;
-    color: #374151;
-}
-
-.demo-modal-header {
-    background: linear-gradient(135deg, #312e81, #4f46e5);
-    color: white;
-    padding: 2rem 2rem 1.5rem;
-    border-radius: 16px 16px 0 0;
-}
-
-.demo-modal-header h2 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
-}
-
-.demo-modal-header p {
-    opacity: 0.85;
-    font-size: 0.95rem;
-}
-
-.demo-modal-form {
-    padding: 1.5rem 2rem 2rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #374151;
-    margin-bottom: 0.35rem;
-}
-
-.form-group .req {
-    color: #ef4444;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 0.6rem 0.75rem;
-    border: 1.5px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-family: inherit;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-}
-
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem !important;
-    font-weight: 400 !important;
-    color: #4b5563 !important;
-    cursor: pointer;
-}
-
-.checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    accent-color: #4f46e5;
-}
-
-.demo-submit-btn {
-    width: 100%;
-    padding: 0.85rem;
-    background: linear-gradient(135deg, #4f46e5, #7c3aed);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 0.5rem;
-}
-
-.demo-submit-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
-}
-
-.demo-submit-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.form-note {
-    text-align: center;
-    font-size: 0.8rem;
-    color: #9ca3af;
-    margin-top: 0.75rem;
-}
-
-@media (max-width: 600px) {
-    .demo-modal { margin: 1rem; }
-    .form-row { grid-template-columns: 1fr; }
-    .demo-modal-header { padding: 1.5rem; }
-    .demo-modal-form { padding: 1rem 1.5rem 1.5rem; }
-}
     </style>
 </head>
 <body>
@@ -1111,17 +951,26 @@
                             <div class="product-item">
                                 <span class="product-icon">📊</span>
                                 <div>
-                                    <strong>GradTrak</strong>
+                                    <strong>GradTrack</strong>
                                     <span class="product-desc">Graduation Progress Tracking</span>
                                 </div>
                             </div>
                         </a>
+                        <a href="/stafftrak.html">
+    <div class="product-item">
+        <span class="product-icon">👥</span>
+        <div>
+            <strong>StaffTrak</strong> <span style="font-size: 0.7rem; color: #16a34a; font-weight: 600;">NOW AVAILABLE</span>
+            <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+        </div>
+    </div>
+</a>
                     </div>
                 </div>
                 <a href="/#portals">Portals</a>
                 <a href="/#about">About</a>
                 <a href="/pricing.html">Pricing</a>
-                <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Request a Demo →</a>
+                href="javascript:void(0)" onclick="openDemoModal()"
             </div>
         </div>
     </nav>
@@ -1134,7 +983,7 @@
                 <h1>Progress They Can See, Anytime They Need It</h1>
                 <p>Give students, parents, and counselors instant visibility into graduation requirements. No phone calls. No waiting. No surprises at report card time.</p>
                 <div class="hero-buttons">
-                    <a href="javascript:void(0)" onclick="openDemoModal()" class="btn btn-primary">Request a Demo</a>
+                    href="javascript:void(0)" onclick="openDemoModal()"
                     <a href="#solution" class="btn btn-secondary">See How It Works</a>
                 </div>
             </div>
@@ -1233,7 +1082,7 @@
     <section class="solution" id="solution">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">The GradTrak Difference</div>
+                <div class="section-label">The GradTrack Difference</div>
                 <h2 class="section-title">Visibility That Empowers Everyone</h2>
             </div>
             
@@ -1370,7 +1219,7 @@
                 <div class="solution-content">
                     <div class="number">4</div>
                     <h3>Early Alerts Catch Problems Before They Grow</h3>
-                    <p>GradTrak automatically flags students who are falling behind on credits. Counselors see at-risk students at a glance — not when it's too late, but when there's still time to help.</p>
+                    <p>GradTrack automatically flags students who are falling behind on credits. Counselors see at-risk students at a glance — not when it's too late, but when there's still time to help.</p>
                     <div class="solution-example">
                         <div class="label">Alert example:</div>
                         <div class="text">"Marcus needs 1 more elective credit to stay on track for graduation. Recommend course adjustment."</div>
@@ -1472,7 +1321,7 @@
                 </div>
                 <div class="feature-card">
                     <div class="icon">📊</div>
-                    <h3>Reports & Analytics</h3>
+                    <h3>Reports &amp; Analytics</h3>
                     <p>School-wide graduation projections, cohort tracking, and requirement completion rates.</p>
                 </div>
             </div>
@@ -1482,9 +1331,9 @@
     <!-- Security Section -->
     <section class="security">
         <div class="container">
-            <div class="section-label">Security & Compliance</div>
+            <div class="section-label">Security &amp; Compliance</div>
             <h2 class="section-title">Student Data Protected, Always</h2>
-            <p class="section-subtitle">GradTrak is built with security and FERPA compliance at its core.</p>
+            <p class="section-subtitle">GradTrack is built with security and FERPA compliance at its core.</p>
             
             <div class="security-badges">
                 <div class="security-badge">
@@ -1515,18 +1364,17 @@
     <section class="cta" id="cta">
         <div class="container">
             <h2>Ready to Give Students Visibility into Their Future?</h2>
-            <p>See how GradTrak can reduce counselor workload while empowering students and families.</p>
+            <p>See how GradTrack can reduce counselor workload while empowering students and families.</p>
             
             <div class="cta-email">
                 <span>✉️</span>
-                <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
+                href="javascript:void(0)" onclick="openDemoModal()"
                 <button onclick="navigator.clipboard.writeText('sps@scholarpathsystems.org'); this.textContent='Copied!';">Copy</button>
             </div>
             
             <br>
             
-            <a href="javascript:void(0)" onclick="openDemoModal()" class="btn btn-cta">Schedule a Demo →</a>
-        </div>
+href="javascript:void(0)" onclick="openDemoModal()"        </div>
     </section>
 
     <!-- Footer -->
@@ -1540,14 +1388,15 @@
                 <h4>Products</h4>
                 <ul>
                     <li><a href="/tiertrak.html">TierTrak</a></li>
-                    <li><a href="/gradtrack.html">GradTrak</a></li>
+                    <li><a href="/gradtrack.html">GradTrack</a></li>
+                    <li><a href="/stafftrak.html">StaffTrak</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Company</h4>
                 <ul>
                     <li><a href="/#about">About Us</a></li>
-                    <li><a href="javascript:void(0)" onclick="openDemoModal()">Contact</a></li>
+                    href="javascript:void(0)" onclick="openDemoModal()"
                 </ul>
             </div>
             <div>
@@ -1563,169 +1412,175 @@
             FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
         </div>
     </footer>
-
 <!-- Demo Request Modal -->
-<div id="demoModal" class="demo-modal-overlay" style="display:none;">
-  <div class="demo-modal">
-    <button class="demo-modal-close" onclick="closeDemoModal()">&times;</button>
-    
-    <div class="demo-modal-header">
-      <h2>LET'S CONNECT.</h2>
-      <p>Tell us about your school and we'll reach out within one business day.</p>
+    <div id="demoModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:9999; display:none; align-items:center; justify-content:center; padding:2rem;">
+      <div style="background:white; border-radius:16px; max-width:560px; width:100%; max-height:90vh; overflow-y:auto; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.3); animation:modalSlideIn 0.3s ease-out;">
+        <button onclick="closeDemoModal()" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#9ca3af; width:36px; height:36px; border-radius:50; display:flex; align-items:center; justify-content:center;">&times;</button>
+        
+        <div style="background:linear-gradient(135deg, #312e81, #4f46e5); color:white; padding:2rem 2rem 1.5rem; border-radius:16px 16px 0 0;">
+          <h2 style="font-size:1.75rem; font-weight:800; letter-spacing:0.5px; margin-bottom:0.5rem;">LET'S CONNECT.</h2>
+          <p style="opacity:0.85; font-size:0.95rem;">Tell us about your school and we'll reach out within one business day.</p>
+        </div>
+
+        <form id="demoForm" style="padding:1.5rem 2rem 2rem;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">First Name <span style="color:#ef4444;">*</span></label>
+              <input type="text" name="firstName" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+            </div>
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Last Name <span style="color:#ef4444;">*</span></label>
+              <input type="text" name="lastName" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Work Email <span style="color:#ef4444;">*</span></label>
+            <input type="email" name="email" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">School / District Name <span style="color:#ef4444;">*</span></label>
+            <input type="text" name="school" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">School Website</label>
+            <input type="url" name="website" placeholder="https://..." style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Number of Students <span style="color:#ef4444;">*</span></label>
+              <select name="students" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+                <option value="">Select...</option>
+                <option>Under 200</option>
+                <option>200 - 500</option>
+                <option>500 - 1,000</option>
+                <option>1,000 - 2,500</option>
+                <option>2,500+</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Your Role <span style="color:#ef4444;">*</span></label>
+              <select name="role" required style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem;">
+                <option value="">Select...</option>
+                <option>Administrator</option>
+                <option>Counselor</option>
+                <option>MTSS Coordinator</option>
+                <option>Special Education Director</option>
+                <option>Behavior Specialist</option>
+                <option>Teacher</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Products of Interest <span style="color:#ef4444;">*</span></label>
+            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="TierTrak" style="width:18px; height:18px; accent-color:#4f46e5;"> TierTrak (MTSS Interventions)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="GradTrack" style="width:18px; height:18px; accent-color:#4f46e5;"> GradTrack (Graduation Tracking)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="StaffTrak" style="width:18px; height:18px; accent-color:#4f46e5;"> StaffTrak (Staff Evaluations)
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="Not Sure Yet" style="width:18px; height:18px; accent-color:#4f46e5;"> Not Sure Yet - Tell Me More
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-bottom:1rem;">
+            <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">Tell Us About Your Needs</label>
+            <textarea name="needs" rows="3" placeholder="What challenges are you trying to solve?" style="width:100%; padding:0.6rem 0.75rem; border:1.5px solid #d1d5db; border-radius:8px; font-size:0.95rem; font-family:inherit;"></textarea>
+          </div>
+
+          <button type="submit" style="width:100%; padding:0.85rem; background:linear-gradient(135deg, #4f46e5, #7c3aed); color:white; border:none; border-radius:10px; font-size:1.05rem; font-weight:700; letter-spacing:1px; cursor:pointer; margin-top:0.5rem;">SEND REQUEST</button>
+          <p style="text-align:center; font-size:0.8rem; color:#9ca3af; margin-top:0.75rem;">We'll respond within one business day. No spam, ever.</p>
+        </form>
+
+        <div id="demoSuccess" style="display:none; text-align:center; padding:3rem 2rem;">
+          <div style="font-size:3rem; margin-bottom:1rem;">&#10003;</div>
+          <h3 style="margin-bottom:0.5rem;">Request Received!</h3>
+          <p style="color:#718096;">We'll be in touch within one business day.<br>Check your email for a confirmation.</p>
+          <button onclick="closeDemoModal()" style="margin-top:1.5rem; padding:0.75rem 2rem; background:#4f46e5; color:white; border:none; border-radius:8px; cursor:pointer; font-size:1rem;">Close</button>
+        </div>
+      </div>
     </div>
 
-    <form id="demoForm" class="demo-modal-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name <span class="req">*</span></label>
-          <input type="text" name="firstName" required>
-        </div>
-        <div class="form-group">
-          <label>Last Name <span class="req">*</span></label>
-          <input type="text" name="lastName" required>
-        </div>
-      </div>
+    <style>
+      @keyframes modalSlideIn {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    </style>
 
-      <div class="form-group">
-        <label>Work Email <span class="req">*</span></label>
-        <input type="email" name="email" required>
-      </div>
-
-      <div class="form-group">
-        <label>School / District Name <span class="req">*</span></label>
-        <input type="text" name="school" required>
-      </div>
-
-      <div class="form-group">
-        <label>School Website</label>
-        <input type="url" name="website" placeholder="https://...">
-      </div>
-
-      <div class="form-row">
-        <div class="form-group">
-          <label>Number of Students <span class="req">*</span></label>
-          <select name="students" required>
-            <option value="">Select...</option>
-            <option>Under 200</option>
-            <option>200 – 500</option>
-            <option>500 – 1,000</option>
-            <option>1,000 – 2,500</option>
-            <option>2,500+</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Your Role <span class="req">*</span></label>
-          <select name="role" required>
-            <option value="">Select...</option>
-            <option>Administrator</option>
-            <option>Counselor</option>
-            <option>MTSS Coordinator</option>
-            <option>Special Education Director</option>
-            <option>Behavior Specialist</option>
-            <option>Teacher</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Products of Interest <span class="req">*</span></label>
-        <div class="checkbox-group">
-          <label class="checkbox-label">
-            <input type="checkbox" name="products" value="TierTrak"> TierTrak (MTSS Interventions)
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="products" value="GradTrak"> GradTrak (Graduation Tracking)
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="products" value="StaffTrak"> StaffTrak (Staff Evaluations)
-          </label>
-          <label class="checkbox-label">
-            <input type="checkbox" name="products" value="Not Sure Yet"> Not Sure Yet – Tell Me More
-          </label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Tell Us About Your Needs</label>
-        <textarea name="needs" rows="3" placeholder="What challenges are you trying to solve?"></textarea>
-      </div>
-
-      <button type="submit" class="demo-submit-btn">SEND REQUEST</button>
-      <p class="form-note">We'll respond within one business day. No spam, ever.</p>
-    </form>
-
-    <!-- Success State (hidden by default) -->
-    <div id="demoSuccess" style="display:none; text-align:center; padding: 3rem 2rem;">
-      <div style="font-size: 3rem; margin-bottom: 1rem;">✅</div>
-      <h3 style="margin-bottom: 0.5rem;">Request Received!</h3>
-      <p style="color: #718096;">We'll be in touch within one business day.<br>Check your email for a confirmation.</p>
-      <button onclick="closeDemoModal()" style="margin-top: 1.5rem; padding: 0.75rem 2rem; background: #4f46e5; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem;">Close</button>
-    </div>
-  </div>
-</div>
-
-<script>
-function openDemoModal() {
-    document.getElementById('demoModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
-function closeDemoModal() {
-    document.getElementById('demoModal').style.display = 'none';
-    document.body.style.overflow = '';
-    document.getElementById('demoForm').reset();
-    document.getElementById('demoForm').style.display = '';
-    document.getElementById('demoSuccess').style.display = 'none';
-}
-
-document.getElementById('demoModal').addEventListener('click', function(e) {
-    if (e.target === this) closeDemoModal();
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeDemoModal();
-});
-
-document.getElementById('demoForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn = this.querySelector('.demo-submit-btn');
-    btn.disabled = true;
-    btn.textContent = 'SENDING...';
-
-    var formData = new FormData(this);
-    var data = {
-        firstName: formData.get('firstName'),
-        lastName: formData.get('lastName'),
-        email: formData.get('email'),
-        school: formData.get('school'),
-        website: formData.get('website'),
-        students: formData.get('students'),
-        role: formData.get('role'),
-        products: formData.getAll('products'),
-        needs: formData.get('needs')
-    };
-
-    try {
-        var response = await fetch('https://tiertrak-api.onrender.com/api/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-            document.getElementById('demoForm').style.display = 'none';
-            document.getElementById('demoSuccess').style.display = 'block';
-        } else {
-            throw new Error('Submission failed');
-        }
-    } catch (err) {
-        alert('Something went wrong. Please email us at sps@scholarpathsystems.org');
-        btn.disabled = false;
-        btn.textContent = 'SEND REQUEST';
+    <script>
+    function openDemoModal() {
+        var modal = document.getElementById('demoModal');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
-});
-</script>
 
+    function closeDemoModal() {
+        var modal = document.getElementById('demoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        document.getElementById('demoForm').reset();
+        document.getElementById('demoForm').style.display = '';
+        document.getElementById('demoSuccess').style.display = 'none';
+    }
+
+    document.getElementById('demoModal').addEventListener('click', function(e) {
+        if (e.target === this) closeDemoModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeDemoModal();
+    });
+
+    document.getElementById('demoForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        var btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'SENDING...';
+
+        var formData = new FormData(this);
+        var data = {
+            firstName: formData.get('firstName'),
+            lastName: formData.get('lastName'),
+            email: formData.get('email'),
+            school: formData.get('school'),
+            website: formData.get('website'),
+            students: formData.get('students'),
+            role: formData.get('role'),
+            products: formData.getAll('products'),
+            needs: formData.get('needs')
+        };
+
+        try {
+            var response = await fetch('https://tiertrak-api.onrender.com/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                document.getElementById('demoForm').style.display = 'none';
+                document.getElementById('demoSuccess').style.display = 'block';
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (err) {
+            alert('Something went wrong. Please email us at sps@scholarpathsystems.org');
+            btn.disabled = false;
+            btn.textContent = 'SEND REQUEST';
+        }
+    });
+    </script>
 </body>
 </html>
