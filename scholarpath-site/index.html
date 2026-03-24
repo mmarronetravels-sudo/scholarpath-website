@@ -2257,7 +2257,9 @@
           <p style="opacity:0.85; font-size:0.95rem;">Tell us about your school and we'll reach out within one business day.</p>
         </div>
 
-        <form id="demoForm" style="padding:1.5rem 2rem 2rem;">
+        <form id="demoForm" name="demo-request" data-netlify="true" netlify-honeypot="bot-field" style="padding:1.5rem 2rem 2rem;">
+           <input type="hidden" name="form-name" value="demo-request">
+  <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p> 
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
             <div>
               <label style="display:block; font-size:0.85rem; font-weight:600; color:#374151; margin-bottom:0.35rem;">First Name <span style="color:#ef4444;">*</span></label>
@@ -2385,23 +2387,12 @@
         btn.textContent = 'SENDING...';
 
         var formData = new FormData(this);
-        var data = {
-            firstName: formData.get('firstName'),
-            lastName: formData.get('lastName'),
-            email: formData.get('email'),
-            school: formData.get('school'),
-            website: formData.get('website'),
-            students: formData.get('students'),
-            role: formData.get('role'),
-            products: formData.getAll('products'),
-            needs: formData.get('needs')
-        };
-
+       
         try {
-            var response = await fetch('https://tiertrak-api.onrender.com/api/contact', {
+            var response = await fetch('/', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
             });
 
             if (response.ok) {
