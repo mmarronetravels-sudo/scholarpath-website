@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resource: What to Say When — 5 Hard Parent Conversations in MTSS | ScholarPath Systems</title>
+    <meta name="description" content="A free one-page resource for school leaders: language for the 5 hardest parent conversations in intervention work. Built by a 30-year educator. No email required.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0d9488;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            padding-top: 1rem;
+        }
+
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4a5568;
+            text-decoration: none;
+        }
+
+        .dropdown-content a:hover {
+            background: #f7fafc;
+            color: #4f46e5;
+        }
+
+        .dropdown-content .product-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .dropdown-content .product-icon {
+            font-size: 1.25rem;
+        }
+
+        .dropdown-content .product-desc {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+            display: block;
+        }
+
+        .btn-demo {
+            background: #0d9488;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .btn-demo:hover {
+            background: #0f766e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 30%, #0891b2 70%, #06b6d4 100%);
+            padding: 8rem 2rem 5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .hero .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: white;
+            color: #0d9488;
+            padding: 1.15rem 2.25rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+
+        .download-btn .arrow {
+            font-size: 1.2rem;
+        }
+
+        .download-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .subtitle {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* About section */
+        .about-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .about-section .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .about-section .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+        }
+
+        .about-content p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Scenarios preview section */
+        .scenarios-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+        }
+
+        .scenarios-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .scenarios-section .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .scenarios-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+
+        .scenarios-section .lead {
+            text-align: center;
+            color: #4a5568;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .scenarios-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .scenario-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: white;
+            padding: 1.5rem 1.75rem;
+            border-radius: 12px;
+            border-left: 4px solid #0d9488;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .scenario-row.amber { border-left-color: #f59e0b; }
+        .scenario-row.purple { border-left-color: #7c3aed; }
+
+        .scenario-number {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #94a3b8;
+            flex-shrink: 0;
+            min-width: 24px;
+        }
+
+        .scenario-row.amber .scenario-number { color: #f59e0b; }
+        .scenario-row.purple .scenario-number { color: #7c3aed; }
+
+        .scenario-text {
+            flex: 1;
+        }
+
+        .scenario-quote {
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .scenario-context {
+            color: #64748b;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* Second CTA section */
+        .cta-mid {
+            padding: 3rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-mid .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-mid .download-btn {
+            background: #0d9488;
+            color: white;
+            border: none;
+        }
+
+        .cta-mid .download-btn:hover {
+            background: #0f766e;
+        }
+
+        /* Quiet close section (replaces diagnostic handoff) */
+        .quiet-close {
+            padding: 4rem 2rem;
+            background: #f7fafc;
+        }
+
+        .quiet-close .container {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quiet-close blockquote {
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: #1e1b4b;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .quiet-close .attribution {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .quiet-close .resources-link {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        .quiet-close .resources-link a {
+            color: #0d9488;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .quiet-close .resources-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            footer .container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        footer .brand {
+            color: #a5b4fc;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer .brand-desc {
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        footer h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #9ca3af;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer ul a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        footer ul a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #2d2d44;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/intervention-management.html">
+                            <div class="product-item">
+                                <span class="product-icon">📈</span>
+                                <div>
+                                    <strong>ScholarPath Intervention Management</strong>
+                                    <span class="product-desc">MTSS Intervention Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/graduation-progress.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>ScholarPath Graduation Progress</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/staff-evaluation.html">
+                            <div class="product-item">
+                                <span class="product-icon">👥</span>
+                                <div>
+                                    <strong>ScholarPath Staff Evaluation</strong>
+                                    <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/leave-management.html">
+                            <div class="product-item">
+                                <span class="product-icon">📅</span>
+                                <div>
+                                    <strong>ScholarPath Leave Management</strong>
+                                    <span class="product-desc">Leave Tracking &amp; Management</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="/resources.html">Resources</a>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/#contact" class="btn-demo">Contact →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">📄 Free Resource</div>
+            <h1>What to Say When: 5 Hard Parent Conversations in MTSS</h1>
+            <p class="subtitle">The hardest conversations in intervention work aren't with students. Here's language for five of them — what works, and what to avoid.</p>
+            <a href="/scholarpath-parent-conversations.pdf" class="download-btn" target="_blank">
+                Download the Resource
+                <span class="arrow">→</span>
+            </a>
+            <div class="download-note">One-page PDF · No email required · Free to share</div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-label">Why I made this</div>
+            <h2>A lot of you told me the hardest conversations aren't with students</h2>
+            <div class="about-content">
+                <p>In 30 years of schools, I've watched the same thing happen in hundreds of intervention meetings. The plan is solid, the team is good, the data is honest — and then a parent emails at 9pm, or shows up to the SST already angry, or quietly disengages after the first review. And the whole carefully-built plan starts to wobble around the conversation instead of the child.</p>
+                <p>The wobble is almost never about the intervention. It's about language. Specifically, the three or four sentences at the start of a hard conversation that either land the parent on your team or put them across the table from you.</p>
+                <p>This is a one-page resource with language for five of those conversations. Not scripts to recite — starting points you can adapt. Things I've said that worked, things I've said that didn't, and what I wish I'd said instead.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scenarios preview -->
+    <section class="scenarios-section">
+        <div class="container">
+            <div class="section-label">What's inside</div>
+            <h2>Five conversations. One page.</h2>
+            <p class="lead">Each one has the language that works, and the language that doesn't. You'll recognize at least three of these from your building.</p>
+            <div class="scenarios-list">
+                <div class="scenario-row">
+                    <div class="scenario-number">1</div>
+                    <div class="scenario-text">
+                        <div class="scenario-quote">"The intervention isn't working."</div>
+                        <div class="scenario-context">(It is. Slowly.)</div>
+                    </div>
+                </div>
+                <div class="scenario-row amber">
+                    <div class="scenario-number">2</div>
+                    <div class="scenario-text">
+                        <div class="scenario-quote">"Can we just move to evaluation?"</div>
+                    </div>
+                </div>
+                <div class="scenario-row">
+                    <div class="scenario-number">3</div>
+                    <div class="scenario-text">
+                        <div class="scenario-quote">"I haven't heard from you in three months."</div>
+                    </div>
+                </div>
+                <div class="scenario-row purple">
+                    <div class="scenario-number">4</div>
+                    <div class="scenario-text">
+                        <div class="scenario-quote">"My child's teacher is the problem."</div>
+                    </div>
+                </div>
+                <div class="scenario-row amber">
+                    <div class="scenario-number">5</div>
+                    <div class="scenario-text">
+                        <div class="scenario-quote">"You're right, and I know it."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second CTA -->
+    <section class="cta-mid">
+        <div class="container">
+            <a href="/scholarpath-parent-conversations.pdf" class="download-btn" target="_blank">
+                Download the Resource (PDF)
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quiet close -->
+    <section class="quiet-close">
+        <div class="container">
+            <blockquote>
+                "The parent you're nervous to call is usually the parent whose child you need most to stay engaged with. Writing down what you'd say before you say it protects the kid, the teacher, and you."
+            </blockquote>
+            <div class="attribution">— from the one-pager</div>
+            <div class="resources-link">
+                More free resources: <a href="/resources.html">scholarpathsystems.org/resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <div class="brand">📚 ScholarPath Systems</div>
+                <p class="brand-desc">Educational software that empowers students and schools.</p>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/intervention-management.html">Intervention Management</a></li>
+                    <li><a href="/graduation-progress.html">Graduation Progress</a></li>
+                    <li><a href="/staff-evaluation.html">Staff Evaluation</a></li>
+                    <li><a href="/leave-management.html">Leave Management</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/resources.html">Free Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 ScholarPath Systems, LLC. All rights reserved.<br>
+            FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
+        </div>
+    </footer>
+</body>
+</html>
