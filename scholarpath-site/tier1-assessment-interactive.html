@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tier 1 Assessment — Take it on Screen | ScholarPath Systems</title>
+<style>
+  :root {
+    --teal: #0d9488;
+    --teal-dark: #0f766e;
+    --indigo: #1e1b4b;
+    --indigo-light: #312e81;
+    --slate: #475569;
+    --slate-light: #94a3b8;
+    --amber: #f59e0b;
+    --purple: #7c3aed;
+    --rose: #e11d48;
+    --bg-white: #ffffff;
+    --bg-light: #f8fafc;
+    --bg-teal: #f0fdfa;
+    --bg-amber: #fffbeb;
+    --bg-purple: #faf5ff;
+    --bg-indigo: #eef2ff;
+    --bg-rose: #fef2f2;
+    --bg-rose-subtle: #fff1f2;
+    --border: #e2e8f0;
+    --border-mid: #cbd5e1;
+    --text: #1a1a2e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-light);
+    color: var(--text);
+    line-height: 1.55;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ==================== HEADER ==================== */
+  .page-header {
+    background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-light) 100%);
+    color: white;
+    padding: 40px 0 32px;
+    margin-bottom: 32px;
+  }
+  .container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .hero-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 48px;
+    align-items: start;
+  }
+  @media (max-width: 880px) {
+    .hero-layout { grid-template-columns: 1fr; gap: 24px; }
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5eead4;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1.5px;
+    background: #5eead4;
+  }
+  h1 {
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .lede {
+    font-size: 16px;
+    line-height: 1.55;
+    color: #c7d2fe;
+    font-style: italic;
+    max-width: 640px;
+    margin-bottom: 18px;
+  }
+  .meta-line {
+    font-size: 13px;
+    color: #a5b4fc;
+    margin-bottom: 4px;
+  }
+  .meta-line strong { color: white; font-weight: 600; }
+
+  .how-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 18px 20px;
+    backdrop-filter: blur(10px);
+  }
+  .how-card h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5eead4;
+    margin-bottom: 10px;
+  }
+  .how-card p {
+    font-size: 13.5px;
+    color: #e0e7ff;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .how-card p:last-child { margin-bottom: 0; }
+  .how-card strong { color: white; }
+
+  /* ==================== MAIN LAYOUT ==================== */
+  .main-layout {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 32px;
+    align-items: start;
+    padding-bottom: 64px;
+  }
+  @media (max-width: 880px) {
+    .main-layout { grid-template-columns: 1fr; }
+  }
+
+  /* ==================== STICKY PANEL ==================== */
+  .sticky-panel {
+    position: sticky;
+    top: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(30, 27, 75, 0.06);
+  }
+  @media (max-width: 880px) {
+    .sticky-panel { position: relative; top: 0; order: -1; }
+  }
+  .sticky-panel h3 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 14px;
+  }
+  .progress-wrap {
+    margin-bottom: 20px;
+  }
+  .progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--slate);
+    margin-bottom: 6px;
+  }
+  .progress-text strong { color: var(--indigo); font-weight: 600; }
+  .progress-bar-bg {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: var(--teal);
+    width: 0;
+    transition: width 0.25s ease;
+  }
+
+  .domain-scores {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  .domain-score-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .domain-score-row:last-of-type { border-bottom: none; padding-bottom: 4px;}
+  .ds-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+  .ds-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .ds-dot.d1 { background: var(--teal); }
+  .ds-dot.d2 { background: var(--amber); }
+  .ds-dot.d3 { background: var(--purple); }
+  .ds-dot.d4 { background: var(--indigo); }
+  .ds-name {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .ds-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--indigo);
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+  .ds-value .ds-max { color: var(--slate-light); font-weight: 400; font-size: 12px; }
+  .ds-band {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 6px;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .ds-band.needs { color: #be123c; background: var(--bg-rose); }
+  .ds-band.developing { color: #b45309; background: var(--bg-amber); }
+  .ds-band.strong { color: var(--teal-dark); background: var(--bg-teal); }
+  .ds-band.pending { color: var(--slate-light); background: transparent; }
+
+  .jump-btn {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    padding: 11px 16px;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .jump-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+  .jump-btn:disabled {
+    background: var(--border);
+    color: var(--slate-light);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* ==================== DOMAINS ==================== */
+  .domains { }
+
+  .domain {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(30, 27, 75, 0.04);
+  }
+  @media (max-width: 620px) {
+    .domain { padding: 22px 20px; }
+  }
+
+  .domain-header {
+    border-bottom: 2px solid var(--indigo);
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+  }
+  .domain-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .domain-num.d1 { color: var(--teal); }
+  .domain-num.d2 { color: var(--amber); }
+  .domain-num.d3 { color: var(--purple); }
+  .domain-num.d4 { color: var(--indigo); }
+  .domain h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--indigo);
+    line-height: 1.15;
+    margin-bottom: 4px;
+  }
+  .domain-sub {
+    font-size: 14px;
+    color: var(--slate);
+    font-style: italic;
+  }
+
+  /* ==================== QUESTIONS ==================== */
+  .q-list { }
+  .q-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+  .q-num {
+    font-weight: 700;
+    color: var(--slate);
+    font-size: 14px;
+    padding-top: 1px;
+  }
+  .q-content { min-width: 0; }
+  .q-text {
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+
+  .q-scale {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  @media (max-width: 620px) {
+    .q-scale { grid-template-columns: 1fr 1fr; }
+  }
+  .q-opt {
+    position: relative;
+  }
+  .q-opt input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .q-opt label {
+    display: block;
+    padding: 8px 10px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 12px;
+    color: var(--slate);
+    font-weight: 500;
+    user-select: none;
+  }
+  .q-opt label:hover {
+    border-color: var(--teal);
+    background: var(--bg-teal);
+  }
+  .q-opt input[type="radio"]:checked + label {
+    border-color: var(--teal);
+    background: var(--teal);
+    color: white;
+    font-weight: 600;
+  }
+  .q-opt input[type="radio"]:focus-visible + label {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+  }
+  .q-opt .opt-num {
+    display: inline-block;
+    font-size: 10px;
+    opacity: 0.65;
+    margin-right: 4px;
+    font-weight: 700;
+  }
+
+  /* ==================== SCORE BOX ==================== */
+  .score-box {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border: 1.5px dashed var(--border-mid);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .score-box.complete {
+    border-style: solid;
+    background: var(--bg-light);
+  }
+  .score-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .score-display {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--slate-light);
+    transition: color 0.2s;
+  }
+  .score-display.has-score { color: var(--indigo); }
+  .score-display .score-max {
+    font-size: 13px;
+    color: var(--slate-light);
+    font-weight: 400;
+  }
+
+  /* ==================== BANDS ==================== */
+  .bands {
+    margin-top: 18px;
+  }
+  .band {
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    border-left: 3px solid var(--border-mid);
+    border-radius: 4px;
+    background: #fafbfc;
+    transition: opacity 0.2s, box-shadow 0.2s;
+    opacity: 0.55;
+  }
+  .band.active {
+    opacity: 1;
+    box-shadow: 0 2px 12px rgba(30, 27, 75, 0.08);
+  }
+  .band.needs { border-left-color: var(--rose); background: var(--bg-rose-subtle); }
+  .band.developing { border-left-color: var(--amber); background: var(--bg-amber); }
+  .band.strong { border-left-color: var(--teal); background: var(--bg-teal); }
+  .band-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .band-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .band.needs .band-label { color: #be123c; }
+  .band.developing .band-label { color: #b45309; }
+  .band.strong .band-label { color: var(--teal-dark); }
+  .band-range {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--slate);
+  }
+  .band-body {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .band-body em { color: var(--slate); }
+
+  /* ==================== SUMMARY ==================== */
+  .summary {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: 0 2px 12px rgba(30, 27, 75, 0.04);
+  }
+  .summary h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--indigo);
+    margin-bottom: 12px;
+    line-height: 1.15;
+  }
+  .summary .summary-lede {
+    font-size: 15px;
+    color: var(--slate);
+    margin-bottom: 24px;
+    line-height: 1.55;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 720px) {
+    .summary-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .sum-card {
+    border: 1.5px solid var(--border);
+    border-top: 4px solid var(--teal);
+    border-radius: 8px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .sum-card.d2 { border-top-color: var(--amber); }
+  .sum-card.d3 { border-top-color: var(--purple); }
+  .sum-card.d4 { border-top-color: var(--indigo); }
+  .sum-domain {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 4px;
+  }
+  .sum-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--indigo);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    min-height: 32px;
+  }
+  .sum-score {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--slate-light);
+  }
+  .sum-score.has-score { color: var(--indigo); }
+  .sum-score .sum-max { font-size: 11px; color: var(--slate-light); font-weight: 400; }
+  .sum-band {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 8px;
+    padding: 3px 6px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .sum-band.needs { color: #be123c; background: var(--bg-rose); }
+  .sum-band.developing { color: #b45309; background: var(--bg-amber); }
+  .sum-band.strong { color: var(--teal-dark); background: var(--bg-teal); }
+  .sum-band.pending { color: var(--slate-light); background: transparent; }
+
+  .reflect {
+    padding: 20px 22px;
+    background: var(--bg-light);
+    border-left: 4px solid var(--indigo);
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+  .reflect h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--indigo);
+    margin-bottom: 12px;
+  }
+  .reflect-q {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+  .reflect-q strong { color: var(--indigo); margin-right: 4px; }
+  .reflect textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 13.5px;
+    color: var(--text);
+    resize: vertical;
+    margin-bottom: 14px;
+    background: white;
+    line-height: 1.5;
+  }
+  .reflect textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+  }
+  .reflect textarea:last-child { margin-bottom: 0; }
+
+  .product-note {
+    padding: 18px 22px;
+    background: var(--bg-indigo);
+    border-left: 4px solid #4338ca;
+    border-radius: 6px;
+    margin-bottom: 24px;
+  }
+  .product-note h3 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4338ca;
+    margin-bottom: 8px;
+  }
+  .product-note p {
+    font-size: 13.5px;
+    color: var(--indigo);
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+  .product-note p:last-child { margin-bottom: 0; }
+  .product-note a { color: #4338ca; font-weight: 600; text-decoration: none; }
+  .product-note a:hover { text-decoration: underline; }
+
+  .summary-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .btn {
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary { background: var(--indigo); color: white; }
+  .btn-primary:hover { background: var(--indigo-light); transform: translateY(-1px); }
+  .btn-secondary { background: white; color: var(--indigo); border: 1.5px solid var(--border); }
+  .btn-secondary:hover { border-color: var(--indigo); background: var(--bg-light); }
+
+  .closing {
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 14px;
+    color: var(--slate);
+    font-style: italic;
+    line-height: 1.55;
+  }
+  .closing strong { color: var(--indigo); font-style: normal; }
+
+  /* ==================== FOOTER ==================== */
+  .page-footer {
+    background: var(--indigo);
+    color: white;
+    padding: 24px 0;
+    text-align: center;
+    font-size: 13px;
+  }
+  .page-footer a { color: #5eead4; text-decoration: none; font-weight: 600; }
+  .page-footer a:hover { text-decoration: underline; }
+
+  /* ==================== PRINT STYLES ==================== */
+  @media print {
+    @page { size: letter; margin: 0.5in; }
+    body { background: white; font-size: 10pt; }
+    .page-header, .page-footer, .sticky-panel, .summary-actions, .jump-btn {
+      display: none !important;
+    }
+    .main-layout { grid-template-columns: 1fr; gap: 0; padding: 0; }
+    .container { max-width: 100%; padding: 0; }
+    .domain, .summary {
+      box-shadow: none;
+      border: 1px solid #e2e8f0;
+      page-break-inside: avoid;
+      margin-bottom: 16px;
+      padding: 20px;
+    }
+    .q-opt label { padding: 4px 6px; font-size: 9pt; }
+    .q-opt input[type="radio"]:checked + label {
+      background: white !important;
+      color: black !important;
+      border: 2px solid black !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .band { opacity: 1 !important; box-shadow: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1 { font-size: 20pt; }
+    h2 { font-size: 14pt; }
+    .summary-grid { grid-template-columns: repeat(4, 1fr) !important; }
+    .reflect textarea {
+      border: 1px solid #cbd5e1;
+      min-height: 40px;
+      -webkit-print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="page-header">
+  <div class="container">
+    <div class="hero-layout">
+      <div>
+        <div class="eyebrow">ScholarPath Systems · Free Resource</div>
+        <h1>The Tier 1 Assessment</h1>
+        <p class="lede">Twenty questions, four domains, one honest look at whether your Tier 1 system is holding. Answer on screen — your scores update live.</p>
+        <p class="meta-line"><strong>Solo time:</strong> 30–45 minutes &nbsp;·&nbsp; <strong>Team time:</strong> 75–90 minutes (each person rates, then you compare)</p>
+        <p class="meta-line" style="color: #a5b4fc;">No email required. Nothing is saved to a server. Close the tab and it's gone.</p>
+      </div>
+      <div class="how-card">
+        <h3>How to use this</h3>
+        <p><strong>Solo:</strong> Rate every statement honestly — especially where you know you're being generous. Your scores update in the panel on the right.</p>
+        <p><strong>Team:</strong> Each member takes it independently first. Gather, compare, and discuss every item where you disagree. <strong>The disagreement is the diagnostic.</strong></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ==================== MAIN ==================== -->
+<div class="container">
+  <div class="main-layout">
+
+    <!-- ==================== DOMAINS ==================== -->
+    <main class="domains">
+
+      <!-- Domain 1 -->
+      <section class="domain" id="domain-1" data-domain="1">
+        <div class="domain-header">
+          <div class="domain-num d1">Domain 1 of 4</div>
+          <h2>Core Instruction</h2>
+          <div class="domain-sub">The quality, consistency, and reach of classroom teaching itself.</div>
+        </div>
+
+        <div class="q-list">
+          <!-- Q 1.1 -->
+          <div class="q-item">
+            <div class="q-num">1.1</div>
+            <div class="q-content">
+              <div class="q-text">Core instruction in reading and math is delivered daily with a consistent scope and sequence, such that any three staff members could describe the current unit and pacing.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_1_1" id="q_1_1_1" data-domain="1" data-value="1"><label for="q_1_1_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_1" id="q_1_1_2" data-domain="1" data-value="2"><label for="q_1_1_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_1" id="q_1_1_3" data-domain="1" data-value="3"><label for="q_1_1_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_1" id="q_1_1_4" data-domain="1" data-value="4"><label for="q_1_1_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <!-- Q 1.2 -->
+          <div class="q-item">
+            <div class="q-num">1.2</div>
+            <div class="q-content">
+              <div class="q-text">Teachers have protected, uninterrupted time for core instruction — pull-outs, intercom announcements, and schedule disruptions are rare during core blocks.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_1_2" id="q_1_2_1" data-domain="1" data-value="1"><label for="q_1_2_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_2" id="q_1_2_2" data-domain="1" data-value="2"><label for="q_1_2_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_2" id="q_1_2_3" data-domain="1" data-value="3"><label for="q_1_2_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_2" id="q_1_2_4" data-domain="1" data-value="4"><label for="q_1_2_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <!-- Q 1.3 -->
+          <div class="q-item">
+            <div class="q-num">1.3</div>
+            <div class="q-content">
+              <div class="q-text">Differentiation happens routinely within Tier 1 — small groups, flexible pacing, adjusted materials — and is visible in lesson plans, not just improvised in the moment.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_1_3" id="q_1_3_1" data-domain="1" data-value="1"><label for="q_1_3_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_3" id="q_1_3_2" data-domain="1" data-value="2"><label for="q_1_3_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_3" id="q_1_3_3" data-domain="1" data-value="3"><label for="q_1_3_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_3" id="q_1_3_4" data-domain="1" data-value="4"><label for="q_1_3_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <!-- Q 1.4 -->
+          <div class="q-item">
+            <div class="q-num">1.4</div>
+            <div class="q-content">
+              <div class="q-text">New teachers receive structured onboarding in the core curriculum and Tier 1 expectations before their first teaching day, not through osmosis across their first semester.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_1_4" id="q_1_4_1" data-domain="1" data-value="1"><label for="q_1_4_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_4" id="q_1_4_2" data-domain="1" data-value="2"><label for="q_1_4_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_4" id="q_1_4_3" data-domain="1" data-value="3"><label for="q_1_4_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_4" id="q_1_4_4" data-domain="1" data-value="4"><label for="q_1_4_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <!-- Q 1.5 -->
+          <div class="q-item">
+            <div class="q-num">1.5</div>
+            <div class="q-content">
+              <div class="q-text">Instructional coaching or peer observation happens regularly (at least monthly per teacher) and focuses on Tier 1 practice, not just on teachers flagged as struggling.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_1_5" id="q_1_5_1" data-domain="1" data-value="1"><label for="q_1_5_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_5" id="q_1_5_2" data-domain="1" data-value="2"><label for="q_1_5_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_5" id="q_1_5_3" data-domain="1" data-value="3"><label for="q_1_5_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_1_5" id="q_1_5_4" data-domain="1" data-value="4"><label for="q_1_5_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-box" data-score-for="1">
+          <span class="score-label">Domain 1 score</span>
+          <span class="score-display"><span class="score-num">—</span><span class="score-max"> / 20</span></span>
+        </div>
+
+        <div class="bands">
+          <div class="band needs" data-band="1" data-band-range="5-10">
+            <div class="band-header">
+              <span class="band-label">Needs Work</span>
+              <span class="band-range">Score 5–10</span>
+            </div>
+            <p class="band-body">A score in this range usually means Tier 1 instruction is <em>happening</em> but not <em>systematized</em>. Good teachers are doing good work in their rooms, but the practice isn't shared, protected, or consistent across the building. The most common pattern: strong teachers thriving despite the system, struggling teachers absorbing what they can by osmosis. The fastest lift is almost never "buy new curriculum" — it's protecting instructional time and making sure new teachers walk in on day one knowing what Tier 1 looks like here.</p>
+          </div>
+          <div class="band developing" data-band="1" data-band-range="11-15">
+            <div class="band-header">
+              <span class="band-label">Developing</span>
+              <span class="band-range">Score 11–15</span>
+            </div>
+            <p class="band-body">A score in this range usually means you have the bones of a Tier 1 system — consistent curriculum, some protected time, something resembling a scope and sequence — but the practices are uneven across classrooms, grade levels, or new hires. The question to ask: where is the variation coming from? If it's individual teacher preference, you have a supervision issue. If it's schedule-driven (specialists pulling kids, assemblies, meetings), you have a structural issue. These are fixed differently.</p>
+          </div>
+          <div class="band strong" data-band="1" data-band-range="16-20">
+            <div class="band-header">
+              <span class="band-label">Strong</span>
+              <span class="band-range">Score 16–20</span>
+            </div>
+            <p class="band-body">A score in this range is rare and real. It means Tier 1 instruction is named, protected, and reinforced — new teachers absorb it quickly, veteran teachers refine it, and disruptions are the exception. The risk at this level is complacency: the exact thing that made your Tier 1 strong is the thing that will stop working if you stop actively maintaining it. Keep the coaching cadence. Keep protecting the time. Drift is invisible until it isn't.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Domain 2 -->
+      <section class="domain" id="domain-2" data-domain="2">
+        <div class="domain-header">
+          <div class="domain-num d2">Domain 2 of 4</div>
+          <h2>Behavior &amp; Culture</h2>
+          <div class="domain-sub">Schoolwide expectations and the systems that reinforce them.</div>
+        </div>
+
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-num">2.1</div>
+            <div class="q-content">
+              <div class="q-text">Schoolwide behavior expectations are explicitly taught in the first two weeks of school across all common areas (hallways, cafeteria, restrooms) — not just posted on the wall.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_2_1" id="q_2_1_1" data-domain="2" data-value="1"><label for="q_2_1_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_1" id="q_2_1_2" data-domain="2" data-value="2"><label for="q_2_1_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_1" id="q_2_1_3" data-domain="2" data-value="3"><label for="q_2_1_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_1" id="q_2_1_4" data-domain="2" data-value="4"><label for="q_2_1_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">2.2</div>
+            <div class="q-content">
+              <div class="q-text">Those expectations are re-taught at predictable intervals throughout the year (after major breaks, mid-year, before state testing), not just in September.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_2_2" id="q_2_2_1" data-domain="2" data-value="1"><label for="q_2_2_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_2" id="q_2_2_2" data-domain="2" data-value="2"><label for="q_2_2_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_2" id="q_2_2_3" data-domain="2" data-value="3"><label for="q_2_2_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_2" id="q_2_2_4" data-domain="2" data-value="4"><label for="q_2_2_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">2.3</div>
+            <div class="q-content">
+              <div class="q-text">Staff respond to minor behavior incidents using consistent, shared language — the way a referral is handled in one classroom matches how it's handled in the next.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_2_3" id="q_2_3_1" data-domain="2" data-value="1"><label for="q_2_3_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_3" id="q_2_3_2" data-domain="2" data-value="2"><label for="q_2_3_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_3" id="q_2_3_3" data-domain="2" data-value="3"><label for="q_2_3_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_3" id="q_2_3_4" data-domain="2" data-value="4"><label for="q_2_3_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">2.4</div>
+            <div class="q-content">
+              <div class="q-text">There is a clear, predictable system for recognizing students who are meeting expectations (not just for correcting those who aren't), and it's used regularly across the building.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_2_4" id="q_2_4_1" data-domain="2" data-value="1"><label for="q_2_4_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_4" id="q_2_4_2" data-domain="2" data-value="2"><label for="q_2_4_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_4" id="q_2_4_3" data-domain="2" data-value="3"><label for="q_2_4_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_4" id="q_2_4_4" data-domain="2" data-value="4"><label for="q_2_4_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">2.5</div>
+            <div class="q-content">
+              <div class="q-text">Staff have a shared definition of which behaviors are office-managed versus classroom-managed, and referrals follow that definition rather than each teacher's individual threshold.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_2_5" id="q_2_5_1" data-domain="2" data-value="1"><label for="q_2_5_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_5" id="q_2_5_2" data-domain="2" data-value="2"><label for="q_2_5_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_5" id="q_2_5_3" data-domain="2" data-value="3"><label for="q_2_5_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_2_5" id="q_2_5_4" data-domain="2" data-value="4"><label for="q_2_5_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-box" data-score-for="2">
+          <span class="score-label">Domain 2 score</span>
+          <span class="score-display"><span class="score-num">—</span><span class="score-max"> / 20</span></span>
+        </div>
+
+        <div class="bands">
+          <div class="band needs" data-band="2" data-band-range="5-10">
+            <div class="band-header"><span class="band-label">Needs Work</span><span class="band-range">Score 5–10</span></div>
+            <p class="band-body">A score in this range usually means behavior expectations exist on paper but aren't a lived system. Posters are up; teaching is uneven. The pattern shows up in the referral data: office referrals cluster around a handful of teachers, not because their students are different, but because the threshold for what counts as a referral varies across the building. The fix isn't harsher consequences — it's consistency. Pick three expectations, teach them schoolwide the same week, and re-teach them before every major transition (breaks, testing, end of quarter). Culture is a maintenance habit, not an event.</p>
+          </div>
+          <div class="band developing" data-band="2" data-band-range="11-15">
+            <div class="band-header"><span class="band-label">Developing</span><span class="band-range">Score 11–15</span></div>
+            <p class="band-body">A score in this range usually means you have a behavior framework that works for staff who were here when it was built, but it hasn't been re-installed for the people who've arrived since. The tell: veteran teachers describe the system fluently; newer teachers approximate it. This is the stage where most buildings plateau for years without realizing it. The question isn't <em>"do we have a system?"</em> — it's <em>"could a teacher hired this August articulate it by Halloween?"</em> If no, the system is aging out even if nothing has changed on paper.</p>
+          </div>
+          <div class="band strong" data-band="2" data-band-range="16-20">
+            <div class="band-header"><span class="band-label">Strong</span><span class="band-range">Score 16–20</span></div>
+            <p class="band-body">A score in this range is a genuine accomplishment — and the one you're most likely to lose to staff turnover. When behavior systems are strong, it's because somebody (or some small team) is actively maintaining them: onboarding new staff, calibrating responses, re-teaching at intervals. If that person leaves or gets reassigned, the system can erode in a single year while nobody notices. The move at this level is to document the maintenance work itself, so the institutional knowledge doesn't live in one person's head.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Domain 3 -->
+      <section class="domain" id="domain-3" data-domain="3">
+        <div class="domain-header">
+          <div class="domain-num d3">Domain 3 of 4</div>
+          <h2>Data &amp; Screening</h2>
+          <div class="domain-sub">Universal data collection and how it drives Tier 1 decisions.</div>
+        </div>
+
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-num">3.1</div>
+            <div class="q-content">
+              <div class="q-text">All students are screened in reading and math at least three times per year using the same tool, and the schedule is protected on the calendar before the year begins.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_3_1" id="q_3_1_1" data-domain="3" data-value="1"><label for="q_3_1_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_1" id="q_3_1_2" data-domain="3" data-value="2"><label for="q_3_1_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_1" id="q_3_1_3" data-domain="3" data-value="3"><label for="q_3_1_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_1" id="q_3_1_4" data-domain="3" data-value="4"><label for="q_3_1_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">3.2</div>
+            <div class="q-content">
+              <div class="q-text">Screening data is reviewed by grade-level teams within two weeks of administration — not sitting in someone's inbox or still being processed when the next window opens.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_3_2" id="q_3_2_1" data-domain="3" data-value="1"><label for="q_3_2_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_2" id="q_3_2_2" data-domain="3" data-value="2"><label for="q_3_2_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_2" id="q_3_2_3" data-domain="3" data-value="3"><label for="q_3_2_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_2" id="q_3_2_4" data-domain="3" data-value="4"><label for="q_3_2_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">3.3</div>
+            <div class="q-content">
+              <div class="q-text">Teachers can name, without looking it up, which students in their class scored below benchmark on the most recent universal screener.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_3_3" id="q_3_3_1" data-domain="3" data-value="1"><label for="q_3_3_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_3" id="q_3_3_2" data-domain="3" data-value="2"><label for="q_3_3_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_3" id="q_3_3_3" data-domain="3" data-value="3"><label for="q_3_3_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_3" id="q_3_3_4" data-domain="3" data-value="4"><label for="q_3_3_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">3.4</div>
+            <div class="q-content">
+              <div class="q-text">Attendance data is reviewed at the building level at least monthly, with a clear threshold (e.g., 90%) that triggers specific follow-up — not just noted in passing at staff meetings.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_3_4" id="q_3_4_1" data-domain="3" data-value="1"><label for="q_3_4_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_4" id="q_3_4_2" data-domain="3" data-value="2"><label for="q_3_4_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_4" id="q_3_4_3" data-domain="3" data-value="3"><label for="q_3_4_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_4" id="q_3_4_4" data-domain="3" data-value="4"><label for="q_3_4_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">3.5</div>
+            <div class="q-content">
+              <div class="q-text">Data conversations focus on instructional decisions ("what do we change in Tier 1?"), not just on identification ("who needs Tier 2?").</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_3_5" id="q_3_5_1" data-domain="3" data-value="1"><label for="q_3_5_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_5" id="q_3_5_2" data-domain="3" data-value="2"><label for="q_3_5_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_5" id="q_3_5_3" data-domain="3" data-value="3"><label for="q_3_5_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_3_5" id="q_3_5_4" data-domain="3" data-value="4"><label for="q_3_5_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-box" data-score-for="3">
+          <span class="score-label">Domain 3 score</span>
+          <span class="score-display"><span class="score-num">—</span><span class="score-max"> / 20</span></span>
+        </div>
+
+        <div class="bands">
+          <div class="band needs" data-band="3" data-band-range="5-10">
+            <div class="band-header"><span class="band-label">Needs Work</span><span class="band-range">Score 5–10</span></div>
+            <p class="band-body">A score in this range usually means screening is happening as a compliance task, not as a decision-making tool. The data gets collected, entered, and filed. It rarely drives a change in what happens in classrooms. The most common pattern: fall screening data arrives in October and becomes the topic of one meeting, after which teachers return to teaching more or less what they were going to teach anyway. The fastest lift here isn't buying better tools — it's building a two-week window between administration and grade-level review, and protecting that window on the calendar before the year starts.</p>
+          </div>
+          <div class="band developing" data-band="3" data-band-range="11-15">
+            <div class="band-header"><span class="band-label">Developing</span><span class="band-range">Score 11–15</span></div>
+            <p class="band-body">A score in this range usually means the data infrastructure is working — screeners run on schedule, results reach teachers, teams discuss them — but the conversations stay at the identification layer. You can name which kids are below benchmark; you're less clear on what's <em>changing in Tier 1</em> as a result. The diagnostic question: in the last screening cycle, what instructional practice changed building-wide because of what the data showed? If the honest answer is "nothing, really," the system is functioning but not yet driving decisions. That's the next move.</p>
+          </div>
+          <div class="band strong" data-band="3" data-band-range="16-20">
+            <div class="band-header"><span class="band-label">Strong</span><span class="band-range">Score 16–20</span></div>
+            <p class="band-body">A score in this range means data is actually driving Tier 1 — not just Tier 2 placement. Teachers know their numbers. Grade-level teams change practice based on patterns. Attendance concerns trigger action before they become chronic absenteeism. The risk at this level is the data getting ahead of the instruction: running dashboards that nobody is teaching to. The move is to keep the data-to-decision cycle short (two weeks or less) and make sure every new screener tool earns its place by answering a question you actually have.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Domain 4 -->
+      <section class="domain" id="domain-4" data-domain="4">
+        <div class="domain-header">
+          <div class="domain-num d4">Domain 4 of 4</div>
+          <h2>Team Systems</h2>
+          <div class="domain-sub">Structured time, roles, and processes that sustain Tier 1 work.</div>
+        </div>
+
+        <div class="q-list">
+          <div class="q-item">
+            <div class="q-num">4.1</div>
+            <div class="q-content">
+              <div class="q-text">Grade-level or content teams have protected, recurring meeting time each week that is not regularly consumed by announcements, logistics, or admin tasks.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_4_1" id="q_4_1_1" data-domain="4" data-value="1"><label for="q_4_1_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_1" id="q_4_1_2" data-domain="4" data-value="2"><label for="q_4_1_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_1" id="q_4_1_3" data-domain="4" data-value="3"><label for="q_4_1_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_1" id="q_4_1_4" data-domain="4" data-value="4"><label for="q_4_1_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">4.2</div>
+            <div class="q-content">
+              <div class="q-text">That team time has a published agenda and a designated facilitator — not a rotating "whoever shows up first starts us off" arrangement.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_4_2" id="q_4_2_1" data-domain="4" data-value="1"><label for="q_4_2_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_2" id="q_4_2_2" data-domain="4" data-value="2"><label for="q_4_2_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_2" id="q_4_2_3" data-domain="4" data-value="3"><label for="q_4_2_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_2" id="q_4_2_4" data-domain="4" data-value="4"><label for="q_4_2_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">4.3</div>
+            <div class="q-content">
+              <div class="q-text">There is a building-level leadership team that meets at least monthly and includes representation from across grade levels and roles, not just administrators.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_4_3" id="q_4_3_1" data-domain="4" data-value="1"><label for="q_4_3_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_3" id="q_4_3_2" data-domain="4" data-value="2"><label for="q_4_3_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_3" id="q_4_3_3" data-domain="4" data-value="3"><label for="q_4_3_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_3" id="q_4_3_4" data-domain="4" data-value="4"><label for="q_4_3_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">4.4</div>
+            <div class="q-content">
+              <div class="q-text">When a Tier 1 practice is changed (new curriculum, new behavior system, new schedule), the decision is documented somewhere a new staff member could find it a year from now.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_4_4" id="q_4_4_1" data-domain="4" data-value="1"><label for="q_4_4_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_4" id="q_4_4_2" data-domain="4" data-value="2"><label for="q_4_4_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_4" id="q_4_4_3" data-domain="4" data-value="3"><label for="q_4_4_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_4" id="q_4_4_4" data-domain="4" data-value="4"><label for="q_4_4_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="q-item">
+            <div class="q-num">4.5</div>
+            <div class="q-content">
+              <div class="q-text">The school can name the 2–3 Tier 1 priorities for this year, and any three staff members asked separately would name the same priorities.</div>
+              <div class="q-scale">
+                <div class="q-opt"><input type="radio" name="q_4_5" id="q_4_5_1" data-domain="4" data-value="1"><label for="q_4_5_1"><span class="opt-num">1</span>Not Yet</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_5" id="q_4_5_2" data-domain="4" data-value="2"><label for="q_4_5_2"><span class="opt-num">2</span>Emerging</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_5" id="q_4_5_3" data-domain="4" data-value="3"><label for="q_4_5_3"><span class="opt-num">3</span>Established</label></div>
+                <div class="q-opt"><input type="radio" name="q_4_5" id="q_4_5_4" data-domain="4" data-value="4"><label for="q_4_5_4"><span class="opt-num">4</span>Distinguished</label></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="score-box" data-score-for="4">
+          <span class="score-label">Domain 4 score</span>
+          <span class="score-display"><span class="score-num">—</span><span class="score-max"> / 20</span></span>
+        </div>
+
+        <div class="bands">
+          <div class="band needs" data-band="4" data-band-range="5-10">
+            <div class="band-header"><span class="band-label">Needs Work</span><span class="band-range">Score 5–10</span></div>
+            <p class="band-body">A score in this range usually means teams <em>meet</em>, but the meetings are substitutes for the real work instead of infrastructure for it. Weekly PLC time gets consumed by announcements, logistics, and the crisis of the week. The agenda, if one exists, drifts. Decisions made in one meeting don't survive to the next. The fix isn't adding more meetings — it's protecting the ones you have. A standing agenda, a facilitator who isn't always the principal, and a norm that logistics get handled in the first five minutes so the remaining fifty can do the actual work.</p>
+          </div>
+          <div class="band developing" data-band="4" data-band-range="11-15">
+            <div class="band-header"><span class="band-label">Developing</span><span class="band-range">Score 11–15</span></div>
+            <p class="band-body">A score in this range usually means the meeting structure holds, but the connective tissue between meetings is thin. Teams meet, decisions get made, and then the decisions quietly don't happen — not because anyone disagrees, but because no one was accountable for the follow-through. The tell: the same Tier 1 issue surfaces in three consecutive team meetings without resolution. The question is rarely <em>"are we meeting?"</em> — it's <em>"what is our team responsible for producing by next meeting, and who owns it?"</em> Without that, team time becomes discussion time.</p>
+          </div>
+          <div class="band strong" data-band="4" data-band-range="16-20">
+            <div class="band-header"><span class="band-label">Strong</span><span class="band-range">Score 16–20</span></div>
+            <p class="band-body">A score in this range means teams are working as a system, not a schedule. Decisions made in leadership team show up in grade-level teams within a week. Teachers across grade levels can name this year's priorities without consulting a document. When something changes, there's a record of <em>why</em> — and the record is findable. The risk at this level is the work becoming invisible to the people who arrived most recently. The move: every year, actively re-onboard the system for new staff. The team culture you built is worth exactly as much as the next person hired understands about it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SUMMARY ==================== -->
+      <section class="summary" id="summary">
+        <h2>Your Pattern Across Domains</h2>
+        <p class="summary-lede">The <em>pattern</em> across domains is more useful than the total — look for which is highest, which is lowest, and which surprised you.</p>
+
+        <div class="summary-grid">
+          <div class="sum-card" data-sum="1">
+            <div class="sum-domain">Domain 1</div>
+            <div class="sum-name">Core<br>Instruction</div>
+            <div class="sum-score"><span class="sum-num">—</span><span class="sum-max"> / 20</span></div>
+            <div class="sum-band pending">Not rated</div>
+          </div>
+          <div class="sum-card d2" data-sum="2">
+            <div class="sum-domain">Domain 2</div>
+            <div class="sum-name">Behavior<br>&amp; Culture</div>
+            <div class="sum-score"><span class="sum-num">—</span><span class="sum-max"> / 20</span></div>
+            <div class="sum-band pending">Not rated</div>
+          </div>
+          <div class="sum-card d3" data-sum="3">
+            <div class="sum-domain">Domain 3</div>
+            <div class="sum-name">Data<br>&amp; Screening</div>
+            <div class="sum-score"><span class="sum-num">—</span><span class="sum-max"> / 20</span></div>
+            <div class="sum-band pending">Not rated</div>
+          </div>
+          <div class="sum-card d4" data-sum="4">
+            <div class="sum-domain">Domain 4</div>
+            <div class="sum-name">Team<br>Systems</div>
+            <div class="sum-score"><span class="sum-num">—</span><span class="sum-max"> / 20</span></div>
+            <div class="sum-band pending">Not rated</div>
+          </div>
+        </div>
+
+        <div class="reflect">
+          <h3>Three questions to sit with</h3>
+          <p class="reflect-q"><strong>1.</strong> Which domain scored lowest, and was it the one you expected?</p>
+          <textarea placeholder="Your reflection..."></textarea>
+          <p class="reflect-q"><strong>2.</strong> If you took this with your team, where was the biggest disagreement between raters? That disagreement is almost always the most useful signal in the assessment.</p>
+          <textarea placeholder="Your reflection..."></textarea>
+          <p class="reflect-q"><strong>3.</strong> Of everything you saw, what is the one thing you could begin working on this month — without buying anything, hiring anyone, or waiting for a strategic planning cycle?</p>
+          <textarea placeholder="Your reflection..."></textarea>
+        </div>
+
+        <div class="product-note">
+          <h3>About this tool</h3>
+          <p>This is the starter version of ScholarPath's full Tier 1 Assessment. If you want the version your team can re-take quarterly — with multi-role scoring, longitudinal tracking across school years, and assessment results that link directly to intervention planning — that lives inside <strong>ScholarPath Intervention Management</strong>.</p>
+          <p>But use <em>this</em> one first. You'll get most of the value from the first pass, and you'll know a lot more about what your system actually needs before you talk to any vendor, including me. &nbsp;<a href="https://www.scholarpathsystems.org/intervention-management.html">Learn more →</a></p>
+        </div>
+
+        <div class="summary-actions">
+          <button class="btn btn-primary" onclick="window.print()">
+            <span>🖨️</span> Print / Save your results
+          </button>
+          <a href="/tier1-assessment.html" class="btn btn-secondary">Start over</a>
+        </div>
+
+        <div class="closing">
+          <strong>If you take this seriously, it will be uncomfortable.</strong><br>
+          That's the point. A Tier 1 system you can't honestly rate is a Tier 1 system that isn't holding yet.
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== STICKY PANEL ==================== -->
+    <aside class="sticky-panel">
+      <h3>Your progress</h3>
+      <div class="progress-wrap">
+        <div class="progress-text">
+          <span><strong id="progress-num">0</strong> of 20 rated</span>
+          <span id="progress-pct">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="domain-scores">
+        <div class="domain-score-row" data-panel="1">
+          <div class="ds-label">
+            <span class="ds-dot d1"></span>
+            <span class="ds-name">Core Instruction</span>
+          </div>
+          <div>
+            <span class="ds-value"><span class="ds-num">—</span><span class="ds-max"> / 20</span></span>
+          </div>
+        </div>
+        <div class="domain-score-row" data-panel="2">
+          <div class="ds-label">
+            <span class="ds-dot d2"></span>
+            <span class="ds-name">Behavior & Culture</span>
+          </div>
+          <div>
+            <span class="ds-value"><span class="ds-num">—</span><span class="ds-max"> / 20</span></span>
+          </div>
+        </div>
+        <div class="domain-score-row" data-panel="3">
+          <div class="ds-label">
+            <span class="ds-dot d3"></span>
+            <span class="ds-name">Data & Screening</span>
+          </div>
+          <div>
+            <span class="ds-value"><span class="ds-num">—</span><span class="ds-max"> / 20</span></span>
+          </div>
+        </div>
+        <div class="domain-score-row" data-panel="4">
+          <div class="ds-label">
+            <span class="ds-dot d4"></span>
+            <span class="ds-name">Team Systems</span>
+          </div>
+          <div>
+            <span class="ds-value"><span class="ds-num">—</span><span class="ds-max"> / 20</span></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="jump-btn" id="jump-btn" disabled>Jump to results</button>
+    </aside>
+
+  </div>
+</div>
+
+<footer class="page-footer">
+  <div class="container">
+    Built by an educator, for educators. &nbsp;·&nbsp; <a href="https://www.scholarpathsystems.org">scholarpathsystems.org</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // --- Helpers ---
+  function bandFor(score) {
+    if (score === 0) return null;
+    if (score <= 10) return 'needs';
+    if (score <= 15) return 'developing';
+    return 'strong';
+  }
+  function bandLabel(band) {
+    if (band === 'needs') return 'Needs Work';
+    if (band === 'developing') return 'Developing';
+    if (band === 'strong') return 'Strong';
+    return 'Not rated';
+  }
+
+  // --- Calculate all domain scores ---
+  function recalc() {
+    var totalRated = 0;
+    var domainScores = { 1: 0, 2: 0, 3: 0, 4: 0 };
+    var domainCounts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+
+    document.querySelectorAll('input[type="radio"]:checked').forEach(function(input) {
+      var d = parseInt(input.getAttribute('data-domain'));
+      var v = parseInt(input.getAttribute('data-value'));
+      domainScores[d] += v;
+      domainCounts[d] += 1;
+      totalRated += 1;
+    });
+
+    // Update progress bar
+    var pct = Math.round((totalRated / 20) * 100);
+    document.getElementById('progress-num').textContent = totalRated;
+    document.getElementById('progress-pct').textContent = pct + '%';
+    document.getElementById('progress-fill').style.width = pct + '%';
+
+    // Update domain scores in panel + score boxes + summary cards
+    for (var d = 1; d <= 4; d++) {
+      var score = domainScores[d];
+      var count = domainCounts[d];
+      var complete = (count === 5);
+      var band = complete ? bandFor(score) : null;
+
+      // Sticky panel row
+      var panelRow = document.querySelector('[data-panel="' + d + '"]');
+      if (panelRow) {
+        var panelNum = panelRow.querySelector('.ds-num');
+        panelNum.textContent = count > 0 ? score : '—';
+        // Remove any existing band tags in panel
+        var existingBand = panelRow.querySelector('.ds-band');
+        if (existingBand) existingBand.remove();
+        if (complete && band) {
+          var badge = document.createElement('span');
+          badge.className = 'ds-band ' + band;
+          badge.textContent = bandLabel(band);
+          panelRow.querySelector('.ds-value').parentNode.appendChild(badge);
+        }
+      }
+
+      // Inline score box
+      var scoreBox = document.querySelector('[data-score-for="' + d + '"]');
+      if (scoreBox) {
+        var boxNum = scoreBox.querySelector('.score-num');
+        var boxDisplay = scoreBox.querySelector('.score-display');
+        boxNum.textContent = count > 0 ? score : '—';
+        if (count > 0) boxDisplay.classList.add('has-score');
+        else boxDisplay.classList.remove('has-score');
+        if (complete) scoreBox.classList.add('complete');
+        else scoreBox.classList.remove('complete');
+      }
+
+      // Highlight active band for this domain
+      document.querySelectorAll('.band[data-band="' + d + '"]').forEach(function(b) {
+        b.classList.remove('active');
+      });
+      if (complete && band) {
+        var activeBand = document.querySelector('.band.' + band + '[data-band="' + d + '"]');
+        if (activeBand) activeBand.classList.add('active');
+      }
+
+      // Summary card
+      var sumCard = document.querySelector('[data-sum="' + d + '"]');
+      if (sumCard) {
+        var sumNum = sumCard.querySelector('.sum-num');
+        var sumScore = sumCard.querySelector('.sum-score');
+        var sumBand = sumCard.querySelector('.sum-band');
+        sumNum.textContent = count > 0 ? score : '—';
+        if (count > 0) sumScore.classList.add('has-score');
+        else sumScore.classList.remove('has-score');
+        sumBand.className = 'sum-band ' + (complete && band ? band : 'pending');
+        sumBand.textContent = complete && band ? bandLabel(band) : 'Not rated';
+      }
+    }
+
+    // Jump to results button
+    var jumpBtn = document.getElementById('jump-btn');
+    if (totalRated === 20) {
+      jumpBtn.disabled = false;
+      jumpBtn.textContent = 'Jump to results →';
+    } else {
+      jumpBtn.disabled = true;
+      jumpBtn.textContent = 'Jump to results (' + (20 - totalRated) + ' left)';
+    }
+  }
+
+  // Wire up radio inputs
+  document.querySelectorAll('input[type="radio"]').forEach(function(input) {
+    input.addEventListener('change', recalc);
+  });
+
+  // Wire up jump button
+  document.getElementById('jump-btn').addEventListener('click', function() {
+    if (!this.disabled) {
+      document.getElementById('summary').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // Initial paint
+  recalc();
+})();
+</script>
+
+</body>
+</html>

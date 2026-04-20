@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Resource: The Tier 1 Assessment | ScholarPath Systems</title>
+    <meta name="description" content="A free, honest assessment of your Tier 1 system — 20 questions across 4 domains. Take it on screen or download the PDF. Built by a 30-year educator. No email required.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a2e;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #0d9488; }
+
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            padding-top: 1rem;
+        }
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+        }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: #4a5568;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background: #f7fafc;
+            color: #4f46e5;
+        }
+        .dropdown-content .product-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .dropdown-content .product-icon { font-size: 1.25rem; }
+        .dropdown-content .product-desc {
+            font-size: 0.75rem;
+            color: #718096;
+            font-weight: 400;
+            display: block;
+        }
+
+        .btn-demo {
+            background: #0d9488;
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+        .btn-demo:hover { background: #0f766e; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f766e 0%, #0d9488 30%, #0891b2 70%, #06b6d4 100%);
+            padding: 8rem 2rem 5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        .hero .container {
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .hero h1 {
+            font-size: 2.85rem;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* Dual CTAs */
+        .cta-dual {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .cta-primary {
+            background: white;
+            color: #0d9488;
+        }
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+        }
+        .cta-secondary {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 1.5px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(10px);
+        }
+        .cta-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        .cta-btn .arrow { font-size: 1.2rem; }
+
+        .download-note {
+            margin-top: 1.25rem;
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2rem; }
+            .hero .subtitle { font-size: 1.05rem; }
+            .cta-dual { flex-direction: column; width: 100%; }
+            .cta-btn { width: 100%; justify-content: center; }
+        }
+
+        /* About section */
+        .about-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        .about-section .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .section-label {
+            color: #0d9488;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 0.75rem;
+        }
+        .about-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a2e;
+        }
+        .about-content p {
+            color: #4a5568;
+            font-size: 1.05rem;
+            margin-bottom: 1.25rem;
+        }
+        .about-content p:last-child { margin-bottom: 0; }
+
+        /* Domain preview section */
+        .domains-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #f0fdfa 0%, #ecfeff 100%);
+        }
+        .domains-section .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .domains-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e;
+        }
+        .domains-section .lead {
+            text-align: center;
+            color: #4a5568;
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto 3rem;
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 900px) {
+            .domains-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 520px) {
+            .domains-grid { grid-template-columns: 1fr; }
+        }
+
+        .domain-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border-top: 4px solid #0d9488;
+            display: flex;
+            flex-direction: column;
+        }
+        .domain-card.d2 { border-top-color: #f59e0b; }
+        .domain-card.d3 { border-top-color: #7c3aed; }
+        .domain-card.d4 { border-top-color: #1e1b4b; }
+
+        .domain-card .dc-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0d9488;
+            margin-bottom: 0.25rem;
+        }
+        .domain-card.d2 .dc-eyebrow { color: #f59e0b; }
+        .domain-card.d3 .dc-eyebrow { color: #7c3aed; }
+        .domain-card.d4 .dc-eyebrow { color: #1e1b4b; }
+
+        .domain-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a2e;
+        }
+        .domain-card .dc-desc {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.45;
+        }
+        .domain-card .dc-count {
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: #0d9488;
+            font-weight: 600;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* How it works section */
+        .how-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+        .how-section .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        .how-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #1a1a2e;
+        }
+        .paths-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        @media (max-width: 720px) {
+            .paths-grid { grid-template-columns: 1fr; }
+        }
+        .path-card {
+            padding: 1.75rem;
+            border-radius: 12px;
+            background: #f0fdfa;
+            border-left: 4px solid #0d9488;
+        }
+        .path-card.team {
+            background: #faf5ff;
+            border-left-color: #7c3aed;
+        }
+        .path-card .path-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #0d9488;
+            margin-bottom: 0.5rem;
+        }
+        .path-card.team .path-label { color: #7c3aed; }
+        .path-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: #1a1a2e;
+        }
+        .path-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.55;
+        }
+        .path-card p:last-child { margin-bottom: 0; }
+        .path-card em { color: #1a1a2e; font-weight: 600; font-style: normal; }
+
+        /* Second CTA */
+        .cta-mid {
+            padding: 3.5rem 2rem;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            color: white;
+            text-align: center;
+        }
+        .cta-mid .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+        .cta-mid h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
+        }
+        .cta-mid p {
+            color: #c7d2fe;
+            font-size: 1rem;
+            margin-bottom: 1.75rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-mid .cta-primary {
+            background: #0d9488;
+            color: white;
+        }
+        .cta-mid .cta-primary:hover { background: #0f766e; }
+
+        /* About this tool section */
+        .about-tool {
+            padding: 4rem 2rem;
+            background: #f7fafc;
+        }
+        .about-tool .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .about-tool .section-label {
+            color: #4338ca;
+            margin-bottom: 0.75rem;
+        }
+        .about-tool h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a2e;
+        }
+        .about-tool p {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            line-height: 1.65;
+        }
+        .about-tool p:last-child { margin-bottom: 0; }
+        .about-tool strong { color: #1a1a2e; }
+        .about-tool a {
+            color: #0d9488;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .about-tool a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer {
+            background: #0f0f1a;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            footer .container { grid-template-columns: 1fr 1fr; }
+        }
+        footer .brand {
+            color: #a5b4fc;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        footer .brand-desc { color: #9ca3af; font-size: 0.9rem; }
+        footer h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #9ca3af;
+        }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.5rem; }
+        footer ul a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        footer ul a:hover { color: white; }
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid #2d2d44;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/intervention-management.html">
+                            <div class="product-item">
+                                <span class="product-icon">📈</span>
+                                <div>
+                                    <strong>ScholarPath Intervention Management</strong>
+                                    <span class="product-desc">MTSS Intervention Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/graduation-progress.html">
+                            <div class="product-item">
+                                <span class="product-icon">📊</span>
+                                <div>
+                                    <strong>ScholarPath Graduation Progress</strong>
+                                    <span class="product-desc">Graduation Progress Tracking</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/staff-evaluation.html">
+                            <div class="product-item">
+                                <span class="product-icon">👥</span>
+                                <div>
+                                    <strong>ScholarPath Staff Evaluation</strong>
+                                    <span class="product-desc">Goal-Setting &amp; Evaluation System</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="/leave-management.html">
+                            <div class="product-item">
+                                <span class="product-icon">📅</span>
+                                <div>
+                                    <strong>ScholarPath Leave Management</strong>
+                                    <span class="product-desc">Leave Tracking &amp; Management</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="/resources.html">Resources</a>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/#contact" class="btn-demo">Contact →</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">📊 Free Resource</div>
+            <h1>The Tier 1 Assessment</h1>
+            <p class="subtitle">Twenty questions, four domains, one honest look at whether your Tier 1 system is holding. Take it on screen with live scoring, or download the PDF for a team walkthrough.</p>
+            <div class="cta-dual">
+                <a href="/tier1-assessment-interactive.html" class="cta-btn cta-primary">
+                    Take it on screen
+                    <span class="arrow">→</span>
+                </a>
+                <a href="/scholarpath-tier1-assessment.pdf" class="cta-btn cta-secondary" target="_blank">
+                    Download the PDF
+                    <span class="arrow">↓</span>
+                </a>
+            </div>
+            <div class="download-note">No email required · Nothing saved to a server · Free to share with your team</div>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-label">Why I built this</div>
+            <h2>Most MTSS problems are Tier 1 problems in disguise</h2>
+            <div class="about-content">
+                <p>In 30 years of schools, I've watched the same pattern play out again and again: a Tier 2 caseload starts feeling unmanageable, the team triages, and the real cause — a Tier 1 system that's quietly stopped holding — goes unnamed for another year.</p>
+                <p>The frustrating part is that Tier 1 problems are knowable. Not by expensive consultants, not by six-month audits. By the people who work in the building every day, if someone gives them the right questions and twenty honest minutes to answer them.</p>
+                <p>That's what this assessment is. Twenty questions across four domains — Core Instruction, Behavior &amp; Culture, Data &amp; Screening, Team Systems. Each one names a specific practice, not a vague state. You rate each one Not Yet / Emerging / Established / Distinguished. The scores tell you where your Tier 1 is holding and where it's leaking. The pattern across domains tells you what to do next.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domain preview -->
+    <section class="domains-section">
+        <div class="container">
+            <div class="section-label">What's inside</div>
+            <h2>Four domains. Twenty questions. One honest diagnostic.</h2>
+            <p class="lead">Each domain has five questions, a score of 5–20, and three band interpretations (Needs Work / Developing / Strong) so you know what your score actually means for your building.</p>
+            <div class="domains-grid">
+                <div class="domain-card">
+                    <div class="dc-eyebrow">Domain 1</div>
+                    <h4>Core Instruction</h4>
+                    <p class="dc-desc">The quality, consistency, and reach of classroom teaching itself.</p>
+                    <div class="dc-count">5 questions</div>
+                </div>
+                <div class="domain-card d2">
+                    <div class="dc-eyebrow">Domain 2</div>
+                    <h4>Behavior &amp; Culture</h4>
+                    <p class="dc-desc">Schoolwide expectations and the systems that reinforce them.</p>
+                    <div class="dc-count">5 questions</div>
+                </div>
+                <div class="domain-card d3">
+                    <div class="dc-eyebrow">Domain 3</div>
+                    <h4>Data &amp; Screening</h4>
+                    <p class="dc-desc">Universal data collection and how it drives Tier 1 decisions.</p>
+                    <div class="dc-count">5 questions</div>
+                </div>
+                <div class="domain-card d4">
+                    <div class="dc-eyebrow">Domain 4</div>
+                    <h4>Team Systems</h4>
+                    <p class="dc-desc">Structured time, roles, and processes that sustain Tier 1 work.</p>
+                    <div class="dc-count">5 questions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to use it -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-label">How to use it</div>
+            <h2>Two paths. Same twenty questions.</h2>
+            <div class="paths-grid">
+                <div class="path-card">
+                    <div class="path-label">Path A · Solo</div>
+                    <h3>Fill it out alone</h3>
+                    <p>Use it as a personal diagnostic. Be honest, especially where you know you're being generous. 30–45 minutes.</p>
+                    <p>Best for: building leaders doing a quiet self-check before sharing results with a team.</p>
+                </div>
+                <div class="path-card team">
+                    <div class="path-label">Path B · Team</div>
+                    <h3>Fill it out together</h3>
+                    <p>Each team member rates independently first. Then gather, compare ratings, and discuss every item where the team disagrees. 75–90 minutes including discussion.</p>
+                    <p><em>The disagreement is the diagnostic</em> — not the average. Where leadership rates an 18 and teachers rate an 8, that's where the real data lives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mid CTA -->
+    <section class="cta-mid">
+        <div class="container">
+            <h3>Ready to see where your Tier 1 is actually holding?</h3>
+            <p>Take the interactive version for live scoring, or download the PDF for team printing. Both are free. Both are yours.</p>
+            <div class="cta-dual">
+                <a href="/tier1-assessment-interactive.html" class="cta-btn cta-primary">
+                    Take it on screen
+                    <span class="arrow">→</span>
+                </a>
+                <a href="/scholarpath-tier1-assessment.pdf" class="cta-btn cta-secondary" target="_blank">
+                    Download the PDF
+                    <span class="arrow">↓</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About this tool -->
+    <section class="about-tool">
+        <div class="container">
+            <div class="section-label">About this tool</div>
+            <h2>The honest answer about what this is, and isn't</h2>
+            <p>This is the <strong>starter version</strong> of ScholarPath's full Tier 1 Assessment. It's real, usable, and built from 30 years in schools — not a watered-down sample. For most buildings, the first pass will surface the biggest leak.</p>
+            <p>The version that lives inside <strong>ScholarPath Intervention Management</strong> goes further in ways a static tool can't — multi-role scoring (so you see leadership's rating next to teachers' ratings side-by-side), quarterly re-takes with longitudinal tracking across school years, and assessment results that link directly to intervention planning for the kids your Tier 1 isn't catching.</p>
+            <p>But use <em>this</em> one first. You'll get most of the value from the first pass, and you'll know a lot more about what your system actually needs before you talk to any vendor — including me. &nbsp;<a href="/intervention-management.html">Learn more about Intervention Management →</a></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div>
+                <div class="brand">📚 ScholarPath Systems</div>
+                <p class="brand-desc">Educational software that empowers students and schools.</p>
+            </div>
+            <div>
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/intervention-management.html">Intervention Management</a></li>
+                    <li><a href="/graduation-progress.html">Graduation Progress</a></li>
+                    <li><a href="/staff-evaluation.html">Staff Evaluation</a></li>
+                    <li><a href="/leave-management.html">Leave Management</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/#about">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/resources.html">Free Resources</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2026 ScholarPath Systems, LLC. All rights reserved.<br>
+            FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected
+        </div>
+    </footer>
+</body>
+</html>
