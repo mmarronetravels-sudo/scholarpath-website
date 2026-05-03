@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A free 5-page PDF showing 9 of the 71+ pre-built interventions inside ScholarPath — across Academic, Behavior, and Social-Emotional strands. Names, monitoring cadences, and decision rules in plain language.">
+<meta property="og:title" content="Tier 2 Intervention Sampler — ScholarPath Systems">
+<meta property="og:description" content="Nine of the 71+ interventions pre-loaded in ScholarPath. A peek at the catalog — what's in the library, how each one is monitored, and when to escalate.">
+<meta property="og:type" content="article">
+<title>Tier 2 Intervention Sampler — ScholarPath Systems</title>
+<style>
+  :root {
+    --teal: #0D9488;
+    --teal-dark: #0F766E;
+    --teal-light: #CCFBF1;
+    --teal-soft: #F0FDFA;
+    --amber: #F59E0B;
+    --amber-dark: #B45309;
+    --amber-light: #FEF3C7;
+    --purple: #7C3AED;
+    --purple-light: #EDE9FE;
+    --indigo: #1E1B4B;
+    --indigo-soft: #312E81;
+    --slate: #475569;
+    --slate-light: #94A3B8;
+    --bg: #F8FAFC;
+    --border: #E2E8F0;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--slate);
+    background: var(--white);
+    line-height: 1.55;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal-dark); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  /* ======================== HEADER ======================== */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    background: var(--white);
+  }
+  .site-header .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .site-brand {
+    font-weight: 800;
+    font-size: 17px;
+    color: var(--indigo);
+    letter-spacing: -0.01em;
+  }
+  .site-brand a { color: var(--indigo); }
+  .site-nav {
+    font-size: 14px;
+    color: var(--slate);
+  }
+  .site-nav a { margin-left: 22px; color: var(--slate); }
+  .site-nav a:hover { color: var(--indigo); }
+
+  /* ======================== HERO ======================== */
+  .hero {
+    background: linear-gradient(180deg, var(--white) 0%, var(--bg) 100%);
+    padding: 72px 0 80px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal-dark);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--indigo);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 22px;
+  }
+  .hero .lead {
+    font-size: 20px;
+    color: var(--slate);
+    max-width: 720px;
+    line-height: 1.5;
+    margin-bottom: 36px;
+  }
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    border: 2px solid transparent;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: var(--white);
+  }
+  .btn-primary:hover {
+    background: var(--teal-dark);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: var(--white);
+    color: var(--indigo);
+    border: 2px solid var(--border);
+  }
+  .btn-secondary:hover {
+    border-color: var(--indigo);
+    text-decoration: none;
+  }
+  .btn-amber {
+    background: var(--amber);
+    color: var(--indigo);
+  }
+  .btn-amber:hover {
+    background: var(--amber-dark);
+    color: var(--white);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+  .hero-meta {
+    margin-top: 28px;
+    font-size: 14px;
+    color: var(--slate-light);
+  }
+  .hero-meta strong { color: var(--slate); }
+
+  /* ======================== SECTION: WHY ======================== */
+  .why {
+    padding: 70px 0;
+  }
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--teal-dark);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--indigo);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 18px;
+  }
+  .why p {
+    font-size: 18px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 14px;
+    max-width: 780px;
+  }
+  .why p:last-child { margin-bottom: 0; }
+
+  /* ======================== SECTION: PREVIEW ======================== */
+  .preview {
+    padding: 70px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .preview h2 { margin-bottom: 12px; }
+  .preview-sub {
+    font-size: 17px;
+    color: var(--slate);
+    margin-bottom: 36px;
+    max-width: 720px;
+  }
+  .strand-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .strand-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 26px 24px;
+    border-top: 4px solid;
+  }
+  .strand-card.acad { border-top-color: var(--teal); }
+  .strand-card.beh { border-top-color: var(--amber); }
+  .strand-card.sel { border-top-color: var(--purple); }
+  .strand-card .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .strand-card.acad .label { color: var(--teal-dark); }
+  .strand-card.beh .label { color: var(--amber-dark); }
+  .strand-card.sel .label { color: var(--purple); }
+  .strand-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--indigo);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .strand-card p {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.5;
+    margin-bottom: 14px;
+  }
+  .strand-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .strand-card li {
+    font-size: 14px;
+    color: var(--indigo);
+    font-weight: 600;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+  }
+  .strand-card li:first-child { border-top: none; padding-top: 0; }
+  .strand-card li .plan-tag {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--white);
+    background: var(--indigo);
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  /* ======================== SECTION: WHATS INSIDE ======================== */
+  .inside {
+    padding: 70px 0;
+  }
+  .inside h2 { margin-bottom: 16px; }
+  .inside .sub {
+    font-size: 17px;
+    color: var(--slate);
+    margin-bottom: 32px;
+    max-width: 720px;
+  }
+  .inside-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .feature {
+    padding: 22px 24px;
+    background: var(--bg);
+    border-radius: 8px;
+    border-left: 3px solid var(--teal);
+  }
+  .feature h4 {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--indigo);
+    margin-bottom: 8px;
+    letter-spacing: 0.01em;
+  }
+  .feature p {
+    font-size: 14.5px;
+    color: var(--slate);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ======================== MID CTA ======================== */
+  .mid-cta {
+    padding: 56px 0;
+    background: var(--indigo);
+    color: var(--white);
+    text-align: center;
+  }
+  .mid-cta h2 {
+    color: var(--white);
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+  .mid-cta p {
+    color: rgba(255,255,255,0.85);
+    font-size: 17px;
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ======================== ABOUT (Honest positioning) ======================== */
+  .about {
+    padding: 70px 0;
+  }
+  .about-block {
+    background: var(--purple-light);
+    border-left: 4px solid var(--purple);
+    border-radius: 8px;
+    padding: 32px 36px;
+  }
+  .about-block .section-eyebrow {
+    color: var(--purple);
+    margin-bottom: 10px;
+  }
+  .about-block h2 {
+    font-size: 26px;
+    margin-bottom: 16px;
+  }
+  .about-block p {
+    font-size: 16px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .about-block p:last-child { margin-bottom: 0; }
+  .about-block strong { color: var(--indigo); }
+
+  /* ======================== RELATED ======================== */
+  .related {
+    padding: 60px 0 80px 0;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+  .related h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .related-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 22px 24px;
+    transition: border-color 0.1s, transform 0.1s;
+  }
+  .related-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+  .related-card a { color: inherit; text-decoration: none; display: block; }
+  .related-card h4 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--indigo);
+    margin-bottom: 6px;
+  }
+  .related-card p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ======================== FOOTER ======================== */
+  .site-footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    font-size: 13px;
+    color: var(--slate-light);
+  }
+  .site-footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .site-footer strong { color: var(--indigo); font-weight: 700; }
+
+  /* ======================== RESPONSIVE ======================== */
+  @media (max-width: 720px) {
+    .hero { padding: 50px 0 60px 0; }
+    .hero h1 { font-size: 38px; }
+    .hero .lead { font-size: 17px; }
+    h2 { font-size: 26px; }
+    .strand-grid { grid-template-columns: 1fr; }
+    .inside-grid { grid-template-columns: 1fr; }
+    .related-grid { grid-template-columns: 1fr; }
+    .site-nav a { margin-left: 14px; font-size: 13px; }
+    .about-block { padding: 24px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="site-brand"><a href="/">ScholarPath Systems</a></div>
+    <nav class="site-nav">
+      <a href="/resources">Free Resources</a>
+      <a href="/">Products</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">New &middot; Free Resource</div>
+    <h1>The Tier 2 Intervention Sampler</h1>
+    <p class="lead">
+      Nine of the 71+ interventions pre-loaded in ScholarPath. A peek at the catalog &mdash; what's in the library, how each one is monitored, and when to escalate.
+    </p>
+    <div class="cta-group">
+      <a href="/scholarpath-tier2-intervention-sampler.pdf" class="btn btn-primary" download>Download the PDF</a>
+      <a href="#preview" class="btn btn-secondary">See what's inside</a>
+    </div>
+    <div class="hero-meta">
+      <strong>5-page PDF</strong> &middot; free, no email required &middot; ~5-minute read
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY ===================== -->
+<section class="why">
+  <div class="wrap">
+    <div class="section-eyebrow">Why I built this</div>
+    <h2>"What's actually in your library?"</h2>
+    <p>
+      It's the question that comes up in almost every Tier 2 conversation. School teams want to know what they'd be working with before they invest in another platform. So I pulled nine of the 71 pre-built interventions inside ScholarPath into a single PDF &mdash; three from Academic, three from Behavior, three from Social-Emotional. Names, monitoring cadences, decision rules. Plain language. No login, no email gate, no demo required.
+    </p>
+    <p>
+      It's a sampler, not the whole library. The intent is to make it easy to see whether ScholarPath is the right fit before any conversation has to happen.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== PREVIEW ===================== -->
+<section class="preview" id="preview">
+  <div class="wrap">
+    <div class="section-eyebrow">What's inside &middot; 9 interventions across 3 strands</div>
+    <h2>Three strands. Three interventions each.</h2>
+    <p class="preview-sub">
+      The Sampler mirrors the structure of the full library: each intervention sits inside one of three strands, each carries a tier (T2 or T3), and 17 across the library &mdash; including most of the ones featured here &mdash; ship with full plan templates.
+    </p>
+
+    <div class="strand-grid">
+      <div class="strand-card acad">
+        <div class="label">Academic</div>
+        <h3>Skill gaps. Daily practice. Clear data.</h3>
+        <p>Reading and math interventions that target measurable skill gaps with brief, focused practice and progress monitoring.</p>
+        <ul>
+          <li>Reading Fluency Practice</li>
+          <li>Reading Comprehension Support <span class="plan-tag">Plan</span></li>
+          <li>Math Intervention Plan <span class="plan-tag">Plan</span></li>
+        </ul>
+      </div>
+      <div class="strand-card beh">
+        <div class="label">Behavior</div>
+        <h3>Feedback. Reinforcement. Function-based.</h3>
+        <p>Adult-facilitated, short-cycle interventions that structure feedback and reinforcement around observable behaviors.</p>
+        <ul>
+          <li>Check-in / Check-out <span class="plan-tag">Plan</span></li>
+          <li>ABC Behavior Tracker <span class="plan-tag">Plan</span></li>
+          <li>Behavior Intervention Plan <span class="plan-tag">Plan</span></li>
+        </ul>
+      </div>
+      <div class="strand-card sel">
+        <div class="label">Social-Emotional</div>
+        <h3>Regulation. Relationship. Coping skills.</h3>
+        <p>Counselor-led and classroom-based supports for students working on regulation, relationships, and coping.</p>
+        <ul>
+          <li>Social Skills Group <span class="plan-tag">Plan</span></li>
+          <li>Anxiety Management Plan <span class="plan-tag">Plan</span></li>
+          <li>Trauma-Informed Support Plan <span class="plan-tag">Plan</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSIDE ===================== -->
+<section class="inside">
+  <div class="wrap">
+    <div class="section-eyebrow">What each card includes</div>
+    <h2>Built like a quick reference, not a textbook.</h2>
+    <p class="sub">
+      Every intervention card in the Sampler runs the same fields, so flipping between them feels familiar. No fluff. The point is to make it easy to spot the ones you'd use, the ones you wouldn't, and the ones you'd want to learn more about.
+    </p>
+    <div class="inside-grid">
+      <div class="feature">
+        <h4>One-line description</h4>
+        <p>What the intervention is, in plain language, in under 140 characters.</p>
+      </div>
+      <div class="feature">
+        <h4>Best fit when</h4>
+        <p>The indication signal &mdash; the student-level pattern that suggests this intervention.</p>
+      </div>
+      <div class="feature">
+        <h4>Monitoring cadence</h4>
+        <p>How often progress is checked, and what kind of data you'd be looking at.</p>
+      </div>
+      <div class="feature">
+        <h4>Decision rule</h4>
+        <p>The trigger to fade, change course, or escalate &mdash; written so a team can act on it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MID CTA ===================== -->
+<section class="mid-cta">
+  <div class="wrap">
+    <h2>Ready for the 5-page PDF?</h2>
+    <p>Free, no email required. Save it to your team drive. Share it with your MTSS coordinator. Use it however helps.</p>
+    <a href="/scholarpath-tier2-intervention-sampler.pdf" class="btn btn-amber" download>Download the Sampler</a>
+  </div>
+</section>
+
+<!-- ===================== ABOUT (Honest positioning) ===================== -->
+<section class="about">
+  <div class="wrap">
+    <div class="about-block">
+      <div class="section-eyebrow">About this resource</div>
+      <h2>What it is &mdash; and what it isn't.</h2>
+      <p>
+        The Sampler shows nine of the 71+ pre-built interventions inside ScholarPath, with the basics: the indication signal, the monitoring cadence, the decision rule. <strong>This is the menu.</strong>
+      </p>
+      <p>
+        What's <em>not</em> in the PDF: the goal-writing language, the materials checklists, the delivery scripts, the parent-portal letters, the fidelity tools, the data charts, the other sixty-plus interventions, and the unlimited custom-add capability. <strong>That's the kitchen &mdash; and it lives inside ScholarPath Intervention Management.</strong>
+      </p>
+      <p>
+        If you're tracking interventions across three platforms, a binder, and a spreadsheet, the gap this resource shows is the gap the product was built to close. Not a pitch. A reference point.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== RELATED ===================== -->
+<section class="related">
+  <div class="wrap">
+    <h2>More free resources from ScholarPath</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <a href="/tier1-assessment">
+          <h4>Tier 1 Assessment</h4>
+          <p>20 questions, 4 domains, live scoring &mdash; identify where Tier 1 systems are working and where they aren't.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <a href="/eoy-transition-checklist">
+          <h4>End-of-Year MTSS Transition Checklist</h4>
+          <p>A two-page system-level checklist for closing out this year and setting up next.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <a href="/parent-conversations">
+          <h4>5 Hard Parent Conversations</h4>
+          <p>A reference card for the conversations educators rarely get coached on.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <a href="/tier1-checklist">
+          <h4>Tier 1: 10 Signs I Wish I'd Caught Sooner</h4>
+          <p>A 5-minute classroom check &mdash; the Tier 1 signals that, when missed, become Tier 2 referrals.</p>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div><strong>ScholarPath Systems</strong> &middot; Built by an educator, for educators</div>
+    <div>scholarpathsystems.org &middot; <a href="/contact">Contact</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
