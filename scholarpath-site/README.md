@@ -9,7 +9,7 @@ Updated company website with portal preview mockups instead of "Launch" buttons.
   - Student Portal
   - Counselor Portal
   - Parent Portal
-- All CTAs now point to "Request a Demo"
+- All CTAs now point to "Schedule a Demo"
 
 ## Deployment
 
