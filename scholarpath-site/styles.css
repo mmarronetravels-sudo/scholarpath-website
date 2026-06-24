@@ -1,14 +1,14 @@
 /* ScholarPath Systems - Main Stylesheet */
 
 :root {
-  --color-bg-dark: #0a0f1c;
+  --color-bg-dark: #161B27;
   --color-bg-card: rgba(30, 41, 59, 0.5);
   --color-bg-card-hover: rgba(45, 55, 72, 0.6);
-  --color-primary: #6366f1;
-  --color-primary-light: #818cf8;
-  --color-primary-dark: #4f46e5;
+  --color-primary: #4E5C7D;
+  --color-primary-light: #5B6B8C;
+  --color-primary-dark: #3E4C6B;
   --color-accent: #10b981;
-  --color-warning: #f59e0b;
+  --color-warning: #C98A2B;
   --color-text: #ffffff;
   --color-text-muted: #94a3b8;
   --color-text-dim: #64748b;
@@ -662,11 +662,11 @@ section {
 }
 
 .preview-avatar.parent-avatar {
-  background: linear-gradient(135deg, var(--color-warning), #d97706);
+  background: linear-gradient(135deg, var(--color-warning), #A6701C);
 }
 
 .preview-avatar.admin-avatar {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+  background: linear-gradient(135deg, #8A5277, #6B3A5B);
 }
 
 .preview-info {
