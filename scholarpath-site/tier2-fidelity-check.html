@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tier 2 Fidelity Check | ScholarPath Systems</title>
+    <meta name="description" content="A practical Tier 2 intervention fidelity check for MTSS teams — verify an intervention was delivered as designed and as often as planned before judging a student's response. Free, interactive, with a print-ready PDF.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #20283A; }
+        nav { background: white; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #3E4C6B; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: #4a5568; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #3E4C6B; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; min-width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 8px; padding: 0.5rem 0; padding-top: 1rem; }
+        .dropdown-content::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 0.75rem 1rem; color: #4a5568; text-decoration: none; }
+        .dropdown-content a:hover { background: #f7fafc; color: #3E4C6B; }
+        .dropdown-content .product-item { display: flex; align-items: center; gap: 0.75rem; }
+        .dropdown-content .product-icon { font-size: 1.25rem; }
+        .dropdown-content .product-desc { font-size: 0.75rem; color: #718096; font-weight: 400; display: block; }
+        .btn-demo { background: #3E4C6B; color: white !important; padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.3s; }
+        .btn-demo:hover { background: #2C3851; }
+        @media (max-width: 820px) { .nav-links a:not(.btn-demo) { display: none; } .dropdown { display: none; } }
+        .hero { background: linear-gradient(135deg, #2C3851 0%, #3E4C6B 30%, #4E5C7D 70%, #5B6B8C 100%); padding: 7.5rem 2rem 3.5rem; color: white; text-align: center; }
+        .hero .container { max-width: 880px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.95rem; margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,0.3); }
+        .hero h1 { font-size: 2.6rem; line-height: 1.15; margin-bottom: 1rem; font-weight: 700; }
+        .hero .subtitle { font-size: 1.15rem; opacity: 0.95; max-width: 720px; margin: 0 auto; }
+        @media (max-width: 700px) { .hero h1 { font-size: 1.9rem; } }
+        .tool { background: #f7fafc; padding: 2.5rem 1.5rem 4rem; }
+        .tool .container { max-width: 860px; margin: 0 auto; }
+        .lead { max-width: 760px; margin: 0 auto 1.4rem; text-align: center; color: #4a5568; font-size: 1.02rem; }
+        .why { background: #EBEEF4; border-left: 4px solid #3E4C6B; border-radius: 0 12px 12px 0; padding: 1.1rem 1.4rem; margin: 0 auto 2rem; font-size: 0.95rem; color: #364152; max-width: 820px; }
+        .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.1rem 1.4rem; margin-bottom: 1.5rem; }
+        .meta-row label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; color: #718096; font-weight: 700; display: block; margin-bottom: 0.25rem; }
+        .meta-row .f { flex: 1; min-width: 160px; }
+        .meta-row input { width: 100%; border: 1px solid #d8dee8; border-radius: 8px; padding: 0.5rem 0.7rem; font-size: 0.95rem; color: #20283A; }
+        .section { background: white; border: 1px solid #e2e8f0; border-radius: 16px; margin-bottom: 1.3rem; overflow: hidden; }
+        .section > h2 { background: linear-gradient(135deg, #2C3851, #3E4C6B); color: white; font-size: 1.1rem; padding: 0.95rem 1.5rem; display: flex; align-items: center; gap: 0.6rem; }
+        .section > h2 .n { background: rgba(255,255,255,0.2); width: 28px; height: 28px; border-radius: 7px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+        .item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; padding: 0.95rem 1.5rem; border-top: 1px solid #eef1f5; }
+        .item p { font-size: 0.95rem; color: #364152; }
+        .item p small { display: block; color: #94a3b8; font-size: 0.82rem; margin-top: 0.15rem; }
+        .opts { display: flex; gap: 0.4rem; }
+        .opts button { border: 1.5px solid #d8dee8; background: white; color: #64748b; font-weight: 700; font-size: 0.8rem; padding: 0.4rem 0.7rem; border-radius: 8px; cursor: pointer; transition: all 0.15s; }
+        .opts button.yes.on { background: #1B7A4B; border-color: #1B7A4B; color: white; }
+        .opts button.no.on { background: #B23B3B; border-color: #B23B3B; color: white; }
+        .opts button.na.on { background: #64748b; border-color: #64748b; color: white; }
+        /* Score panel */
+        .score { position: sticky; bottom: 0; background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.4rem 1.6rem; margin-top: 1.8rem; box-shadow: 0 -6px 20px rgba(32,40,58,0.06); }
+        .score-top { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+        .gauge { font-size: 2rem; font-weight: 800; color: #3E4C6B; }
+        .gauge small { font-size: 0.9rem; color: #94a3b8; font-weight: 600; }
+        .verdict { flex: 1; min-width: 220px; font-size: 0.95rem; color: #364152; }
+        .verdict b { display: block; margin-bottom: 0.2rem; font-size: 1.02rem; }
+        .bar { height: 10px; border-radius: 6px; background: #eef1f5; overflow: hidden; margin: 0.9rem 0 0; }
+        .bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #3E4C6B, #4E5C7D); transition: width 0.3s; }
+        .actions { text-align: center; margin-top: 2.2rem; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #3E4C6B; color: white; text-decoration: none; font-weight: 700; padding: 0.95rem 1.9rem; border-radius: 10px; transition: background 0.25s; border: none; cursor: pointer; }
+        .download-btn:hover { background: #2C3851; }
+        .ghost-btn { background: white; color: #3E4C6B; border: 1.5px solid #d8dee8; margin-left: 0.6rem; }
+        .download-note { color: #718096; font-size: 0.85rem; margin-top: 0.7rem; }
+        .back { display: inline-block; margin-top: 1.4rem; color: #3E4C6B; text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+        .back:hover { text-decoration: underline; }
+        .disclaimer { max-width: 820px; margin: 2.2rem auto 0; font-size: 0.82rem; color: #94a3b8; text-align: center; line-height: 1.5; }
+        @media print { nav, .hero, .actions, footer, .why { display: none; } .opts button { -webkit-print-color-adjust: exact; } }
+        footer { background: #20283A; color: white; padding: 3rem 2rem 2rem; }
+        footer .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { footer .container { grid-template-columns: 1fr 1fr; } }
+        footer .brand { color: #AEB9D0; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        footer .brand-desc { color: #9ca3af; font-size: 0.9rem; }
+        footer h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #9ca3af; }
+        footer ul { list-style: none; } footer ul li { margin-bottom: 0.5rem; }
+        footer ul a { color: #d1d5db; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        footer ul a:hover { color: white; }
+        .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid #2C3851; text-align: center; color: #9ca3af; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/intervention-management.html"><div class="product-item"><span class="product-icon">📈</span><div><strong>ScholarPath Intervention Management</strong><span class="product-desc">MTSS Intervention Tracking</span></div></div></a>
+                        <a href="/graduation-progress.html"><div class="product-item"><span class="product-icon">📊</span><div><strong>ScholarPath Graduation Progress</strong><span class="product-desc">Graduation Progress Tracking</span></div></div></a>
+                        <a href="/staff-evaluation.html"><div class="product-item"><span class="product-icon">👥</span><div><strong>ScholarPath Staff Evaluation</strong><span class="product-desc">Goal-Setting &amp; Evaluation System</span></div></div></a>
+                        <a href="/leave-management.html"><div class="product-item"><span class="product-icon">📅</span><div><strong>ScholarPath Leave Management</strong><span class="product-desc">Leave Tracking &amp; Management</span></div></div></a>
+                    </div>
+                </div>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/resources.html">Resources</a>
+                <a href="/#contact" class="btn-demo">Contact →</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✅ For MTSS / Tier 2 teams</div>
+            <h1>Tier 2 Fidelity Check</h1>
+            <p class="subtitle">Before you decide a student isn't responding, confirm the intervention was actually delivered as designed — and as often as planned. Sixteen quick checks across five areas.</p>
+        </div>
+    </section>
+
+    <section class="tool">
+        <div class="container">
+            <p class="lead">Use this once per intervention, per student or group, every few weeks. Mark each item Yes, No, or N/A. Your fidelity score updates as you go.</p>
+            <div class="why"><strong>Why fidelity first?</strong> A flat progress line tells you nothing if the intervention wasn't delivered the way it was designed. Rule out implementation before you change a student's plan — otherwise you may intensify supports a student never actually received.</div>
+
+            <div class="meta-row">
+                <div class="f"><label>Student / Group</label><input type="text" placeholder="e.g., Period 2 CICO group"></div>
+                <div class="f"><label>Intervention</label><input type="text" placeholder="e.g., Check-In / Check-Out"></div>
+                <div class="f"><label>Reviewer &amp; date</label><input type="text" placeholder="e.g., M. Marrone · 6/24"></div>
+            </div>
+
+            <div id="sections"></div>
+
+            <div class="score">
+                <div class="score-top">
+                    <div class="gauge" id="gauge">0%<br><small id="gaugeCount">0 of 0 applicable</small></div>
+                    <div class="verdict" id="verdict"><b>Start checking items above.</b>Your fidelity percentage and a recommendation will appear here.</div>
+                </div>
+                <div class="bar"><span id="barFill"></span></div>
+            </div>
+
+            <div class="actions">
+                <a href="/scholarpath-tier2-fidelity-check.pdf" class="download-btn" target="_blank">⬇ Download the blank form (PDF)</a>
+                <button class="download-btn ghost-btn" onclick="window.print()">🖨 Print this check</button>
+                <div class="download-note">Print-ready · No email required · Free to share</div>
+                <br><a href="/resources.html" class="back">← Back to all resources</a>
+            </div>
+
+            <p class="disclaimer">This tool reflects common Tier 2 fidelity dimensions from MTSS/PBIS practice (delivery as designed, dosage as planned, progress monitoring, and data-based decision-making). Adapt the items to the specific protocol of your intervention. It supports — but does not replace — your team's professional judgment and your district's procedures.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div><div class="brand">📚 ScholarPath Systems</div><p class="brand-desc">Educational software that empowers students and schools.</p></div>
+            <div><h4>Products</h4><ul>
+                <li><a href="/intervention-management.html">Intervention Management</a></li>
+                <li><a href="/graduation-progress.html">Graduation Progress</a></li>
+                <li><a href="/staff-evaluation.html">Staff Evaluation</a></li>
+                <li><a href="/leave-management.html">Leave Management</a></li>
+            </ul></div>
+            <div><h4>Company</h4><ul>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+            </ul></div>
+            <div><h4>Legal</h4><ul>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+            </ul></div>
+        </div>
+        <div class="footer-bottom">© 2026 ScholarPath Systems, LLC. All rights reserved.<br>FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected</div>
+    </footer>
+
+    <script>
+    const SECTIONS = [
+      { n: 1, title: "The intervention is well-defined", items: [
+        { t: "There is a written protocol: what is done, by whom, where, how long, and how often." },
+        { t: "Staff delivering it were trained on that protocol." },
+        { t: "The student met data-based entry criteria, and that was documented." }
+      ]},
+      { n: 2, title: "Dosage — delivered as often as planned", items: [
+        { t: "Sessions occurred at the planned frequency.", s: "e.g., 4–5× per week for CICO" },
+        { t: "Sessions ran for the planned duration." },
+        { t: "Group size matched the plan.", s: "e.g., 5 or fewer students" },
+        { t: "Attendance/participation is logged and is at least ~80% of planned sessions." }
+      ]},
+      { n: 3, title: "Delivery — delivered as designed", items: [
+        { t: "Each core component was delivered as written.", s: "e.g., CICO: morning check-in, feedback each period, check-out, home report" },
+        { t: "The intended positive-to-corrective feedback ratio was maintained.", s: "aim ~5:1" },
+        { t: "Required materials were used as intended.", s: "e.g., point cards, scripts, manipulatives" },
+        { t: "At least one direct observation of delivery has been completed." }
+      ]},
+      { n: 4, title: "Progress monitoring", items: [
+        { t: "A valid progress measure is collected on schedule.", s: "Tier 2: about every 1–2 weeks" },
+        { t: "Data are graphed against a goal or aimline." },
+        { t: "There are enough data points to judge the trend.", s: "plan on 8–14" }
+      ]},
+      { n: 5, title: "Data-based decision-making", items: [
+        { t: "The team reviewed the data on a set schedule and applied a decision rule (keep / adjust / intensify / exit)." },
+        { t: "The decision, rationale, and family communication were documented." }
+      ]}
+    ];
+
+    let state = {};
+    const container = document.getElementById('sections');
+    let idx = 0;
+    SECTIONS.forEach(sec => {
+      const div = document.createElement('div');
+      div.className = 'section';
+      let h = '<h2><span class="n">' + sec.n + '</span>' + sec.title + '</h2>';
+      sec.items.forEach(it => {
+        const id = 'q' + (idx++);
+        h += '<div class="item"><p>' + it.t + (it.s ? '<small>' + it.s + '</small>' : '') + '</p>' +
+             '<div class="opts" data-id="' + id + '">' +
+             '<button class="yes" data-v="yes">Yes</button>' +
+             '<button class="no" data-v="no">No</button>' +
+             '<button class="na" data-v="na">N/A</button></div></div>';
+      });
+      div.innerHTML = h;
+      container.appendChild(div);
+    });
+
+    container.querySelectorAll('.opts').forEach(group => {
+      group.querySelectorAll('button').forEach(btn => {
+        btn.onclick = () => {
+          const id = group.dataset.id, v = btn.dataset.v;
+          state[id] = (state[id] === v) ? undefined : v;
+          group.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === state[id]));
+          update();
+        };
+      });
+    });
+
+    function update() {
+      let yes = 0, applicable = 0;
+      Object.values(state).forEach(v => { if (v === 'yes') { yes++; applicable++; } else if (v === 'no') { applicable++; } });
+      const pct = applicable ? Math.round((yes / applicable) * 100) : 0;
+      document.getElementById('gauge').innerHTML = pct + '%<br><small>' + yes + ' of ' + applicable + ' applicable</small>';
+      document.getElementById('barFill').style.width = pct + '%';
+      const fill = document.getElementById('barFill');
+      const verdict = document.getElementById('verdict');
+      let color, txt;
+      if (applicable === 0) { verdict.innerHTML = '<b>Start checking items above.</b>Your fidelity percentage and a recommendation will appear here.'; fill.style.background = 'linear-gradient(90deg,#3E4C6B,#4E5C7D)'; return; }
+      if (pct >= 80) { color = 'linear-gradient(90deg,#1B7A4B,#2EA869)'; txt = '<b>Strong fidelity.</b>The intervention is being delivered largely as designed. If progress is still flat, this is a fair point to <em>adjust or intensify</em> the support — the student is genuinely not responding.'; }
+      else if (pct >= 60) { color = 'linear-gradient(90deg,#B8862B,#D6A93E)'; txt = '<b>Partial fidelity — shore it up first.</b>Close the gaps marked "No" (especially dosage and core components) before changing the student\u2019s plan. A few more weeks of full delivery will give you data you can trust.'; }
+      else { color = 'linear-gradient(90deg,#B23B3B,#D46A6A)'; txt = '<b>Low fidelity — don\u2019t judge response yet.</b>The intervention isn\u2019t being delivered as designed often enough to interpret the student\u2019s data. Fix implementation (training, scheduling, materials) before considering a Tier change.'; }
+      fill.style.background = color;
+      verdict.innerHTML = txt;
+    }
+    update();
+    </script>
+</body>
+</html>
