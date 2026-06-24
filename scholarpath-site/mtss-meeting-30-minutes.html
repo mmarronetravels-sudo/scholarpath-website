@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 30-Minute MTSS Meeting | ScholarPath Systems</title>
+    <meta name="description" content="A timed agenda and problem-solving protocol for running a productive SST / MTSS meeting in 30 minutes. Roles, a built-in segment timer, and a printable note-catcher. Free for school teams.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; line-height: 1.6; color: #20283A; }
+        /* Navigation */
+        nav { background: white; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        nav .container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #3E4C6B; text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: #4a5568; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #3E4C6B; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background: white; min-width: 220px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border-radius: 8px; padding: 0.5rem 0; padding-top: 1rem; }
+        .dropdown-content::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown-content a { display: block; padding: 0.75rem 1rem; color: #4a5568; text-decoration: none; }
+        .dropdown-content a:hover { background: #f7fafc; color: #3E4C6B; }
+        .dropdown-content .product-item { display: flex; align-items: center; gap: 0.75rem; }
+        .dropdown-content .product-icon { font-size: 1.25rem; }
+        .dropdown-content .product-desc { font-size: 0.75rem; color: #718096; font-weight: 400; display: block; }
+        .btn-demo { background: #3E4C6B; color: white !important; padding: 0.5rem 1rem; border-radius: 6px; transition: background 0.3s; }
+        .btn-demo:hover { background: #2C3851; }
+        @media (max-width: 820px) { .nav-links { gap: 1rem; font-size: 0.9rem; } .nav-links a:not(.btn-demo) { display: none; } .dropdown { display: none; } }
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #2C3851 0%, #3E4C6B 30%, #4E5C7D 70%, #5B6B8C 100%); padding: 7.5rem 2rem 3.5rem; color: white; text-align: center; }
+        .hero .container { max-width: 880px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(255,255,255,0.2); padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.95rem; margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,0.3); }
+        .hero h1 { font-size: 2.6rem; line-height: 1.15; margin-bottom: 1rem; font-weight: 700; }
+        .hero .subtitle { font-size: 1.15rem; opacity: 0.95; max-width: 720px; margin: 0 auto; }
+        @media (max-width: 700px) { .hero h1 { font-size: 1.9rem; } }
+        /* Tool */
+        .tool { background: #f7fafc; padding: 2.5rem 1.5rem 4rem; }
+        .tool .container { max-width: 1000px; margin: 0 auto; }
+        .lead { max-width: 760px; margin: 0 auto 2rem; text-align: center; color: #4a5568; font-size: 1.02rem; }
+        /* Roles */
+        .roles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 2rem; }
+        @media (max-width: 720px) { .roles { grid-template-columns: 1fr 1fr; } }
+        .role { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1rem 1.1rem; }
+        .role .rname { font-weight: 700; color: #3E4C6B; font-size: 0.95rem; margin-bottom: 0.2rem; }
+        .role .rdesc { font-size: 0.82rem; color: #718096; line-height: 1.4; }
+        /* Timer */
+        .timer-card { background: #20283A; border-radius: 18px; padding: 1.6rem 1.8rem; color: white; margin-bottom: 1.8rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; justify-content: space-between; }
+        .timer-left { display: flex; align-items: center; gap: 1.3rem; }
+        .clock { font-size: 2.8rem; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 1px; min-width: 130px; }
+        .timer-now .lbl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: #AEB9D0; }
+        .timer-now .seg { font-size: 1.05rem; font-weight: 600; }
+        .timer-btns { display: flex; gap: 0.6rem; }
+        .tbtn { border: none; border-radius: 9px; padding: 0.65rem 1.3rem; font-weight: 700; font-size: 0.95rem; cursor: pointer; transition: all 0.2s; }
+        .tbtn.start { background: #C98A2B; color: white; }
+        .tbtn.start:hover { background: #B8862B; }
+        .tbtn.ghost { background: rgba(255,255,255,0.12); color: white; }
+        .tbtn.ghost:hover { background: rgba(255,255,255,0.22); }
+        .progressbar { height: 6px; background: rgba(255,255,255,0.15); border-radius: 4px; width: 100%; margin-top: 0.3rem; overflow: hidden; }
+        .progressfill { height: 100%; width: 0%; background: linear-gradient(90deg,#C98A2B,#D6A93E); transition: width 0.4s linear; }
+        /* Agenda segments */
+        .seg-list { display: flex; flex-direction: column; gap: 0.9rem; }
+        .segment { background: white; border: 1px solid #e2e8f0; border-left: 5px solid #3E4C6B; border-radius: 12px; padding: 1.1rem 1.4rem; transition: all 0.25s; }
+        .segment.active { border-left-color: #C98A2B; box-shadow: 0 8px 22px rgba(62,76,107,0.16); transform: translateY(-1px); }
+        .segment.done { opacity: 0.62; }
+        .seg-head { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 0.35rem; }
+        .seg-min { background: #EBEEF4; color: #3E4C6B; font-weight: 700; font-size: 0.8rem; padding: 0.2rem 0.6rem; border-radius: 20px; white-space: nowrap; }
+        .segment.active .seg-min { background: #C98A2B; color: white; }
+        .seg-head h3 { font-size: 1.1rem; color: #20283A; font-weight: 700; }
+        .seg-body { color: #364152; font-size: 0.93rem; }
+        .seg-body .ask { color: #718096; font-style: italic; font-size: 0.88rem; margin-top: 0.25rem; }
+        /* Do / Don't */
+        .ddwrap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0 1rem; }
+        @media (max-width: 720px) { .ddwrap { grid-template-columns: 1fr; } }
+        .dd { border-radius: 14px; padding: 1.3rem 1.5rem; }
+        .dd.do { background: #ECF6F0; border: 1px solid #CDE6D9; }
+        .dd.dont { background: #FBEDED; border: 1px solid #F0D4D4; }
+        .dd h4 { font-size: 1rem; margin-bottom: 0.7rem; }
+        .dd.do h4 { color: #1B7A4B; }
+        .dd.dont h4 { color: #B23B3B; }
+        .dd ul { list-style: none; }
+        .dd li { position: relative; padding-left: 1.5rem; margin-bottom: 0.55rem; font-size: 0.9rem; color: #364152; }
+        .dd.do li::before { content: '\2713'; position: absolute; left: 0; color: #1B7A4B; font-weight: 700; }
+        .dd.dont li::before { content: '\2715'; position: absolute; left: 0; color: #B23B3B; font-weight: 700; }
+        /* Prep note */
+        .prepnote { background: #EBEEF4; border-left: 4px solid #3E4C6B; border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; margin: 1.8rem 0; font-size: 0.93rem; color: #364152; }
+        .prepnote strong { color: #20283A; }
+        /* Download */
+        .download-wrap { text-align: center; margin-top: 2.5rem; }
+        .download-btn { display: inline-flex; align-items: center; gap: 0.6rem; background: #3E4C6B; color: white; text-decoration: none; font-weight: 700; padding: 0.95rem 1.9rem; border-radius: 10px; transition: background 0.25s; }
+        .download-btn:hover { background: #2C3851; }
+        .download-note { color: #718096; font-size: 0.85rem; margin-top: 0.7rem; }
+        .back { display: inline-block; margin-top: 1.4rem; color: #3E4C6B; text-decoration: none; font-weight: 600; font-size: 0.92rem; }
+        .back:hover { text-decoration: underline; }
+        .disclaimer { max-width: 820px; margin: 2.5rem auto 0; font-size: 0.82rem; color: #94a3b8; text-align: center; line-height: 1.5; }
+        /* Footer */
+        footer { background: #20283A; color: white; padding: 3rem 2rem 2rem; }
+        footer .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { footer .container { grid-template-columns: 1fr 1fr; } }
+        footer .brand { color: #AEB9D0; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+        footer .brand-desc { color: #9ca3af; font-size: 0.9rem; }
+        footer h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #9ca3af; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 0.5rem; }
+        footer ul a { color: #d1d5db; text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+        footer ul a:hover { color: white; }
+        .footer-bottom { max-width: 1200px; margin: 2rem auto 0; padding-top: 2rem; border-top: 1px solid #2C3851; text-align: center; color: #9ca3af; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="/" class="logo">📚 ScholarPath Systems</a>
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="#">Products ▾</a>
+                    <div class="dropdown-content">
+                        <a href="/intervention-management.html"><div class="product-item"><span class="product-icon">📈</span><div><strong>ScholarPath Intervention Management</strong><span class="product-desc">MTSS Intervention Tracking</span></div></div></a>
+                        <a href="/graduation-progress.html"><div class="product-item"><span class="product-icon">📊</span><div><strong>ScholarPath Graduation Progress</strong><span class="product-desc">Graduation Progress Tracking</span></div></div></a>
+                        <a href="/staff-evaluation.html"><div class="product-item"><span class="product-icon">👥</span><div><strong>ScholarPath Staff Evaluation</strong><span class="product-desc">Goal-Setting &amp; Evaluation System</span></div></div></a>
+                        <a href="/leave-management.html"><div class="product-item"><span class="product-icon">📅</span><div><strong>ScholarPath Leave Management</strong><span class="product-desc">Leave Tracking &amp; Management</span></div></div></a>
+                    </div>
+                </div>
+                <a href="/#portals">Portals</a>
+                <a href="/#about">About</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/resources.html">Resources</a>
+                <a href="/#contact" class="btn-demo">Contact →</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">⏱️ For SST &amp; MTSS teams</div>
+            <h1>The 30-Minute MTSS Meeting</h1>
+            <p class="subtitle">A timed agenda and problem-solving protocol that gets your team from concern to a real plan in half an hour — with roles, a built-in timer, and a printable note-catcher.</p>
+        </div>
+    </section>
+
+    <section class="tool">
+        <div class="container">
+            <p class="lead">Student support team meetings drift because nobody guards the clock and the group rehashes history instead of building a plan. This protocol fixes both: assign four roles, work seven timed segments, and leave with one problem named, one goal set, one intervention chosen, and a follow-up date on the calendar.</p>
+
+            <div class="roles">
+                <div class="role"><div class="rname">Facilitator</div><div class="rdesc">Keeps the group on the protocol and moves it forward.</div></div>
+                <div class="role"><div class="rname">Timekeeper</div><div class="rdesc">Guards each segment and calls time out loud.</div></div>
+                <div class="role"><div class="rname">Recorder</div><div class="rdesc">Captures the problem, goal, plan, and who/what/when.</div></div>
+                <div class="role"><div class="rname">Case point person</div><div class="rdesc">Brings the data and owns the follow-up.</div></div>
+            </div>
+
+            <div class="timer-card">
+                <div class="timer-left">
+                    <div class="clock" id="clock">30:00</div>
+                    <div class="timer-now">
+                        <div class="lbl">Current segment</div>
+                        <div class="seg" id="segNow">Press start to begin</div>
+                        <div class="progressbar"><div class="progressfill" id="pfill"></div></div>
+                    </div>
+                </div>
+                <div class="timer-btns">
+                    <button class="tbtn start" id="startBtn">Start</button>
+                    <button class="tbtn ghost" id="resetBtn">Reset</button>
+                </div>
+            </div>
+
+            <div class="seg-list" id="segList"></div>
+
+            <div class="ddwrap">
+                <div class="dd do">
+                    <h4>Do</h4>
+                    <ul>
+                        <li>Protect the 30 minutes — start and end on time.</li>
+                        <li>Work one priority concern per meeting.</li>
+                        <li>Write the goal in numbers, with a date.</li>
+                        <li>Choose one intervention and define its dosage.</li>
+                        <li>Assign a name and a due date to every action.</li>
+                        <li>Set the follow-up date before anyone leaves.</li>
+                    </ul>
+                </div>
+                <div class="dd dont">
+                    <h4>Don't</h4>
+                    <ul>
+                        <li>Re-tell the student's whole history.</li>
+                        <li>Stack five interventions "to be safe."</li>
+                        <li>Confuse "we talked about it" with "we made a plan."</li>
+                        <li>Set a vague goal like "improve behavior."</li>
+                        <li>Skip the fidelity and family-communication step.</li>
+                        <li>Leave without a date to look at the data again.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="prepnote"><strong>Five minutes of prep saves the meeting.</strong> Before you sit down, the case point person pulls the current screening and progress data, fills in the student, concern, and existing supports on the note-catcher, and sends it with the agenda. The 30 minutes are for deciding — not for hunting down numbers.</div>
+
+            <div class="download-wrap">
+                <a href="/scholarpath-30-minute-mtss-meeting.pdf" class="download-btn" target="_blank">⬇ Download the agenda + note-catcher (PDF)</a>
+                <div class="download-note">Print-ready · One agenda, one note-catcher · No email required · Free to share</div>
+                <br><a href="/resources.html" class="back">← Back to all resources</a>
+            </div>
+
+            <p class="disclaimer">This protocol reflects the standard MTSS/RTI problem-solving model (problem identification, problem analysis, plan development, plan evaluation) used by student support and intervention teams. It is a structure for your team's work, not a substitute for your district's adopted SST process, eligibility procedures, or the professional judgment of the people who know the student. Adapt the timing to your team.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div>
+                <div class="brand">📚 ScholarPath Systems</div>
+                <p class="brand-desc">Educational software that empowers students and schools.</p>
+            </div>
+            <div><h4>Products</h4><ul>
+                <li><a href="/intervention-management.html">Intervention Management</a></li>
+                <li><a href="/graduation-progress.html">Graduation Progress</a></li>
+                <li><a href="/staff-evaluation.html">Staff Evaluation</a></li>
+                <li><a href="/leave-management.html">Leave Management</a></li>
+            </ul></div>
+            <div><h4>Company</h4><ul>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/resources.html">Resources</a></li>
+            </ul></div>
+            <div><h4>Legal</h4><ul>
+                <li><a href="/privacy.html">Privacy Policy</a></li>
+                <li><a href="/terms.html">Terms of Service</a></li>
+            </ul></div>
+        </div>
+        <div class="footer-bottom">© 2026 ScholarPath Systems, LLC. All rights reserved.<br>FERPA Compliant · SOC 2 Certified Infrastructure · Student Data Protected</div>
+    </footer>
+
+    <script>
+    const SEGMENTS = [
+      { min: 2, title: "Frame it", body: "Name the student, the one priority concern, and what a good outcome of this meeting looks like. Confirm the four roles.", ask: "What is the single concern we are here to solve today?" },
+      { min: 5, title: "Look at the data", body: "Review the screening and progress data and the supports already in place. Stick to what the data show — not the story around them.", ask: "What do the numbers say is happening, and since when?" },
+      { min: 5, title: "Pinpoint the problem", body: "Turn the concern into one specific, observable, measurable problem statement, and form a best hypothesis for why it's happening (skill vs. motivation, instruction, curriculum, environment).", ask: "Can we state the problem in one sentence we could measure?" },
+      { min: 3, title: "Set the goal", body: "Write a specific, measurable goal with a timeframe — from where the student is now to where they need to be, by a date.", ask: "From X to Y by when?" },
+      { min: 8, title: "Choose ONE intervention", body: "Match a single evidence-based intervention to the problem. Define what it is, who delivers it, where, how often, and for how long. Resist stacking several.", ask: "What is the one support, and exactly how much of it?" },
+      { min: 4, title: "Make it real", body: "Assign who does what by when: materials, scheduling, who checks fidelity, and how the family will be told. Every action gets a name and a date.", ask: "Who owns each piece, and by when?" },
+      { min: 3, title: "Set the follow-up", body: "Decide the progress measure, how often it's collected, the decision rule (keep / adjust / intensify / exit), and the next review date — before anyone stands up.", ask: "When do we look at this data again, and what would change our mind?" }
+    ];
+
+    const list = document.getElementById('segList');
+    SEGMENTS.forEach((s, i) => {
+      const lo = SEGMENTS.slice(0, i).reduce((a, b) => a + b.min, 0);
+      const div = document.createElement('div');
+      div.className = 'segment'; div.id = 'seg' + i;
+      div.innerHTML = '<div class="seg-head"><span class="seg-min">' + lo + '\u2013' + (lo + s.min) + ' min</span>' +
+        '<h3>' + (i + 1) + '. ' + s.title + '</h3></div>' +
+        '<div class="seg-body">' + s.body + '<div class="ask">Ask: ' + s.ask + '</div></div>';
+      list.appendChild(div);
+    });
+
+    const TOTAL = SEGMENTS.reduce((a, b) => a + b.min, 0) * 60;
+    let remaining = TOTAL, ticking = false, iv = null;
+    const clock = document.getElementById('clock');
+    const segNow = document.getElementById('segNow');
+    const pfill = document.getElementById('pfill');
+    const startBtn = document.getElementById('startBtn');
+
+    function fmt(t) { const m = Math.floor(t / 60), s = t % 60; return m + ':' + (s < 10 ? '0' : '') + s; }
+
+    function currentIndex(elapsed) {
+      let acc = 0;
+      for (let i = 0; i < SEGMENTS.length; i++) { acc += SEGMENTS[i].min * 60; if (elapsed < acc) return i; }
+      return SEGMENTS.length - 1;
+    }
+
+    function paint() {
+      const elapsed = TOTAL - remaining;
+      const idx = currentIndex(elapsed);
+      clock.textContent = fmt(remaining);
+      SEGMENTS.forEach((s, i) => {
+        const el = document.getElementById('seg' + i);
+        el.classList.toggle('active', i === idx && ticking);
+        el.classList.toggle('done', i < idx);
+      });
+      if (ticking || elapsed > 0) {
+        const start = SEGMENTS.slice(0, idx).reduce((a, b) => a + b.min * 60, 0);
+        const segElapsed = elapsed - start, segLen = SEGMENTS[idx].min * 60;
+        segNow.textContent = (idx + 1) + '. ' + SEGMENTS[idx].title;
+        pfill.style.width = Math.min(100, (segElapsed / segLen) * 100) + '%';
+      }
+      if (remaining <= 0) { stop(); segNow.textContent = 'Time \u2014 wrap up and confirm the follow-up date'; pfill.style.width = '100%'; }
+    }
+
+    function tick() { if (remaining > 0) { remaining--; paint(); } }
+    function start() { if (ticking) { stop(); return; } ticking = true; startBtn.textContent = 'Pause'; iv = setInterval(tick, 1000); paint(); }
+    function stop() { ticking = false; startBtn.textContent = 'Start'; clearInterval(iv); paint(); }
+    function reset() { stop(); remaining = TOTAL; clock.textContent = fmt(TOTAL); segNow.textContent = 'Press start to begin'; pfill.style.width = '0%'; SEGMENTS.forEach((s, i) => { const el = document.getElementById('seg' + i); el.classList.remove('active', 'done'); }); }
+
+    startBtn.onclick = start;
+    document.getElementById('resetBtn').onclick = reset;
+    reset();
+    </script>
+</body>
+</html>
