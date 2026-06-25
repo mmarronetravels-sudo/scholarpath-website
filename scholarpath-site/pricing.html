@@ -270,6 +270,149 @@
             margin-top: 1rem;
             border: 1px solid #bbf7d0;
         }
+
+        .onboarding-banner {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            font-size: 0.95rem;
+            color: #4a5568;
+            background: #EBEEF4;
+            border: 1px solid #C9D1E2;
+            border-radius: 10px;
+            padding: 0.9rem 1.25rem;
+        }
+
+        .onboarding-banner a {
+            color: #3E4C6B;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Onboarding & Setup section */
+        .onboarding {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .onboarding .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .onboarding h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #20283A;
+            margin-bottom: 0.5rem;
+        }
+
+        .onboarding .subtitle {
+            text-align: center;
+            color: #718096;
+            margin-bottom: 2.5rem;
+        }
+
+        .onboarding-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .onboarding-grid { grid-template-columns: 1fr; }
+        }
+
+        .onboarding-card {
+            background: #fafafa;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .onboarding-card h3 {
+            color: #3E4C6B;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .onboarding-card ul { list-style: none; }
+
+        .onboarding-card li {
+            padding: 0.35rem 0;
+            color: #4a5568;
+            font-size: 0.92rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: flex-start;
+        }
+
+        .onboarding-card li::before {
+            content: '✓';
+            color: #10b981;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .onboarding-pricing {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .onboarding-pricing .ob-amt {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #20283A;
+        }
+
+        .onboarding-pricing .ob-label {
+            font-size: 0.85rem;
+            color: #718096;
+            text-align: center;
+        }
+
+        .product-addons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .product-addons { grid-template-columns: 1fr; }
+        }
+
+        .addon-box {
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .addon-box h4 {
+            color: #20283A;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .addon-box p {
+            font-size: 0.92rem;
+            color: #4a5568;
+        }
+
+        .addon-box .included {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            border-radius: 6px;
+            padding: 0.3rem 0.7rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-top: 0.85rem;
+        }
         
         /* Pricing Grid */
         .pricing-grid {
@@ -694,6 +837,8 @@
                 <button class="tab-btn bundle" onclick="showTab('bundle')">🎁 Bundle & Save</button>
             </div>
 
+            <p class="onboarding-banner">Every annual plan includes a one-time onboarding — data migration, training, and go-live support. <a href="#onboarding-setup">See what onboarding includes →</a></p>
+
             <!-- ScholarPath Intervention Management Pricing -->
             <div id="intervention-management" class="tab-content active">
                 <div class="product-header">
@@ -706,15 +851,15 @@
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="tier-name">Pilot</div>
-                        <div class="tier-desc">Up to 150 students</div>
+                        <div class="tier-desc">Any size school</div>
                         <div class="price">$500</div>
-                        <div class="price-period">one-time (90 days)</div>
+                        <div class="price-period">one-time · 90 days</div>
                         <ul class="features">
                             <li>Full platform access</li>
                             <li>Parent Portal included</li>
-                            <li>Document uploads</li>
+                            <li>Guided roster import</li>
                             <li>Email support</li>
-                            <li>Perfect for evaluation</li>
+                            <li>Credited toward your annual plan</li>
                         </ul>
 <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Schedule a Demo →</a>                   
  </div>
@@ -778,15 +923,15 @@
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="tier-name">Pilot</div>
-                        <div class="tier-desc">Up to 150 students</div>
+                        <div class="tier-desc">Any size school</div>
                         <div class="price">$500</div>
-                        <div class="price-period">one-time (90 days)</div>
+                        <div class="price-period">one-time · 90 days</div>
                         <ul class="features">
                             <li>Full platform access</li>
                             <li>Student & parent portals</li>
                             <li>Credit tracking</li>
                             <li>Email support</li>
-                            <li>Perfect for evaluation</li>
+                            <li>Credited toward your annual plan</li>
                         </ul>
 <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Schedule a Demo →</a>                   
  </div>
@@ -850,15 +995,15 @@
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="tier-name">Pilot</div>
-                        <div class="tier-desc">Up to 20 staff</div>
-                        <div class="price">$400</div>
-                        <div class="price-period">one-time (90 days)</div>
+                        <div class="tier-desc">Any size staff</div>
+                        <div class="price">$500</div>
+                        <div class="price-period">one-time · 90 days</div>
                         <ul class="features">
                             <li>Full platform access</li>
                             <li>Goal setting tools</li>
                             <li>Observation forms</li>
                             <li>Email support</li>
-                            <li>Perfect for evaluation</li>
+                            <li>Credited toward your annual plan</li>
                         </ul>
 <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Schedule a Demo →</a>                    
 </div>
@@ -922,15 +1067,15 @@
                 <div class="pricing-grid">
                     <div class="pricing-card">
                         <div class="tier-name">Pilot</div>
-                        <div class="tier-desc">Up to 20 staff</div>
-                        <div class="price">$400</div>
-                        <div class="price-period">one-time (90 days)</div>
+                        <div class="tier-desc">Any size staff</div>
+                        <div class="price">$500</div>
+                        <div class="price-period">one-time · 90 days</div>
                         <ul class="features">
                             <li>Full platform access</li>
                             <li>All leave types included</li>
                             <li>HR dashboard</li>
                             <li>Email support</li>
-                            <li>Perfect for evaluation</li>
+                            <li>Credited toward your annual plan</li>
                         </ul>
                         <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Schedule a Demo →</a>
                     </div>
@@ -1082,6 +1227,60 @@
         </div>
     </section>
 
+    <!-- Onboarding & Setup -->
+    <section class="onboarding" id="onboarding-setup">
+        <div class="container">
+            <h2>Onboarding & Setup</h2>
+            <p class="subtitle">A one-time onboarding gets your school fully set up on day one. Pilots include a light setup at no extra cost.</p>
+
+            <div class="onboarding-grid">
+                <div class="onboarding-card">
+                    <h3>Data Migration</h3>
+                    <ul>
+                        <li>Guided import of your students or staff</li>
+                        <li>Rosters, history, and records mapped for you</li>
+                        <li>A clean go-live with your real data</li>
+                    </ul>
+                </div>
+                <div class="onboarding-card">
+                    <h3>Professional Development</h3>
+                    <ul>
+                        <li>Role-based training built for your team</li>
+                        <li>Live sessions tailored to your workflow</li>
+                        <li>Reference materials your staff keep</li>
+                    </ul>
+                </div>
+                <div class="onboarding-card">
+                    <h3>Go-Live Support</h3>
+                    <ul>
+                        <li>Hands-on help through your launch</li>
+                        <li>Ongoing support stays included in your annual plan</li>
+                        <li>No extra charge once you're up and running</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="onboarding-pricing">
+                <div class="ob-tier"><div class="ob-amt">$1,500</div><div class="ob-label">Standard · one-time</div></div>
+                <div class="ob-tier"><div class="ob-amt">$2,500</div><div class="ob-label">Growth · one-time</div></div>
+                <div class="ob-tier"><div class="ob-amt">Custom</div><div class="ob-label">Enterprise</div></div>
+            </div>
+
+            <div class="product-addons">
+                <div class="addon-box">
+                    <h4>📈 Intervention Management — Screeners</h4>
+                    <p>Common screeners are supported out of the box (STAR, MAP, aimswebPlus, DIBELS, iReady, FastBridge). Need something specific to your school? We build up to <strong>5 custom screener templates</strong> during onboarding so you can upload your screener data directly.</p>
+                    <span class="included">Up to 5 custom screeners included · $200 each additional</span>
+                </div>
+                <div class="addon-box">
+                    <h4>👥 Staff Evaluation — Rubrics</h4>
+                    <p>We build your evaluation framework into the platform during onboarding — <strong>up to 7 custom rubrics</strong> covering every role you evaluate: teachers, classified staff, administrators, counselors, and more.</p>
+                    <span class="included">Up to 7 custom rubrics included · $200 each additional</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section class="faq">
         <div class="container">
@@ -1089,9 +1288,14 @@
             
             <div class="faq-item">
                 <h3>What's included in the Pilot?</h3>
-                <p>The Pilot gives you full access to all features for 90 days. It's designed to let you evaluate the platform with real data before committing to an annual subscription. The pilot fee is credited toward your first year if you continue.</p>
+                <p>The Pilot is a flat $500 and available to schools of any size. It gives you full access to all features for 90 days so you can evaluate the platform with real data. The $500 is credited toward your first year if you continue on an annual plan.</p>
             </div>
-            
+
+            <div class="faq-item">
+                <h3>Is there a setup or onboarding fee?</h3>
+                <p>Yes — annual plans include a one-time onboarding that covers data migration, professional development for your team, and go-live support: $1,500 for Standard, $2,500 for Growth, and a custom quote for Enterprise. Ongoing support is included in your annual subscription at no additional cost. For Intervention Management we build up to 5 custom screener templates during onboarding; for Staff Evaluation, up to 7 custom evaluation rubrics. Additional screeners or rubrics are $200 each.</p>
+            </div>
+
             <div class="faq-item">
                 <h3>Can we switch tiers mid-year?</h3>
                 <p>Absolutely! If your enrollment grows during the school year, we'll pro-rate the difference. We want the pricing to work for you as your school grows.</p>
@@ -1119,9 +1323,10 @@
         <div class="container">
             <h2>Ready to See It in Action?</h2>
             <p>Schedule a personalized demo and we'll show you exactly how ScholarPath products can work for your school.</p>
-<a href="javascript:void(0)" onclick="openDemoModal()" class="btn-demo">Schedule a Demo →</a>          
-  <div class="contact-email">
-        </div>
+            <a href="javascript:void(0)" onclick="openDemoModal()" class="btn-cta">Schedule a Demo →</a>
+            <div class="contact-email">
+                Or email us at <a href="mailto:sps@scholarpathsystems.org">sps@scholarpathsystems.org</a>
+            </div>
         </div>
     </section>
 
@@ -1147,7 +1352,7 @@
                     <li><a href="/#about">About Us</a></li>
                     <li><a href="javascript:void(0)" onclick="openDemoModal()">Contact</a></li>                
                     <li><a href="/pricing.html">Pricing</a></li>
-                    <a href="/resources.html">Resources</a>
+                    <li><a href="/resources.html">Resources</a></li>
                 </ul>
             </div>
             <div>
@@ -1258,6 +1463,9 @@
               </label>
               <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
                 <input type="checkbox" name="products" value="Staff Evaluation" style="width:18px; height:18px; accent-color:#3E4C6B;"> Staff Evaluation
+              </label>
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
+                <input type="checkbox" name="products" value="Leave Management" style="width:18px; height:18px; accent-color:#3E4C6B;"> Leave Management
               </label>
               <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem; color:#4b5563; cursor:pointer;">
                 <input type="checkbox" name="products" value="Not Sure Yet" style="width:18px; height:18px; accent-color:#3E4C6B;"> Not Sure Yet - Tell Me More
