@@ -1266,13 +1266,13 @@
                 <div class="ob-tier"><div class="ob-amt">Custom</div><div class="ob-label">Enterprise</div></div>
             </div>
 
-            <div class="product-addons">
-                <div class="addon-box">
+            <div class="product-addons" id="product-addons">
+                <div class="addon-box" id="addon-screeners">
                     <h4>📈 Intervention Management — Screeners</h4>
                     <p>Common screeners are supported out of the box (STAR, MAP, aimswebPlus, DIBELS, iReady, FastBridge). Need something specific to your school? We build up to <strong>5 custom screener templates</strong> during onboarding so you can upload your screener data directly.</p>
                     <span class="included">Up to 5 custom screeners included · $200 each additional</span>
                 </div>
-                <div class="addon-box">
+                <div class="addon-box" id="addon-rubrics">
                     <h4>👥 Staff Evaluation — Rubrics</h4>
                     <p>We build your evaluation framework into the platform during onboarding — <strong>up to 7 custom rubrics</strong> covering every role you evaluate: teachers, classified staff, administrators, counselors, and more.</p>
                     <span class="included">Up to 7 custom rubrics included · $200 each additional</span>
@@ -1383,10 +1383,38 @@
             
             // Show selected tab content
             document.getElementById(tabId).classList.add('active');
-            
+
             // Add active class to clicked button
             document.querySelector(`.tab-btn.${tabId}`).classList.add('active');
+
+            // Show only the add-on box relevant to the selected product
+            updateAddons(tabId);
         }
+
+        function updateAddons(tabId) {
+            var container = document.getElementById('product-addons');
+            var screeners = document.getElementById('addon-screeners');
+            var rubrics = document.getElementById('addon-rubrics');
+            var showScreeners = tabId === 'intervention-management';
+            var showRubrics = tabId === 'staff-evaluation';
+
+            screeners.style.display = showScreeners ? '' : 'none';
+            rubrics.style.display = showRubrics ? '' : 'none';
+
+            if (showScreeners || showRubrics) {
+                container.style.display = 'grid';
+                // Center a single box when only one applies
+                container.style.gridTemplateColumns = (showScreeners && showRubrics) ? '1fr 1fr' : 'minmax(0, 620px)';
+                container.style.justifyContent = (showScreeners && showRubrics) ? '' : 'center';
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        // Set the correct add-on box for the tab active on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAddons('intervention-management');
+        });
     </script>
    <!-- Demo Schedule Modal -->
     <div id="demoModal" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.6); backdrop-filter:blur(4px); z-index:9999; display:none; align-items:center; justify-content:center; padding:2rem;">
